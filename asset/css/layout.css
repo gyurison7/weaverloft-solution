@@ -1,0 +1,30 @@
+@charset "utf-8"; /* Info
+ ========================================================================== */
+/**
+ * 1. Writer: Gyuri Son. (Weaverloft Corp.)
+ * 2. Production Date: 2024-05-02
+ * 3. Client: Weaverloft
+ */
+ 
+ /* header */
+ .header { position: fixed; top: 0; left: 0; width: 100%; height: 100px; z-index: 999; } 
+ .header .header-inner { display: flex; justify-content: space-between; align-items: center; height: 100%; margin: 0 120px; font-size: clamp(16px, 1.05vw, 20px); color: #fff; } 
+ .header .header-inner .header-logo { width: 52px; height: auto; } 
+ .header .header-inner .header-logo img { width: 100%; height: 100%; } 
+ .header .header-inner .gnb-area .gnb-list { display: flex; gap: 60px; } 
+ .header .header-inner .gnb-area .gnb-list li a { color: #fff; } 
+ .header .header-inner .contact-area a { color: #fff; } 
+
+ /* footer */
+ .footer { width: 100%; height: 493px; padding: 60px 120px 100px; color: #ccc; background-color: #111; } 
+ .footer .footer-top { display: flex; justify-content: space-between; padding-bottom: 80px; border-bottom: 1px solid rgba(102, 102, 102, 0.5); } 
+ .footer .footer-top .left-area address { display: flex; flex-direction: column; font-size: 20px; } 
+ .footer .footer-top .left-area address h4 { padding-bottom: 20px; font-size: 21px; font-weight: 600; text-transform: uppercase; } 
+ .footer .footer-top .left-area address span { line-height: 1.8; } 
+ .footer .footer-top .left-area address .contact { display: flex; gap: 34px; } 
+ .footer .footer-top .right-area .sns-list { display: flex; align-items: center; gap: 12px; } 
+ .footer .footer-bottom { display: flex; justify-content: space-between; } 
+ .footer .footer-bottom .left-area { display: flex; gap: 11.7px; align-items: flex-end; padding-top: 72px; } 
+ .footer .footer-bottom .left-area img { flex: 1; } 
+ .footer .footer-bottom .right-area { padding-top: 40px; } 
+ .footer .footer-bottom .right-area .certification-list { display: flex; gap: 12px; } 

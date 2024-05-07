@@ -1,0 +1,12 @@
+<svg id="그룹_5204" data-name="그룹 5204" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="373" height="711" viewBox="0 0 373 711">
+  <defs>
+    <linearGradient id="linear-gradient" x2="1.018" y2="1.012" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#10a3ff" stop-opacity="0.102"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="패스_25934" data-name="패스 25934" fill="url(#linear-gradient)">
+    <path d="M10,0H363a10,10,0,0,1,10,10V701a10,10,0,0,1-10,10H10A10,10,0,0,1,0,701V10A10,10,0,0,1,10,0Z" stroke="none"/>
+    <path d="M 10 1 C 5.037353515625 1 1 5.037353515625 1 10 L 1 701 C 1 705.962646484375 5.037353515625 710 10 710 L 363 710 C 367.962646484375 710 372 705.962646484375 372 701 L 372 10 C 372 5.037353515625 367.962646484375 1 363 1 L 10 1 M 10 0 L 363 0 C 368.5228271484375 0 373 4.4771728515625 373 10 L 373 701 C 373 706.5228271484375 368.5228271484375 711 363 711 L 10 711 C 4.4771728515625 711 0 706.5228271484375 0 701 L 0 10 C 0 4.4771728515625 4.4771728515625 0 10 0 Z" stroke="none" fill="rgba(255,255,255,0.1)"/>
+  </g>
+</svg>

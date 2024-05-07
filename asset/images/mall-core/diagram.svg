@@ -1,0 +1,407 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="920" viewBox="0 0 1380 920">
+  <g id="그룹_5020" data-name="그룹 5020" transform="translate(-270 -6526)">
+    <g id="그룹_5019" data-name="그룹 5019">
+      <g id="그룹_4953" data-name="그룹 4953" transform="translate(-9 17)">
+        <rect id="사각형_2065" data-name="사각형 2065" width="226" height="281" rx="6" transform="translate(600 6760)" fill="#182e3c"/>
+        <g id="구성_요소_16_240" data-name="구성 요소 16 – 240" transform="translate(617 6829)">
+          <rect id="사각형_2072" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="기본설정" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">기본설정</tspan></text>
+        </g>
+        <g id="구성_요소_16_241" data-name="구성 요소 16 – 241" transform="translate(617 6869)">
+          <rect id="사각형_2072-2" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="주문_배송" data-name="주문 / 배송" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-27.885" y="0">주문 / 배송</tspan></text>
+        </g>
+        <g id="구성_요소_16_242" data-name="구성 요소 16 – 242" transform="translate(617 6909)">
+          <rect id="사각형_2072-3" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="게시판" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">게시판</tspan></text>
+        </g>
+        <g id="구성_요소_16_243" data-name="구성 요소 16 – 243" transform="translate(617 6949)">
+          <rect id="사각형_2072-4" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="전시관리" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">전시관리</tspan></text>
+        </g>
+        <g id="구성_요소_16_244" data-name="구성 요소 16 – 244" transform="translate(617 6989)">
+          <rect id="사각형_2072-5" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="통계" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">통계</tspan></text>
+        </g>
+        <g id="구성_요소_16_245" data-name="구성 요소 16 – 245" transform="translate(718 6829)">
+          <rect id="사각형_2072-6" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="상품관리" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">상품관리</tspan></text>
+        </g>
+        <g id="구성_요소_16_246" data-name="구성 요소 16 – 246" transform="translate(718 6869)">
+          <rect id="사각형_2072-7" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="회원관리" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">회원관리</tspan></text>
+        </g>
+        <g id="구성_요소_16_247" data-name="구성 요소 16 – 247" transform="translate(718 6909)">
+          <rect id="사각형_2072-8" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="고객지원" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">고객지원</tspan></text>
+        </g>
+        <g id="구성_요소_16_248" data-name="구성 요소 16 – 248" transform="translate(718 6949)">
+          <rect id="사각형_2072-9" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="프로모션" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">프로모션</tspan></text>
+        </g>
+        <g id="구성_요소_16_249" data-name="구성 요소 16 – 249" transform="translate(718 6989)">
+          <rect id="사각형_2072-10" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="디자인" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">디자인</tspan></text>
+        </g>
+        <text id="통합_백오피스" data-name="통합 백오피스" transform="translate(713 6793)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-43.376" y="0">통합 백오피스</tspan></text>
+        <line id="선_45" data-name="선 45" x2="194" transform="translate(616.5 6813)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="그룹_4951" data-name="그룹 4951" transform="translate(9 17)">
+        <rect id="사각형_2070" data-name="사각형 2070" width="226" height="281" rx="6" transform="translate(1094 6760)" fill="#182e3c"/>
+        <g id="구성_요소_16_250" data-name="구성 요소 16 – 250" transform="translate(1110 6829)">
+          <rect id="사각형_2072-11" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="상품_DB" data-name="상품 DB" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-21.372" y="0">상품 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_251" data-name="구성 요소 16 – 251" transform="translate(1110 6869)">
+          <rect id="사각형_2072-12" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="주문_DB" data-name="주문 DB" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-21.372" y="0">주문 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_252" data-name="구성 요소 16 – 252" transform="translate(1110 6909)">
+          <rect id="사각형_2072-13" data-name="사각형 2072" width="194" height="32" rx="4" fill="#2a4252"/>
+          <text id="배송_DB" data-name="배송 DB" transform="translate(97 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-21.372" y="0">배송 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_253" data-name="구성 요소 16 – 253" transform="translate(1110 6949)">
+          <rect id="사각형_2072-14" data-name="사각형 2072" width="194" height="32" rx="4" fill="#2a4252"/>
+          <text id="매출_정산_DB" data-name="매출 / 정산 DB" transform="translate(97 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-38.025" y="0">매출 / 정산 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_254" data-name="구성 요소 16 – 254" transform="translate(1110 6989)">
+          <rect id="사각형_2072-15" data-name="사각형 2072" width="194" height="32" rx="4" fill="#2a4252"/>
+          <text id="기준정보_DB" data-name="기준정보 DB" transform="translate(97 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-32.604" y="0">기준정보 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_255" data-name="구성 요소 16 – 255" transform="translate(1211 6829)">
+          <rect id="사각형_2072-16" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="회원_DB" data-name="회원 DB" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-21.372" y="0">회원 DB</tspan></text>
+        </g>
+        <g id="구성_요소_16_256" data-name="구성 요소 16 – 256" transform="translate(1211 6869)">
+          <rect id="사각형_2072-17" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="결제_DB" data-name="결제 DB" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-21.372" y="0">결제 DB</tspan></text>
+        </g>
+        <text id="데이터_저장소" data-name="데이터 저장소" transform="translate(1207 6793)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-43.376" y="0">데이터 저장소</tspan></text>
+        <line id="선_47" data-name="선 47" x2="194" transform="translate(1110.5 6813)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="사각형_2073" data-name="사각형 2073" transform="translate(560 6635)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="800" height="565" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="799" height="564" rx="5.5" fill="none"/>
+      </g>
+      <g id="그룹_4986" data-name="그룹 4986" transform="translate(0 10)">
+        <rect id="사각형_2065-2" data-name="사각형 2065" width="738" height="59" rx="6" transform="translate(591 7088)" fill="#006476"/>
+        <text id="Backend_통합_API_커넥터" data-name="Backend 통합 API 커넥터" transform="translate(960 7123)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-84.912" y="0">Backend 통합 API 커넥터</tspan></text>
+      </g>
+      <g id="그룹_4985" data-name="그룹 4985" transform="translate(0 -10)">
+        <rect id="사각형_2065-3" data-name="사각형 2065" width="738" height="59" rx="6" transform="translate(591 6688)" fill="#006476"/>
+        <text id="Frontend_통합_API_커넥터" data-name="Frontend 통합 API 커넥터" transform="translate(960 6723)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-86.328" y="0">Frontend 통합 API 커넥터</tspan></text>
+      </g>
+      <g id="그룹_4982" data-name="그룹 4982" transform="translate(0 20.5)">
+        <line id="선_55" data-name="선 55" x2="29.5" transform="translate(817.5 6888.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+        <line id="선_56" data-name="선 56" x2="29.5" transform="translate(817.5 6906.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+      </g>
+      <g id="그룹_4983" data-name="그룹 4983" transform="translate(256 20.5)">
+        <line id="선_55-2" data-name="선 55" x2="29.5" transform="translate(817.5 6888.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+        <line id="선_56-2" data-name="선 56" x2="29.5" transform="translate(817.5 6906.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+      </g>
+      <g id="그룹_4952" data-name="그룹 4952" transform="translate(1 17)">
+        <rect id="사각형_2069" data-name="사각형 2069" width="226" height="281" rx="6" transform="translate(846 6760)" fill="#182e3c"/>
+        <g id="구성_요소_16_257" data-name="구성 요소 16 – 257" transform="translate(863 6829)">
+          <rect id="사각형_2072-18" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="상품" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">상품</tspan></text>
+        </g>
+        <g id="구성_요소_16_258" data-name="구성 요소 16 – 258" transform="translate(863 6869)">
+          <rect id="사각형_2072-19" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="프로모션-2" data-name="프로모션" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">프로모션</tspan></text>
+        </g>
+        <g id="구성_요소_16_259" data-name="구성 요소 16 – 259" transform="translate(863 6909)">
+          <rect id="사각형_2072-20" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="주문" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">주문</tspan></text>
+        </g>
+        <g id="구성_요소_16_260" data-name="구성 요소 16 – 260" transform="translate(863 6949)">
+          <rect id="사각형_2072-21" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="정산" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">정산</tspan></text>
+        </g>
+        <g id="구성_요소_16_261" data-name="구성 요소 16 – 261" transform="translate(863 6989)">
+          <rect id="사각형_2072-22" data-name="사각형 2072" width="194" height="32" rx="4" fill="#2a4252"/>
+          <text id="시스템" transform="translate(97 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">시스템</tspan></text>
+        </g>
+        <g id="구성_요소_16_262" data-name="구성 요소 16 – 262" transform="translate(964 6829)">
+          <rect id="사각형_2072-23" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="고객" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">고객</tspan></text>
+        </g>
+        <g id="구성_요소_16_263" data-name="구성 요소 16 – 263" transform="translate(964 6869)">
+          <rect id="사각형_2072-24" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="전시" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">전시</tspan></text>
+        </g>
+        <g id="구성_요소_16_264" data-name="구성 요소 16 – 264" transform="translate(964 6909)">
+          <rect id="사각형_2072-25" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="배송" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">배송</tspan></text>
+        </g>
+        <g id="구성_요소_16_265" data-name="구성 요소 16 – 265" transform="translate(964 6949)">
+          <rect id="사각형_2072-26" data-name="사각형 2072" width="93" height="32" rx="4" fill="#2a4252"/>
+          <text id="고객서비스" transform="translate(46.5 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-28.08" y="0">고객서비스</tspan></text>
+        </g>
+        <text id="서비스_구성" data-name="서비스 구성" transform="translate(959 6793)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-36.464" y="0">서비스 구성</tspan></text>
+        <line id="선_46" data-name="선 46" x2="194" transform="translate(862.5 6813)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="그룹_5007" data-name="그룹 5007">
+        <line id="선_55-3" data-name="선 55" x2="40" transform="translate(960 7058) rotate(90)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+        <g id="그룹_4990" data-name="그룹 4990" transform="translate(332.5 -214.5)">
+          <circle id="타원_43" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+        <g id="그룹_5006" data-name="그룹 5006" transform="translate(332.5 -254.5)">
+          <circle id="타원_43-2" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-2" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+      </g>
+      <g id="그룹_5008" data-name="그룹 5008" transform="translate(0 -321)">
+        <line id="선_55-4" data-name="선 55" x2="40" transform="translate(960 7058) rotate(90)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+        <g id="그룹_4990-2" data-name="그룹 4990" transform="translate(332.5 -214.5)">
+          <circle id="타원_43-3" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-3" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+        <g id="그룹_5006-2" data-name="그룹 5006" transform="translate(332.5 -254.5)">
+          <circle id="타원_43-4" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-4" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+      </g>
+      <g id="그룹_4991" data-name="그룹 4991" transform="translate(333.5 -155.5)">
+        <circle id="타원_43-5" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-5" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+    </g>
+    <g id="그룹_5018" data-name="그룹 5018">
+      <rect id="사각형_2064" data-name="사각형 2064" width="240" height="565" rx="6" transform="translate(270 6635)" fill="#182e3c"/>
+      <text id="프론트몰" transform="translate(391 6668)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-27.648" y="0">프론트몰</tspan></text>
+      <g id="구성_요소_16_266" data-name="구성 요소 16 – 266" transform="translate(286 7104)">
+        <rect id="사각형_2072-27" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="임직원몰" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">임직원몰</tspan></text>
+      </g>
+      <g id="구성_요소_16_267" data-name="구성 요소 16 – 267" transform="translate(286 7064)">
+        <rect id="사각형_2072-28" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="정기_구독" data-name="정기 구독" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-24.05" y="0">정기 구독</tspan></text>
+      </g>
+      <g id="구성_요소_16_268" data-name="구성 요소 16 – 268" transform="translate(286 7024)">
+        <rect id="사각형_2072-29" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="배송_교환_반품_환불" data-name="배송 / 교환 / 반품 / 환불" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-61.191" y="0">배송 / 교환 / 반품 / 환불</tspan></text>
+      </g>
+      <g id="구성_요소_16_269" data-name="구성 요소 16 – 269" transform="translate(286 6984)">
+        <rect id="사각형_2072-30" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="주문_결제" data-name="주문 / 결제" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-27.885" y="0">주문 / 결제</tspan></text>
+      </g>
+      <g id="구성_요소_16_270" data-name="구성 요소 16 – 270" transform="translate(286 6944)">
+        <rect id="사각형_2072-31" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="장바구니" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">장바구니</tspan></text>
+      </g>
+      <g id="구성_요소_16_271" data-name="구성 요소 16 – 271" transform="translate(286 6904)">
+        <rect id="사각형_2072-32" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="고객센터" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">고객센터</tspan></text>
+      </g>
+      <g id="구성_요소_16_272" data-name="구성 요소 16 – 272" transform="translate(286 6864)">
+        <rect id="사각형_2072-33" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="브랜드" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">브랜드</tspan></text>
+      </g>
+      <g id="구성_요소_16_273" data-name="구성 요소 16 – 273" transform="translate(286 6824)">
+        <rect id="사각형_2072-34" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="검색_추천" data-name="검색 / 추천" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-27.885" y="0">검색 / 추천</tspan></text>
+      </g>
+      <g id="구성_요소_16_274" data-name="구성 요소 16 – 274" transform="translate(286 6784)">
+        <rect id="사각형_2072-35" data-name="사각형 2072" width="100" height="32" rx="4" fill="#2a4252"/>
+        <text id="이벤트" transform="translate(50 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">이벤트</tspan></text>
+      </g>
+      <g id="구성_요소_16_275" data-name="구성 요소 16 – 275" transform="translate(394 6784)">
+        <rect id="사각형_2072-36" data-name="사각형 2072" width="100" height="32" rx="4" fill="#2a4252"/>
+        <text id="기획전" transform="translate(50 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-16.848" y="0">기획전</tspan></text>
+      </g>
+      <g id="구성_요소_16_276" data-name="구성 요소 16 – 276" transform="translate(286 6744)">
+        <rect id="사각형_2072-37" data-name="사각형 2072" width="100" height="32" rx="4" fill="#2a4252"/>
+        <text id="상품_PDP" data-name="상품 PDP" transform="translate(50 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-25.233" y="0">상품 PDP</tspan></text>
+      </g>
+      <g id="구성_요소_16_277" data-name="구성 요소 16 – 277" transform="translate(286 6704)">
+        <rect id="사각형_2072-38" data-name="사각형 2072" width="209" height="32" rx="4" fill="#2a4252"/>
+        <text id="메인" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">메인</tspan></text>
+      </g>
+      <g id="구성_요소_16_278" data-name="구성 요소 16 – 278" transform="translate(394 6744)">
+        <rect id="사각형_2072-39" data-name="사각형 2072" width="100" height="32" rx="4" fill="#2a4252"/>
+        <text id="전시_PLP" data-name="전시 PLP" transform="translate(50 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-24.245" y="0">전시 PLP</tspan></text>
+      </g>
+      <line id="선_44" data-name="선 44" x2="208" transform="translate(286.5 6688)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      <g id="그룹_5003" data-name="그룹 5003">
+        <g id="그룹_5000" data-name="그룹 5000" transform="translate(7748 5746.5) rotate(90)">
+          <line id="선_54" data-name="선 54" y2="81" transform="translate(961 7157)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+        </g>
+        <g id="그룹_5001" data-name="그룹 5001" transform="translate(7903.5 6080) rotate(90)">
+          <circle id="타원_43-6" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-6" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+        <g id="그룹_5002" data-name="그룹 5002" transform="translate(7822.5 6080) rotate(90)">
+          <circle id="타원_43-7" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-7" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+      </g>
+    </g>
+    <g id="그룹_5017" data-name="그룹 5017">
+      <rect id="사각형_2065-4" data-name="사각형 2065" width="240" height="58" rx="6" transform="translate(1410 6678)" fill="#10e4ff"/>
+      <g id="그룹_4965" data-name="그룹 4965" transform="translate(0 89)">
+        <rect id="사각형_2074" data-name="사각형 2074" width="240" height="331" rx="6" transform="translate(1410 6780)" fill="#182e3c"/>
+        <text id="외부_인터페이스" data-name="외부 인터페이스" transform="translate(1531 6813)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-50.288" y="0">외부 인터페이스</tspan></text>
+        <g id="구성_요소_16_279" data-name="구성 요소 16 – 279" transform="translate(1426 7049)">
+          <rect id="사각형_2072-40" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="챗봇" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">챗봇</tspan></text>
+        </g>
+        <g id="구성_요소_16_280" data-name="구성 요소 16 – 280" transform="translate(1426 6849)">
+          <rect id="사각형_2072-41" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="PG" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.619" y="0">PG</tspan></text>
+        </g>
+        <g id="구성_요소_16_281" data-name="구성 요소 16 – 281" transform="translate(1426 6889)">
+          <rect id="사각형_2072-42" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="물류택배" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">물류택배</tspan></text>
+        </g>
+        <g id="구성_요소_16_282" data-name="구성 요소 16 – 282" transform="translate(1426 6929)">
+          <rect id="사각형_2072-43" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="본인인증" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">본인인증</tspan></text>
+        </g>
+        <g id="구성_요소_16_283" data-name="구성 요소 16 – 283" transform="translate(1426 6969)">
+          <rect id="사각형_2072-44" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="제휴_채널" data-name="제휴 채널" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-24.05" y="0">제휴 채널</tspan></text>
+        </g>
+        <g id="구성_요소_16_284" data-name="구성 요소 16 – 284" transform="translate(1426 7009)">
+          <rect id="사각형_2072-45" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+          <text id="CRM" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-14.183" y="0">CRM</tspan></text>
+        </g>
+        <line id="선_49" data-name="선 49" x2="208" transform="translate(1426.5 6833)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <text id="외부_API_커텍터" data-name="외부 API 커텍터" transform="translate(1530 6713)" fill="#111" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-50.928" y="0">외부 API 커텍터</tspan></text>
+      <g id="그룹_5004" data-name="그룹 5004" transform="translate(850)">
+        <g id="그룹_5000-2" data-name="그룹 5000" transform="translate(7748 5746.5) rotate(90)">
+          <line id="선_54-2" data-name="선 54" y2="50.5" transform="translate(961 7187.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+        </g>
+        <g id="그룹_5001-2" data-name="그룹 5001" transform="translate(7873 6080) rotate(90)">
+          <circle id="타원_43-8" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-8" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+        <g id="그룹_5002-2" data-name="그룹 5002" transform="translate(7822.5 6080) rotate(90)">
+          <circle id="타원_43-9" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-9" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+      </g>
+      <g id="그룹_5005" data-name="그룹 5005" transform="translate(8237.5 6226) rotate(90)">
+        <g id="그룹_5000-3" data-name="그룹 5000" transform="translate(7748 5746.5) rotate(90)">
+          <line id="선_54-3" data-name="선 54" y2="132" transform="translate(961 7106)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+        </g>
+        <g id="그룹_5001-3" data-name="그룹 5001" transform="translate(7955 6080) rotate(90)">
+          <circle id="타원_43-10" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+          <circle id="타원_44-10" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+        </g>
+      </g>
+    </g>
+    <g id="그룹_5016" data-name="그룹 5016">
+      <g id="사각형_2067" data-name="사각형 2067" transform="translate(570 7295)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <g id="사각형_2067-2" data-name="사각형 2067" transform="translate(702 7295.447)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <g id="사각형_2067-3" data-name="사각형 2067" transform="translate(834 7295.447)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <g id="사각형_2067-4" data-name="사각형 2067" transform="translate(966 7295.447)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <g id="사각형_2067-5" data-name="사각형 2067" transform="translate(1098 7295.447)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <g id="사각형_2067-6" data-name="사각형 2067" transform="translate(1234 7295.447)" fill="none" stroke="#3f4b64" stroke-width="1">
+        <rect width="116" height="116" rx="6" stroke="none"/>
+        <rect x="0.5" y="0.5" width="115" height="115" rx="5.5" fill="none"/>
+      </g>
+      <text id="Back-end" transform="translate(960 7442)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-40.2" y="0">BACK-END</tspan></text>
+      <path id="패스_25740" data-name="패스 25740" d="M-3797,20122v-38.447h664V20122" transform="translate(4424.5 -12826.553)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <path id="패스_25741" data-name="패스 25741" d="M0,0V39" transform="translate(760.5 7256.947)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <line id="선_51" data-name="선 51" y2="39" transform="translate(892.5 7256.947)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <line id="선_52" data-name="선 52" y2="39" transform="translate(1024.5 7256.947)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <line id="선_53" data-name="선 53" y2="39" transform="translate(1156.5 7256.947)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <g id="그룹_4988" data-name="그룹 4988">
+        <line id="선_54-4" data-name="선 54" y2="100" transform="translate(961 7157)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      </g>
+      <g id="그룹_4992" data-name="그룹 4992" transform="translate(0 -17.053)">
+        <circle id="타원_43-11" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-11" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_4993" data-name="그룹 4993" transform="translate(133 -17.053)">
+        <circle id="타원_43-12" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-12" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_4994" data-name="그룹 4994" transform="translate(265 -17.053)">
+        <circle id="타원_43-13" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-13" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_4995" data-name="그룹 4995" transform="translate(397 -17.053)">
+        <circle id="타원_43-14" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-14" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_4996" data-name="그룹 4996" transform="translate(529 -17.053)">
+        <circle id="타원_43-15" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-15" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_4997" data-name="그룹 4997" transform="translate(664 -17.053)">
+        <circle id="타원_43-16" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-16" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_5009" data-name="그룹 5009">
+        <g id="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <text id="ERP" transform="translate(628 7355.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.7" y="0">ERP</tspan></text>
+      </g>
+      <g id="그룹_5010" data-name="그룹 5010" transform="translate(132.5)">
+        <g id="monitor-2" data-name="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742-2" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743-2" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <text id="Arm" transform="translate(628 7355.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-13.962" y="0">ARM</tspan></text>
+      </g>
+      <g id="그룹_5011" data-name="그룹 5011" transform="translate(264)">
+        <g id="monitor-3" data-name="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742-3" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743-3" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <text id="Oms" transform="translate(628 7355.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-14.378" y="0">OMS</tspan></text>
+      </g>
+      <g id="그룹_5012" data-name="그룹 5012" transform="translate(396)">
+        <g id="monitor-4" data-name="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742-4" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743-4" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <text id="pos" transform="translate(628 7355.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-12.74" y="0">POS</tspan></text>
+      </g>
+      <g id="그룹_5013" data-name="그룹 5013" transform="translate(528)">
+        <g id="monitor-5" data-name="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742-5" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743-5" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <g id="그룹_5014" data-name="그룹 5014" transform="translate(0 -10)">
+          <text id="결제" transform="translate(628 7358.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">결제</tspan></text>
+          <text id="_3rd_party" data-name="3rd party" transform="translate(628 7372.813)" fill="#10e4ff" font-size="12" font-family="Pretendard-Regular, Pretendard"><tspan x="-24.948" y="0">3rd party</tspan></text>
+        </g>
+      </g>
+      <g id="그룹_5015" data-name="그룹 5015" transform="translate(663.5)">
+        <g id="monitor-6" data-name="monitor" transform="translate(593 7300.865)">
+          <path id="패스_25742-6" data-name="패스 25742" d="M65.9,25H4.1A4.111,4.111,0,0,0,0,29.109V69.93a4.111,4.111,0,0,0,4.1,4.109H65.9A4.111,4.111,0,0,0,70,69.93V29.109A4.111,4.111,0,0,0,65.9,25Z" transform="translate(0 0)" fill="#2a4252"/>
+          <path id="패스_25743-6" data-name="패스 25743" d="M126.941,418.976H115.833V413H94.165v5.976H83.057a2.037,2.037,0,1,0,0,4.074h43.884a2.037,2.037,0,1,0,0-4.074Z" transform="translate(-69.999 -334.886)" fill="#2a4252"/>
+        </g>
+        <g id="그룹_5014-2" data-name="그룹 5014" transform="translate(0 -10)">
+          <text id="배송-2" data-name="배송" transform="translate(628 7358.813)" fill="#fff" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">배송</tspan></text>
+          <text id="_3rd_party-2" data-name="3rd party" transform="translate(628 7372.813)" fill="#10e4ff" font-size="12" font-family="Pretendard-Regular, Pretendard"><tspan x="-24.948" y="0">3rd party</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="그룹_4939" data-name="그룹 4939" transform="translate(0 90)">
+      <rect id="사각형_2071" data-name="사각형 2071" width="556" height="49" rx="24.5" transform="translate(682 6436)" fill="#10e4ff"/>
+      <text id="Omni_Channel_Headless_Commerce_Platform" data-name="Omni Channel Headless Commerce Platform" transform="translate(960 6467)" fill="#111" font-size="18" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-217.773" y="0">OMNI CHANNEL HEADLESS COMMERCE PLATFORM</tspan></text>
+    </g>
+  </g>
+</svg>
