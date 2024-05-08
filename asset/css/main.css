@@ -18,7 +18,7 @@
  .introduce-sec .inner .introduce-title-area { flex: 1; padding-top: 130px; } 
  .introduce-sec .inner .introduce-title-area .sub-title { font-size: clamp(16px, 1.15vw, 22px); font-weight: 700; text-transform: uppercase; } 
  .introduce-sec .inner .introduce-title-area .title { padding-top: 33px; font-size: clamp(20px, 2.71vw, 52px); font-weight: 700; white-space: nowrap; } 
- .introduce-sec .inner .introduce-title-area .title em { color: #11E4FF; } 
+ .introduce-sec .inner .introduce-title-area .title em { color: var(--em-color-11); } 
  .introduce-sec .inner .description-area { padding: 361px 0 0 102px; } 
  .introduce-sec .inner .description-area .description { font-size: clamp(12px, 0.94vw, 18px); } 
  .introduce-sec .inner .description-area .link-area { display: flex; gap: 20px; padding-top: 50px; } 
@@ -32,7 +32,7 @@
  .common-title-area { font-weight: 700; } 
  .common-title-area .sub-title { font-size: clamp(16px, 1.25vw, 24px); color: #999; } 
  .common-title-area .title { padding-top: 28px; font-size: clamp(20px, 2.1vw, 40px); color: #000; word-break: keep-all; } 
- .common-title-area .title em { color: var(--em-color); } 
+ .common-title-area .title em { color: var(--em-color-15); } 
  .solution-sec .list-area { margin-top: 90px; } 
  .solution-sec .list-area .solution-list { display: flex; gap: 78px; } 
  .solution-sec .list-area .solution-list li { flex: 1; display: flex; flex-direction: column; } 
@@ -83,7 +83,7 @@
 .pricing-sec .list-area .pricing-list .pricing-item .custom { padding-top: 14px; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .period { display: flex; flex-direction: column; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .custom { display: none; } 
-.pricing-sec .list-area .pricing-list .pricing-item .hide { display: none; } 
+.pricing-sec .hide { display: none; } 
 .pricing-sec .list-area .pricing-list .pricing-item dt { font-weight: 400; } 
 .pricing-sec .list-area .pricing-list .pricing-item dd { font-weight: 600; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on dl { display: flex; flex-direction: column; gap: 30px; } 
@@ -93,10 +93,10 @@
 .pricing-sec .list-area .pricing-list .pricing-item.on .provide p { padding: 10px 0 16px; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li { position: relative; padding-left: 30px; font-size: 18px; font-weight: 400; color: #ccc; line-height: 1.7; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li::before { content: ''; display: block; position: absolute; width: 24px; height: 24px; margin-left: -30px; background: url("../images/mall-core/check.svg"); } 
-.pricing-sec .list-area .description.hide { display: none; padding-top: 30px; font-size: 14px; color: var(--gray-color); } 
+.pricing-sec .list-area .description { padding-top: 30px; font-size: 14px; color: var(--gray-color); } 
 .pricing-sec .btn-area { padding-top: 78px; text-align: center; } 
-.pricing-sec .btn-area .description.hide { display: none; font-size: 26px; font-weight: 600; padding-bottom: 38px; } 
-.pricing-sec .btn-area .btn-more { font-size: 20px; padding: 14px 37.43px; color: #fff; border: 1px solid #fff; border-radius: 37px; } 
+.pricing-sec .btn-area .description { font-size: 26px; font-weight: 600; padding-bottom: 38px; } 
+.pricing-sec .btn-area .btn-more, .pricing-sec .btn-area .link-inquire { font-size: 20px; padding: 14px 37.43px; color: #fff; border: 1px solid #fff; border-radius: 37px; } 
 
 /* diagram-sec */
 .diagram-sec { position: relative; } 
@@ -106,7 +106,7 @@
 /* consulting-sec */
 .consulting-sec .consulting-banner { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 200px; padding: 0 100px 0 120px; background: url("../images/mall-core/banner-bg.png") no-repeat center / cover; } 
 .consulting-sec .consulting-banner .title-area { font-weight: 700; } 
-.consulting-sec .consulting-banner .title-area .sub-title { font-size: 16px; color: #11E4FF; } 
+.consulting-sec .consulting-banner .title-area .sub-title { font-size: 16px; color: var(--em-color-11); } 
 .consulting-sec .consulting-banner .title-area .title { padding-top: 13px; font-size: 26px; } 
 .consulting-sec .consulting-banner .link-area .link-inquire { display: flex; align-items: center; padding: 15.2px 31.35px; border: 1px solid #fff; border-radius: 50px; font-size: 20px; font-weight: 600; color: #fff; } 
 .consulting-sec .consulting-banner .link-area .link-inquire::after { content: ''; display: block; width: 19.13px; height: 18px; margin-left: 90px; background: url("../images/mall-core/arrow.svg") no-repeat center / cover; } 
@@ -122,7 +122,7 @@
 .bottom-banner .content-area .title { padding-top: 41px; font-size: 26px; font-weight: 700; color: #fff; } 
  
 @media all and (max-width: 1536px){
- .inner { width: calc(100% - 240px); max-width: 1380px; margin: 0 auto; } 
+ .inner { width: calc(100% - 240px); } 
  }
  @media all and (max-width: 1280px) { } 
  @media all and (max-width: 1100px) { } 

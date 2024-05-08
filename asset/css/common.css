@@ -15,4 +15,4 @@
 @font-face { font-family: 'Pretendard'; src: url("../font/Pretendard-SemiBold.woff2") format('woff2'); font-weight: 600; font-display: swap; } 
 @font-face { font-family: 'Pretendard'; src: url("../font/Pretendard-Bold.woff2") format('woff2'); font-weight: 700; font-display: swap; } 
 
-:root { --em-color: #15C1D8; --gray-color: #7B8B95; } 
+:root { --em-color-15: #15C1D8; --em-color-11:#11E4FF; --gray-color: #7B8B95; } 

@@ -22,16 +22,10 @@ countAnimation("#build-cost", -50);
 countAnimation("#operation-cost", -70);
 countAnimation("#speed", 200);
 
-$(".pricing-sec .btn-more").on("click", function () {
-  const element = $(".pricing-sec .hide");
-  element.toggle();
-  if (element.css("display") === "none") {
-    $(".detail-sec").removeClass("on");
-    $(".pricing-item").removeClass("on");
-    $(this).text("자세히 알아보기");
-  } else {
-    $(".detail-sec").addClass("on");
-    $(".pricing-item").addClass("on");
-    $(this).text("도입 문의하기");
-  }
+$(document).on("click", ".pricing-sec .btn-more", function () {
+  $(this).hide();
+  $(".pricing-sec .hide").show();
+  $(".pricing-sec .link-inquire").css("display", "inline-block");
+  $(".detail-sec").addClass("on");
+  $(".pricing-item").addClass("on");
 });
