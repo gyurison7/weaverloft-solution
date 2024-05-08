@@ -14,7 +14,7 @@ function countAnimation(selector, value) {
     onUpdate: () => {
       target.innerHTML = (value > 0 ? "+" : "") + counter.counter.toFixed() + "<sup>%</sup>";
     },
-    duration: 2,
+    duration: 1,
   });
 }
 
