@@ -1,3 +1,70 @@
+// introduce-sec
+const mainTitleAnimation = gsap.timeline();
+mainTitleAnimation
+  .from($(".introduce-sec .introduce-title-area"), { xPercent: -100, opacity: 0 }, "a")
+  .from($(".introduce-sec .description-area"), { xPercent: 100, opacity: 0 }, "a");
+
+// titleAnimation 공통
+// 한 글자씩 자르기
+document.querySelectorAll(".title .split").forEach((element) => {
+  element.innerHTML = element.textContent
+    .split("")
+    .map((char) => `<span>${char}</span>`)
+    .join("");
+});
+
+document.querySelectorAll(".titleAnimation").forEach(function (section) {
+  gsap.from(section.querySelectorAll(".title .split span"), {
+    scrollTrigger: {
+      trigger: section,
+      start: "0% 80%",
+      end: "100% 0%",
+      toggleActions: "play none none reverse",
+      // markers: true,
+    },
+    stagger: 0.01,
+    color: "#ccc",
+    duration: 1,
+    ease: "power2.out",
+  });
+});
+
+// solution-sec
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(CSSRulePlugin);
+  const rule = CSSRulePlugin.getRule(".solution-sec::before");
+
+  function animate() {
+    const randomX = Math.random() * 200 - 200; // -200 ~ 0
+    const randomY = Math.random() * 300 - 100; // -100 ~ 200
+
+    gsap.to(rule, {
+      duration: 5,
+      cssRule: {
+        transform: `translateX(${randomX}%) translateY(${randomY}%)`,
+      },
+      ease: "power1.inOut",
+      yoyo: true,
+      repeat: -1,
+    });
+  }
+
+  setInterval(animate, 5000);
+});
+
+const lineAnimation = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".solution-list",
+    start: "0% 75%",
+    end: "100% 0%",
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+});
+lineAnimation.from($(".solution-list li"), { "--height": 0, stagger: 0.1 });
+lineAnimation.from($(".solution-list h3"), { "--height": 0, stagger: 0.1 });
+
+// benefit-sec
 const counter = { counter: 0 };
 
 function countAnimation(selector, value) {
@@ -6,21 +73,61 @@ function countAnimation(selector, value) {
     counter: value,
     scrollTrigger: {
       trigger: ".benefit-sec",
-      start: "0% 80%",
+      start: "0% 85%",
       end: "100% 0%",
-      toggleActions: "play none none none",
+      toggleActions: "play none none reverse",
       // markers: true,
     },
     onUpdate: () => {
       target.innerHTML = (value > 0 ? "+" : "") + counter.counter.toFixed() + "<sup>%</sup>";
     },
-    duration: 1,
+    duration: 2,
   });
 }
 
 countAnimation("#build-cost", -50);
 countAnimation("#operation-cost", -70);
 countAnimation("#speed", 200);
+
+gsap.from(".benefit-sec .benefit-list li p", {
+  scrollTrigger: {
+    trigger: ".benefit-sec",
+    start: "0% 85%",
+    end: "100% 0%",
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+  "--width": 0,
+  duration: 2,
+});
+
+// pricing-sec
+gsap.from(".pricing-sec .pricing-list", {
+  scrollTrigger: {
+    trigger: ".pricing-sec",
+    start: "0% 85%",
+    end: "100% 0%",
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+  yPercent: 100,
+  opacity: 0,
+});
+
+$(document).ready(function () {
+  const items = $(".pricing-sec .pricing-item");
+  const indexArr = [1, 2, 0];
+  let index = 0;
+
+  function activeItem() {
+    items.removeClass("active");
+    items.eq(indexArr[index]).addClass("active");
+    index = (index + 1) % indexArr.length;
+  }
+  items.eq(indexArr[index]).addClass("active");
+
+  setInterval(activeItem, 2000);
+});
 
 $(document).on("click", ".pricing-sec .btn-more", function () {
   $(this).hide();

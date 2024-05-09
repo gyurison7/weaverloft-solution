@@ -38,27 +38,87 @@
     <meta property="og:description" content="꿈을 엮어가는 선행 디자인 그룹, 위버로프트">
     <title>WEAVERLOFT SOLUTION</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="http://codeloft.kr/weaver_solution/asset/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-16x16.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-57x57.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-60x60.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-72x72.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-76x76.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-114x114.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-120x120.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-144x144.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-152x152.png"
+   >
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/apple-icon-180x180.png"
+   >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/android-icon-192x192.png"
+   >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-32x32.png"
+   >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-96x96.png"
+   >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="http://codeloft.kr/weaver_solution/asset/favicon/favicon-16x16.png"
+   >
     <link rel="manifest" href="./asset/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="http://codeloft.kr/weaver_solution/asset/favicon/ms-icon-144x144.png">
+    <meta
+      name="msapplication-TileImage"
+      content="http://codeloft.kr/weaver_solution/asset/favicon/ms-icon-144x144.png"
+   >
     <meta name="theme-color" content="#ffffff">
     <!-- js -->
     <script src="./asset/js/jquery-3.7.1.min.js"></script>
     <script src="./asset/js/gsap.min.js"></script>
     <script src="./asset/js/ScrollTrigger.min.js"></script>
+    <script src="./asset/js/CSSRulePlugin.min.js"></script>
     <link rel="stylesheet" href="./asset/css/common.css">
     <link rel="stylesheet" href="./asset/css/main.css">
   </head>
@@ -106,17 +166,15 @@
           </div>
         </section>
 
-        <section class="solution-sec common-margin">
+        <section class="solution-sec common-margin titleAnimation">
           <div class="inner">
             <div class="common-title-area">
               <div class="sub-title">미니타이틀</div>
               <h3 class="title">
-                기업의 브랜드 가치를 높이고
-                <br>
-                매출을 성장시킬 수 있는 전략에 집중하시고,
-                <br>
-                <em>자사몰 구축에 대한 고민은 몰코어로 해결</em>
-                하세요!
+                <span class="split line">기업의 브랜드 가치를 높이고</span>
+                <span class="split line">매출을 성장시킬 수 있는 전략에 집중하시고,</span>
+                <em><span class="split">자사몰 구축에 대한 고민은 몰코어로 해결</span></em>
+                <span class="split">하세요!</span>
               </h3>
             </div>
             <div class="list-area">
@@ -153,16 +211,14 @@
           </div>
         </section>
 
-        <section class="benefit-sec common-margin">
+        <section class="benefit-sec common-margin titleAnimation">
           <div class="inner">
             <div class="common-title-area">
               <div class="sub-title">미니타이틀</div>
               <h3 class="title">
-                구축 비용과 운영 비용은
-                <br>
-                <em>절반 이상 절감하고, 개발 기간은 2배 빠르게!</em>
-                <br>
-                이제 자사몰 운영 전략에 집중하세요!
+                <span class="split line">구축 비용과 운영 비용은</span>
+                <em><span class="split line">절반 이상 절감하고, 개발 기간은 2배 빠르게!</span></em>
+                <span class="split line">이제 자사몰 운영 전략에 집중하세요!</span>
               </h3>
             </div>
             <div class="list-area">
@@ -193,17 +249,17 @@
           </div>
         </section>
 
-        <section class="technology-sec common-margin">
+        <section class="technology-sec common-margin titleAnimation">
           <div class="inner">
             <div class="common-title-area">
               <div class="sub-title">미니타이틀</div>
               <h3 class="title">
-                최신 기술 기반으로
-                <br>
-                합리적인 투자 비용과 빠른 개발 기간 내에
-                <br>
-                <em>자사몰을 성공적으로 구축</em>
-                할 수 있습니다.
+                <span class="split line">최신 기술 기반으로</span>
+                <span class="split line">합리적인 투자 비용과 빠른 개발 기간 내에</span>
+                <em>
+                  <span class="split">자사몰을 성공적으로 구축</span>
+                </em>
+                <span class="split">할 수 있습니다.</span>
               </h3>
             </div>
             <div class="list-area"></div>
