@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="522" viewBox="0 0 240 522">
+  <g id="그룹_5017" data-name="그룹 5017" transform="translate(-1410 -6678)">
+    <rect id="사각형_2065" data-name="사각형 2065" width="240" height="58" rx="6" transform="translate(1410 6678)" fill="#10e4ff"/>
+    <g id="그룹_4965" data-name="그룹 4965" transform="translate(0 89)">
+      <rect id="사각형_2074" data-name="사각형 2074" width="240" height="331" rx="6" transform="translate(1410 6780)" fill="#182e3c"/>
+      <text id="외부_인터페이스" data-name="외부 인터페이스" transform="translate(1531 6813)" fill="#fff" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-50.288" y="0">외부 인터페이스</tspan></text>
+      <g id="구성_요소_16_594" data-name="구성 요소 16 – 594" transform="translate(1426 7049)">
+        <rect id="사각형_2072" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="챗봇" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-11.232" y="0">챗봇</tspan></text>
+      </g>
+      <g id="구성_요소_16_595" data-name="구성 요소 16 – 595" transform="translate(1426 6849)">
+        <rect id="사각형_2072-2" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="PG" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-8.619" y="0">PG</tspan></text>
+      </g>
+      <g id="구성_요소_16_596" data-name="구성 요소 16 – 596" transform="translate(1426 6889)">
+        <rect id="사각형_2072-3" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="물류택배" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">물류택배</tspan></text>
+      </g>
+      <g id="구성_요소_16_597" data-name="구성 요소 16 – 597" transform="translate(1426 6929)">
+        <rect id="사각형_2072-4" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="본인인증" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-22.464" y="0">본인인증</tspan></text>
+      </g>
+      <g id="구성_요소_16_598" data-name="구성 요소 16 – 598" transform="translate(1426 6969)">
+        <rect id="사각형_2072-5" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="제휴_채널" data-name="제휴 채널" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-24.05" y="0">제휴 채널</tspan></text>
+      </g>
+      <g id="구성_요소_16_599" data-name="구성 요소 16 – 599" transform="translate(1426 7009)">
+        <rect id="사각형_2072-6" data-name="사각형 2072" width="208" height="32" rx="4" fill="#2a4252"/>
+        <text id="CRM" transform="translate(104 21)" fill="#ddd" font-size="13" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="-14.183" y="0">CRM</tspan></text>
+      </g>
+      <line id="선_49" data-name="선 49" x2="208" transform="translate(1426.5 6833)" fill="none" stroke="#2a4252" stroke-width="1"/>
+    </g>
+    <text id="외부_API_커텍터" data-name="외부 API 커텍터" transform="translate(1530 6713)" fill="#111" font-size="16" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-50.928" y="0">외부 API 커텍터</tspan></text>
+    <g id="그룹_5005" data-name="그룹 5005" transform="translate(8237.5 6226) rotate(90)">
+      <g id="그룹_5000" data-name="그룹 5000" transform="translate(7748 5746.5) rotate(90)">
+        <line id="선_54" data-name="선 54" y2="132" transform="translate(961 7106)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      </g>
+      <g id="그룹_5001" data-name="그룹 5001" transform="translate(7955 6080) rotate(90)">
+        <circle id="타원_43" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+    </g>
+  </g>
+</svg>

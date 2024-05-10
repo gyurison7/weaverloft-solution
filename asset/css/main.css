@@ -61,7 +61,7 @@
  .technology-sec { } 
 
 /* detail-sec */
-.detail-sec { width: 100%; height: 2620px; background-color: #161E1F; color: #fff; } 
+.detail-sec { position: relative; width: 100%; height: 2620px; background-color: #161E1F; color: #fff; } 
 .detail-sec.on { height: 3067px; } 
 .detail-title-area { font-weight: 700; text-align: center; } 
 .detail-title-area .sub-title { font-size:24px; color: #10E4FF; } 
@@ -69,14 +69,16 @@
 
 /* pricing-sec */
 .pricing-sec .list-area { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 81px; } 
-.pricing-sec .list-area .pricing-list { display: flex; gap: 40px; transition: all 0.5s ease-out; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; } 
-.pricing-sec .list-area .pricing-list .pricing-item { position: relative; width: 373px; height: 380px; padding: 46px 34px 39px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; z-index: 1; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; } 
+.pricing-sec .list-area .pricing-list { display: flex; gap: 40px; transition: all 0.4s ease-out; -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; -ms-transition: all 0.4s ease-out; -o-transition: all 0.4s ease-out; } 
+.pricing-sec .list-area .pricing-list .pricing-item { position: relative; width: 373px; height: 380px; padding: 46px 34px 39px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; z-index: 1; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; transition: height 0.4s; -webkit-transition: height 0.4s; -moz-transition: height 0.4s; -ms-transition: height 0.4s; -o-transition: height 0.4s; will-change: height; } 
 .pricing-sec .list-area .pricing-list .pricing-item::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; background: url("../images/mall-core/rectangle.svg") no-repeat center / cover; z-index: -1; } 
 .pricing-sec .list-area .pricing-list .pricing-item.active::before { background: url("../images/mall-core/rectangle-active.svg") no-repeat center / cover; } 
+.pricing-sec .list-area .pricing-list .pricing-item:hover::before { background-image: url("../images/mall-core/rectangle-active.svg"); } 
 .list-area .pricing-list .pricing-item::after { content: ''; display: block; position: absolute; left: 0; top: 265px; width: 100%; height: 1px; background: rgba(255, 255, 255, 0.05); } 
 .pricing-sec .list-area .pricing-list .pricing-item.on { height: 711px; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on::before { background-image: url("../images/mall-core/rectangle-open.svg"); } 
 .pricing-sec .list-area .pricing-list .pricing-item.active.on::before { background-image: url("../images/mall-core/rectangle-active-open1.svg"), url("../images/mall-core/rectangle-active-open2.svg"); } 
+.pricing-sec .list-area .pricing-list .pricing-item.on:hover::before { background-image: url("../images/mall-core/rectangle-active-open1.svg"), url("../images/mall-core/rectangle-active-open2.svg"); } 
 .pricing-sec .list-area .pricing-list .pricing-item .pricing-title-area h4 { font-size:30px; } 
 .pricing-sec .list-area .pricing-list .pricing-item .pricing-title-area p { padding-top: 20px; font-size: 18px; color: var(--gray-color); } 
 .pricing-sec .list-area .pricing-list .pricing-item .price { padding-top: 39px; font-size: 34px; font-weight: 600; } 
@@ -86,7 +88,9 @@
 .pricing-sec .list-area .pricing-list .pricing-item .custom { padding-top: 14px; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .period { display: flex; flex-direction: column; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .custom { display: none; } 
-.pricing-sec .hide { display: none; } 
+.pricing-sec .list-area .pricing-list .pricing-item .opacity { pointer-events: none; opacity: 0; transition: opacity 0.4s; -webkit-transition: opacity 0.4s; -moz-transition: opacity 0.4s; -ms-transition: opacity 0.4s; -o-transition: opacity 0.4s; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .opacity { opacity: 1; } 
+.pricing-sec .list-area .pricing-list .pricing-item dl { pointer-events: none; } 
 .pricing-sec .list-area .pricing-list .pricing-item dt { font-weight: 400; } 
 .pricing-sec .list-area .pricing-list .pricing-item dd { font-weight: 600; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on dl { display: flex; flex-direction: column; gap: 30px; } 
@@ -100,14 +104,25 @@
 .pricing-sec .btn-area { padding-top: 78px; text-align: center; } 
 .pricing-sec .btn-area .description { font-size: 26px; font-weight: 600; padding-bottom: 38px; } 
 .pricing-sec .btn-area .btn-more, .pricing-sec .btn-area .link-inquire { font-size: 20px; padding: 14px 37.43px; color: #fff; border: 1px solid #fff; border-radius: 37px; } 
+.pricing-sec .hide { display: none; } 
 
 /* diagram-sec */
 .diagram-sec { position: relative; } 
 .diagram-sec::before { content: ''; display: block; position: absolute; right: -26%; bottom: 0; width: 532px; height: 532px; background: url("../images/mall-core/circle-background2.svg") no-repeat center / cover; filter: blur(50px); -webkit-filter: blur(50px); } 
-.diagram-sec .diagram-area { display: flex; justify-content: center; position: relative; z-index: 1; padding-top: 81px; } 
+.diagram-sec .diagram-area { display: flex; justify-content: center; position: relative; z-index: 1; margin-top: 81px; } 
+.diagram-sec .diagram-area .diagram-title, .diagram-sec .diagram-area .diagram-center, .diagram-sec .diagram-area .diagram-bottom, .diagram-sec .diagram-area .bottom-line { left: 50%; transform:translateX(-50%); -webkit-transform:translateX(-50%); -moz-transform:translateX(-50%); -ms-transform:translateX(-50%); -o-transform:translateX(-50%); } 
+.diagram-sec .diagram-area .diagram-title { position: absolute; top: 0; } 
+.diagram-sec .diagram-area .diagram-center { position: absolute; top: 109px; } 
+.diagram-sec .diagram-area .diagram-left { position: absolute; top: 109px; left: 0; } 
+.diagram-sec .diagram-area .left-line { position: absolute; top: 173px; left: 231px; } 
+.diagram-sec .diagram-area .diagram-right { position: absolute; top: 152px; right: 0; } 
+.diagram-sec .diagram-area .right-line { position: absolute; top: 173px; right: 231px; } 
+.diagram-sec .diagram-area .diagram-bottom { position: absolute; top: 730px; } 
+.diagram-sec .diagram-area .bottom-line { position: absolute; top: 622px; } 
 
 /* consulting-sec */
-.consulting-sec .consulting-banner { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 200px; padding: 0 100px 0 120px; background: url("../images/mall-core/banner-bg.png") no-repeat center / cover; } 
+.consulting-sec { position: absolute; bottom: 140px; left: 50%; width: 100%; height: 200px; max-width: 1380px; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); } 
+.consulting-sec .consulting-banner { display: flex; justify-content: space-between; align-items: center; position: absolute; top: 0; width: 100%; height: 100%; padding: 0 100px 0 120px; background: url("../images/mall-core/banner-bg.png") no-repeat center / cover; } 
 .consulting-sec .consulting-banner .title-area { font-weight: 700; } 
 .consulting-sec .consulting-banner .title-area .sub-title { font-size: 16px; color: var(--em-color-11); } 
 .consulting-sec .consulting-banner .title-area .title { padding-top: 13px; font-size: 26px; } 
@@ -119,7 +134,7 @@
 .function-sec .common-title-area { text-align: center; } 
 
 /* bottom-banner */
-.bottom-banner { position: relative; width: 100%; height: 383px; background: url("../images/mall-core/bottom-banner.svg") no-repeat center / cover; } 
+.bottom-banner { position: relative; width: 100%; height: 383px; background: url("../images/mall-core/bottom-banner.svg") no-repeat center / cover; background-attachment: fixed; } 
 .bottom-banner::before { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.5; } 
 .bottom-banner .content-area { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; } 
 .bottom-banner .content-area .title { padding-top: 41px; font-size: 26px; font-weight: 700; color: #fff; } 

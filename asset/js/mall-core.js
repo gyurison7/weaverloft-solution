@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function animate() {
     const randomX = Math.random() * 200 - 200; // -200 ~ 0
-    const randomY = Math.random() * 300 - 100; // -100 ~ 200
+    const randomY = Math.random() * 200 - 50; // -50 ~ 150
 
     gsap.to(rule, {
-      duration: 5,
+      duration: 4,
       cssRule: {
         transform: `translateX(${randomX}%) translateY(${randomY}%)`,
       },
@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  setInterval(animate, 5000);
+  animate();
+  setInterval(animate, 4000);
 });
 
 const lineAnimation = gsap.timeline({
@@ -73,10 +74,10 @@ function countAnimation(selector, value) {
     counter: value,
     scrollTrigger: {
       trigger: ".benefit-sec",
-      start: "0% 85%",
+      start: "0% 80%",
       end: "100% 0%",
       toggleActions: "play none none reverse",
-      // markers: true,
+      // markers:  true,
     },
     onUpdate: () => {
       target.innerHTML = (value > 0 ? "+" : "") + counter.counter.toFixed() + "<sup>%</sup>";
@@ -92,7 +93,7 @@ countAnimation("#speed", 200);
 gsap.from(".benefit-sec .benefit-list li p", {
   scrollTrigger: {
     trigger: ".benefit-sec",
-    start: "0% 85%",
+    start: "0% 80%",
     end: "100% 0%",
     toggleActions: "play none none reverse",
     // markers: true,
@@ -105,7 +106,7 @@ gsap.from(".benefit-sec .benefit-list li p", {
 gsap.from(".pricing-sec .pricing-list", {
   scrollTrigger: {
     trigger: ".pricing-sec",
-    start: "0% 85%",
+    start: "0% 80%",
     end: "100% 0%",
     toggleActions: "play none none reverse",
     // markers: true,
@@ -131,8 +132,33 @@ $(document).ready(function () {
 
 $(document).on("click", ".pricing-sec .btn-more", function () {
   $(this).hide();
-  $(".pricing-sec .hide").show();
+  $(".pricing-sec .hide").delay(400).show();
   $(".pricing-sec .link-inquire").css("display", "inline-block");
   $(".detail-sec").addClass("on");
   $(".pricing-item").addClass("on");
 });
+
+// diagram-sec
+const diagramAnimation = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".diagram-sec",
+    start: "0% 60%",
+    end: "100% 0%",
+    toggleActions: "play none none reverse",
+    // markers: true,
+  },
+  ease: "power2.inOut",
+});
+diagramAnimation.from($(".diagram-title"), { yPercent: 100, opacity: 0 }, "a");
+diagramAnimation.from($(".diagram-center"), { yPercent: 100, opacity: 0 }, "a");
+diagramAnimation.from($(".diagram-left"), { xPercent: -100, opacity: 0 });
+diagramAnimation.from($(".left-line #circle1"), { opacity: 0 });
+diagramAnimation.from($(".left-line #path"), { strokeDashoffset: -81 });
+diagramAnimation.from($(".left-line #circle2"), { opacity: 0 });
+diagramAnimation.from($(".diagram-right"), { xPercent: 100, opacity: 0 });
+diagramAnimation.from($(".right-line #circle1"), { opacity: 0 });
+diagramAnimation.from($(".right-line #path"), { strokeDashoffset: 50 });
+diagramAnimation.from($(".right-line #circle2"), { opacity: 0 });
+diagramAnimation.from($(".diagram-bottom"), { yPercent: 100, opacity: 0 });
+diagramAnimation.from($(".bottom-line #path"), { strokeDashoffset: -100 });
+diagramAnimation.from($(".bottom-line #circle"), { opacity: 0 });
