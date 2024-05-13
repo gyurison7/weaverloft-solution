@@ -25,9 +25,11 @@
  .introduce-sec .inner .description-area .link-area a { border-radius: 37px; border: 1px solid #fff; padding: 0.73em 2em; font-size: clamp(12px, 0.94vw, 18px); -webkit-border-radius: 37px; -moz-border-radius: 37px; -ms-border-radius: 37px; -o-border-radius: 37px; } 
  .introduce-sec .inner .description-area .link-area .link-apply { color: #fff; } 
  .introduce-sec .inner .description-area .link-area .link-inquire { color: #111; background-color: #fff; } 
- 
+ #hover:hover { color: #111; background-color: #fff; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; } 
+ #hover-white:hover { color: #fff; background-color: transparent; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; } 
+
  /* solution-sec */
- .solution-sec { position: relative; --translate-x: 0; --translate-y: 0;} 
+ .solution-sec { position: relative; --translate-x: 0; --translate-y: 0; } 
  .solution-sec::before { content: ''; display: block; position: absolute; right: -10%; top: -70%; background: url("../images/mall-core/circle-background.svg") no-repeat center / cover; width: 600px; height: 600px; z-index: -1; filter: blur(50px); -webkit-filter: blur(50px); transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -webkit-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -moz-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -ms-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -o-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); } 
  .common-title-area { font-weight: 700; } 
  .common-title-area .sub-title { font-size: clamp(16px, 1.25vw, 24px); color: #999; } 
@@ -130,7 +132,11 @@
 .consulting-sec .consulting-banner .title-area .sub-title { font-size: 16px; color: var(--em-color-11); } 
 .consulting-sec .consulting-banner .title-area .title { padding-top: 13px; font-size: 26px; } 
 .consulting-sec .consulting-banner .link-area .link-inquire { display: flex; align-items: center; padding: 15.2px 31.35px; border: 1px solid #fff; border-radius: 50px; font-size: 20px; font-weight: 600; color: #fff; } 
-.consulting-sec .consulting-banner .link-area .link-inquire::after { content: ''; display: block; width: 19.13px; height: 18px; margin-left: 90px; background: url("../images/mall-core/arrow.svg") no-repeat center / cover; } 
+.consulting-sec .consulting-banner .link-area .link-inquire::after { content: ''; display: block; width: 19.13px; height: 18px; margin-left: 90px; background: url("../images/mall-core/arrow.svg") no-repeat center / cover; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; } 
+.consulting-sec .consulting-banner .link-area .link-inquire:hover::after { background-image: url("../images/mall-core/arrow-black.svg"); animation: arrowAnimation 1s ease-in-out; -webkit-animation: arrowAnimation 1s ease-in-out; } 
+@keyframes arrowAnimation { 0%, 100% { transform: translateX(0); } 
+ 50% { transform: translateX(50%); -webkit-transform: translateX(50%); -moz-transform: translateX(50%); -ms-transform: translateX(50%); -o-transform: translateX(50%); } 
+ }
 
 /* function-sec */
 .function-sec .common-title-area { text-align: center; } 
