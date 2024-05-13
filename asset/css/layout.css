@@ -24,6 +24,7 @@
  .footer .footer-top .left-area address h4 { padding-bottom: 20px; font-size: 21px; font-weight: 600; text-transform: uppercase; } 
  .footer .footer-top .left-area address span { line-height: 1.8; } 
  .footer .footer-top .left-area address .contact { display: flex; gap: 34px; } 
+ .footer .footer-top .left-area address .contact a { color: #ccc; } 
  .footer .footer-top .right-area .sns-list { display: flex; align-items: center; gap: 12px; } 
  .footer .footer-bottom { display: flex; justify-content: space-between; } 
  .footer .footer-bottom .left-area { display: flex; gap: 11.7px; align-items: flex-end; padding-top: 72px; } 
