@@ -31,18 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // solution-sec
-  gsap.registerPlugin(CSSRulePlugin);
-  const rule = CSSRulePlugin.getRule(".solution-sec::before");
-
   function animate() {
     const randomX = Math.random() * 200 - 200; // -200 ~ 0
     const randomY = Math.random() * 200 - 50; // -50 ~ 150
 
-    gsap.to(rule, {
+    gsap.to(".solution-sec", {
       duration: 4,
-      cssRule: {
-        transform: `translateX(${randomX}%) translateY(${randomY}%)`,
-      },
+      "--translate-x": `${randomX}%`,
+      "--translate-y": `${randomY}%`,
       ease: "power1.inOut",
       yoyo: true,
       repeat: -1,

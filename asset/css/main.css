@@ -27,8 +27,8 @@
  .introduce-sec .inner .description-area .link-area .link-inquire { color: #111; background-color: #fff; } 
  
  /* solution-sec */
- .solution-sec { position: relative; } 
- .solution-sec::before { content: ''; display: block; position: absolute; right: -10%; top: -70%; background: url("../images/mall-core/circle-background.svg") no-repeat center / cover; width: 600px; height: 600px; z-index: -1; filter: blur(50px); -webkit-filter: blur(50px); } 
+ .solution-sec { position: relative; --translate-x: 0; --translate-y: 0;} 
+ .solution-sec::before { content: ''; display: block; position: absolute; right: -10%; top: -70%; background: url("../images/mall-core/circle-background.svg") no-repeat center / cover; width: 600px; height: 600px; z-index: -1; filter: blur(50px); -webkit-filter: blur(50px); transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -webkit-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -moz-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -ms-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); -o-transform: translateX(var(--translate-x)) translateY(var(--translate-y)); } 
  .common-title-area { font-weight: 700; } 
  .common-title-area .sub-title { font-size: clamp(16px, 1.25vw, 24px); color: #999; } 
  .common-title-area .title { padding-top: 28px; font-size: clamp(20px, 2.1vw, 40px); color: #000; word-break: keep-all; } 
@@ -58,7 +58,6 @@
  .benefit-sec .inner .list-area .benefit-list li p::before { content: ''; display: block; position: absolute; top: -17px; width: var(--width); height: 2px; background: linear-gradient(to right, #13C7DE, #1B8EE2); } 
 
  /* technology-sec */
- .technology-sec { } 
  .technology-sec .common-title-area { text-align: center; } 
  .technology-sec .content-area { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-top: 81px; } 
  .technology-sec .content-area .headless-commerce { grid-row: span 2; } 
@@ -134,7 +133,6 @@
 .consulting-sec .consulting-banner .link-area .link-inquire::after { content: ''; display: block; width: 19.13px; height: 18px; margin-left: 90px; background: url("../images/mall-core/arrow.svg") no-repeat center / cover; } 
 
 /* function-sec */
-.function-sec { } 
 .function-sec .common-title-area { text-align: center; } 
 .function-sec .swiper { padding-top: 81px; } 
 .function-sec .swiper .swiper-slide { width: auto; opacity: 0.7; transform: scale(0.78); -webkit-transform: scale(0.78); -moz-transform: scale(0.78); -ms-transform: scale(0.78); -o-transform: scale(0.78); transform-origin: bottom; } 
@@ -144,8 +142,8 @@
 .function-sec .contorl-area .swiper-pagination .current { color: #333; } 
 .function-sec .contorl-area .swiper-pagination .total { color: #aaa; } 
 .function-sec .contorl-area .btn-area { display: flex; align-items: center; gap: 88px; } 
-.function-sec .contorl-area .btn-area .btn-prev { } 
-.function-sec .contorl-area .btn-area .btn-next { } 
+.function-sec .contorl-area .btn-area .btn-prev, .function-sec .contorl-area .btn-area .btn-next { width: 40px; height: 40px; } 
+
 
 /* bottom-banner */
 .bottom-banner { position: relative; width: 100%; height: 383px; background: url("../images/mall-core/bottom-banner.svg") no-repeat center / cover fixed; } 
