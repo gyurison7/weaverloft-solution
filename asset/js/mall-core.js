@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   // introduce-sec
-  const mainTitleAnimation = gsap.timeline();
-  mainTitleAnimation
-    .to($(".introduce-sec .introduce-title-area"), { xPercent: 20, opacity: 1 }, "a")
-    .to($(".introduce-sec .description-area"), { xPercent: -20, opacity: 1 }, "a");
+  document.fonts.ready.then(function () {
+    const mainTitleAnimation = gsap.timeline();
+    mainTitleAnimation
+      .to($(".introduce-sec .introduce-title-area"), { xPercent: 20, opacity: 1 }, "a")
+      .to($(".introduce-sec .description-area"), { xPercent: -20, opacity: 1 }, "a");
+  });
 
   // titleAnimation 공통
   // 한 글자씩 자르기
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       counter: value,
       scrollTrigger: {
         trigger: ".benefit-sec .list-area",
-        start: "0% 50%",
+        start: "0% 60%",
         end: "100% 0%",
         toggleActions: "play none none reverse",
         // markers:  true,
@@ -87,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.to(".benefit-sec .benefit-list li p", {
     scrollTrigger: {
       trigger: ".benefit-sec .list-area",
-      start: "0% 50%",
+      start: "0% 60%",
       end: "100% 0%",
       toggleActions: "play none none reverse",
       // markers: true,
@@ -97,6 +99,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // technology-sec
+  var $grid = $(".grid").masonry({
+    itemSelector: ".grid-item",
+    columnWidth: 1,
+    gutter: ".gutter-sizer",
+    horizontalOrder: true,
+    percentPosition: true,
+    // fitWidth: true,
+    resize: true,
+  });
+
+  $(window).resize(function () {
+    $grid.masonry("layout");
+  });
+
   const upAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".technology-sec",
@@ -108,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     duration: 0.5,
   });
   upAnimation.from($(".technology-sec .common-title-area"), { y: 100, opacity: 0 });
-  upAnimation.from($(".technology-sec .content-area"), { y: 100, opacity: 0 });
+  upAnimation.from($(".technology-sec .grid"), { y: 100, opacity: 0 });
 
   // pricing-sec
   const upAnimation2 = gsap.timeline({
@@ -223,8 +239,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     autoplay: {
       delay: 3000,
-      disableOnInteraction: false, // 사용자 상호작용 후에도 자동 슬라이드 유지
+      disableOnInteraction: false,
     },
-    // autoplay: false
+    // autoplay: false,
   });
+
+  ScrollTrigger.refresh();
 });

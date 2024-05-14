@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_2369" data-name="사각형 2369" width="100" height="100" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <path id="패스_26093" data-name="패스 26093" d="M31.838,42.047A10.209,10.209,0,1,0,42.047,31.838,10.209,10.209,0,0,0,31.838,42.047" transform="translate(-31.838 -31.838)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <path id="패스_26096" data-name="패스 26096" d="M64.183,25.037A3.834,3.834,0,1,0,68.017,21.2a3.834,3.834,0,0,0-3.834,3.834" transform="translate(-64.183 -21.203)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-7">
+      <path id="패스_26097" data-name="패스 26097" d="M17.665,60.4A2.031,2.031,0,1,0,19.7,58.371,2.031,2.031,0,0,0,17.665,60.4" transform="translate(-17.665 -58.371)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_5615" data-name="그룹 5615" clip-path="url(#clip-path)">
+    <g id="그룹_5606" data-name="그룹 5606">
+      <g id="그룹_5605" data-name="그룹 5605" clip-path="url(#clip-path)">
+        <g id="그룹_5604" data-name="그룹 5604" opacity="0">
+          <g id="그룹_5603" data-name="그룹 5603">
+            <g id="그룹_5602" data-name="그룹 5602" clip-path="url(#clip-path)">
+              <rect id="사각형_2362" data-name="사각형 2362" width="100" height="100" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="그룹_5608" data-name="그룹 5608" transform="translate(39.824 39.824)">
+      <g id="그룹_5607" data-name="그룹 5607" clip-path="url(#clip-path-4)">
+        <image id="사각형_2365" data-name="사각형 2365" width="42" height="42" transform="translate(-10.824 -10.824)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAIqADAAQAAAABAAAAIgAAAAAhsoNuAAAEQ0lEQVRYCaVYO2gVQRTdfZ802srDv4nBIiY2aQQbG4tYKNqIaKOFnYi/RK0SPxEUCxsVsdFOEEEJaCFYCWojsTRqAgkmpaWSjc977p07e2feJ29fFh6zO7lz75lzztxdktTr9aTbX3lyhpZ2v96uLSVdXpXb3+tYqmOXafyyroDY4qU0+bfu7o8/PmOXNynoKXJZEGma1KuldLlaTvDLquV0efFs34Yi+TS2ECMWBBJUSklWKScr5RJ+aYax99HsvCYvMhYCYhMDBBVfYTAEwo4DT+ZmbGwn9x0DsWyU04QASHEwAVYqZQOKZBp+Nve1EwAa05FHLAiYk4pmPeQLAhP4o1qCV3iO/UIAsx6KeX9s2z4t2GpclRELIk2SujIhUoCZnB1mhT1jpCIwIy/n37UCoPNtgVgQWCAScHH4A5LQzxSFeUUySMf+UemOTi1MadFmY1sgdoE/GWlQLHN+4ZMDEIgDQBqdgQV4hXx14u3CC5vT3rf0iGWDi9HOpV+40fmDfUC+IIkCf5Bf2Cduje8ziOuh+If7N522QJoyYkGgaZXtiYh3KlJAIjDhTxNLBunc31kikY59df7DrwdtgQQg2JwBxaw7SyD+yH0gRSBHDgYggqNNuSCbA3jt8+I9BRMwYkEgoN0Odac08g79MwN0viBwoVeMsR3AG1+WbqFW4BELBKbjnhBpTzumHkKeoD7iRvGO7yneQzxPElEc9Rx4LMqlPkIuz4gFwU1LtOWOySeBnnkEtSwDjyJVKqyQD1Qqd3KEAZ3P2XNyC3vZ5cHaDQZiQcCcnmZXUHRXumPd+bmhn2j/cMXlKLvCmh8xBOI6pClZEJgA9eINeaPKM7GBJMKSHdkfXJTX6clxO5ZcAsKudf4YG6pNoCauUna1nzq3XFxUF6zSMRmU32FeWGSLDawAvVQMTutiZGkAhvV3IOwO7TwxxcdPAGtxTk7MiD9ygFI0YtHHXdxdu9kABBN/x/orLEncvFiSoCikiSVxAD2oDC0dcbIRZ2zKBcZgTgsC9/7U4OH3hZ3r5d0hX11OKu6YxBKKUyKmGSPTG81zDMcF7PnYbHRIzIl69gr6iP3DrsezP4NvCwKh/cPOS2/g90zQT9A3tH/ot8uVPbVxW8PeB4zYP3w709tHOwO94vpghyoVjyyBY09OXCSvsmfzx/ctgSBw+tSOAWjqi/C9+CMHSEDZRzn9Lh4yeakuDYbmLAQEwZ9Obh925hRfMDOOJWVLRsMMgfcMctNqMGcMpKVH4kA8H3o1/4b8AS/QT75B1Af83RG/byiWmtZ4s1zxXFtp4uDXh7eOgPZcLuMhsBK88jsHgTqFgGDB84NbjkT+gCTNfJQhvtOrMBAkfnpg83Et7k5Egz9WM2cMsJBH4sV4Hv24eF89o98brZpWs/U61xUjuhjjnb0bzyk71MRWugHB+ew/S9ZyPzm9NLGW9f8Bm0Vasl/YaLcAAAAASUVORK5CYII="/>
+      </g>
+    </g>
+    <g id="그룹_5610" data-name="그룹 5610">
+      <g id="그룹_5609" data-name="그룹 5609" clip-path="url(#clip-path)">
+        <ellipse id="타원_55" data-name="타원 55" cx="18.915" cy="39.069" rx="18.915" ry="39.069" transform="translate(31.118 10.965)" fill="none" stroke="#d5f0f6" stroke-miterlimit="10" stroke-width="1"/>
+        <ellipse id="타원_56" data-name="타원 56" cx="18.915" cy="39.069" rx="18.915" ry="39.069" transform="translate(31.118 10.965)" fill="none" stroke="#8cd9ed" stroke-miterlimit="10" stroke-width="1"/>
+        <path id="패스_26094" data-name="패스 26094" d="M27.014,71.056c-.867-.006-1.719-.048-2.529-.123l.07-.747c.789.073,1.619.113,2.464.119Zm3.785-.173-.071-.747c.8-.076,1.631-.179,2.462-.306l.113.743c-.844.129-1.686.233-2.5.31m-10.07-.6a17.223,17.223,0,0,1-2.417-.829l.3-.689a16.249,16.249,0,0,0,2.31.793Zm16.286-.423-.166-.73c.794-.184,1.6-.384,2.41-.607l.2.723q-1.235.338-2.443.614m6.052-1.717-.241-.712q1.165-.394,2.343-.839l.266.7q-1.191.452-2.368.849M15.04,67.426a10.129,10.129,0,0,1-1.716-1.939l.622-.42a9.319,9.319,0,0,0,1.59,1.794Zm33.885-1.557-.3-.685q1.129-.5,2.265-1.038l.323.677q-1.146.548-2.285,1.047m5.648-2.753-.356-.659q1.088-.587,2.175-1.213l.285.269.188.325-.028.015c-.8.464-1.534.871-2.264,1.263M11.834,61.91a11.631,11.631,0,0,1-.228-2.327l0-.244.751.016,0,.228a10.856,10.856,0,0,0,.213,2.175Zm48.247-2.036-.405-.632q1.058-.679,2.074-1.378l.425.618q-1.024.707-2.094,1.392m5.15-3.6-.455-.6q1-.762,1.951-1.544l.477.582q-.963.786-1.973,1.559M12.9,55.747l-.724-.2a21.379,21.379,0,0,1,.807-2.41l.7.278a20.943,20.943,0,0,0-.779,2.329m57.156-3.509-.505-.554q.929-.854,1.8-1.716l.53.533q-.88.874-1.822,1.737M15.29,50.089l-.654-.369c.4-.714.849-1.438,1.323-2.153l.625.415c-.465.7-.9,1.408-1.295,2.106m59.178-2.335-.562-.5q.835-.949,1.595-1.9l.587.469q-.769.964-1.62,1.93m-55.69-2.777-.587-.469c.51-.639,1.056-1.288,1.621-1.929l.563.5c-.558.632-1.094,1.27-1.6,1.9m59.537-2.215-.625-.413c.467-.705.9-1.415,1.292-2.111l.654.369c-.4.71-.846,1.437-1.321,2.155M22.937,40.368l-.528-.533q.878-.872,1.822-1.736l.507.555q-.931.852-1.8,1.714m58.35-3.185-.7-.276a20.864,20.864,0,0,0,.773-2.329l.725.19a21.963,21.963,0,0,1-.8,2.415m-53.726-.972-.475-.58q.963-.786,1.974-1.559l.455.6q-1,.764-1.954,1.542m4.978-3.733-.425-.618q1.026-.705,2.094-1.391l.407.632q-1.058.679-2.075,1.377m50.1-1.5-.751-.015v-.171a10.988,10.988,0,0,0-.225-2.23l.736-.154a11.771,11.771,0,0,1,.24,2.384ZM37.852,29.131l-.433-.618.093-.05c.679-.394,1.395-.793,2.11-1.178l.358.659q-1.066.576-2.128,1.187m5.456-2.877-.325-.678c.764-.364,1.526-.715,2.285-1.048l.3.685q-1.128.5-2.262,1.041m36.96-.991a9.272,9.272,0,0,0-1.6-1.785l.49-.567a10.024,10.024,0,0,1,1.727,1.929ZM49.025,23.8l-.266-.7q1.19-.452,2.368-.851l.24.712q-1.165.394-2.342.841m5.906-1.938-.2-.723q1.233-.34,2.44-.617l.169.73q-1.193.274-2.412.609m20.653-.278A16.244,16.244,0,0,0,73.27,20.8l.191-.725a16.919,16.919,0,0,1,2.418.822ZM61,20.553l-.115-.743c.853-.13,1.694-.235,2.5-.313l.071.748c-.8.075-1.624.178-2.46.308m8.638-.37c-.8-.071-1.626-.11-2.469-.115l.005-.749c.863.005,1.714.044,2.53.116Z" transform="translate(2.911 4.846)" fill="#8cd6f2"/>
+        <path id="패스_26095" data-name="패스 26095" d="M56.5,28.732C75.191,39.52,86.106,55.6,80.882,64.647s-24.606,7.635-43.293-3.153S7.988,34.624,13.212,25.578,37.818,17.943,56.5,28.732Z" transform="translate(2.986 4.921)" fill="none" stroke="#0386db" stroke-miterlimit="10" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="그룹_5612" data-name="그룹 5612" transform="translate(80.283 26.522)">
+      <g id="그룹_5611" data-name="그룹 5611" clip-path="url(#clip-path-6)">
+        <image id="사각형_2367" data-name="사각형 2367" width="16" height="16" transform="translate(-4.282 -3.521)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAADaADAAQAAAABAAAADQAAAACKAjqUAAABLElEQVQoFWP8//8/AzJgab8DF/hTqcKILAdjM8EY6DQ7C+NPiUn33qCLg/iMyDbBbGFlZvjDw870mY+d8QsvB+NnXnbGz4cj5S1gBsBtgmlgYmT4x8XK+I2bjfEbFxvjVyAG0d9Ctj7ZhKIJpgEkCFMEo0GaYTj70LM5IDWMzG234R4HKvwOcgoPyFnsTHCnAZ34hQ/oXBANkoc7j42F8Rcn0FlA/B1mMjINs7nWUKIarImFieEPFgVw/4A0wORBzmMCxQXMFBgNU4BMcwI1luqIN4E1gYh3hcr83IgQAzsRqOg7KBSBBoHpSj3xBpBaEECJJ5CA38bHO4CeBQYC0ONAT4M8X2coUQWSgwF4QMAENvnLeiA7E10DSB2GJpDgbCfpOJB/QJpBfHQAAIcafc09m4j8AAAAAElFTkSuQmCC"/>
+      </g>
+    </g>
+    <g id="그룹_5614" data-name="그룹 5614" transform="translate(22.096 73.013)">
+      <g id="그룹_5613" data-name="그룹 5613" clip-path="url(#clip-path-7)">
+        <image id="사각형_2368" data-name="사각형 2368" width="8.75" height="10" transform="translate(-2.096 -3.013)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAB6ADAAQAAAABAAAACAAAAABwzmq9AAAAk0lEQVQIHWP8//8/AwiwtN8BM/5UqjCCBYAEE7IEiC0z9d4LEA0CYEkIk4FBmJvpnQg301uPdY/3gsQYmdtug43j42D8LMHH/EKSj+mFBB/TS0kgG6yTg5XxB1DXW5AumG4Qm4mZieEviAGRYAQbC2JX6Ik3MMJc67Ph8S6QkSDjmkwkysDuAEnCcPmJZ/0wNogGANIqQ7jhbNi0AAAAAElFTkSuQmCC"/>
+      </g>
+    </g>
+  </g>
+</svg>
