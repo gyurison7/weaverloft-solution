@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleActions: "play none none reverse",
         // markers: true,
       },
-      stagger: 0.1,
+      stagger: 0.05,
       color: "#15C1D8",
-      duration: 1,
+      duration: 0.5,
       ease: "power2.in",
     });
   });
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   animate();
   setInterval(animate, 4000);
 
-  const lineAnimation = gsap.timeline({
+  gsap.from(".solution-list h3", {
     scrollTrigger: {
       trigger: ".solution-list",
       start: "0% 60%",
@@ -58,8 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleActions: "play none none reverse",
       // markers: true,
     },
+    "--height": 0,
+    stagger: 0.5,
   });
-  lineAnimation.from($(".solution-list h3"), { "--height": 0, stagger: 0.5 });
 
   // benefit-sec
   const counter = { counter: 0 };
@@ -99,20 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // technology-sec
-  var $grid = $(".grid").masonry({
-    itemSelector: ".grid-item",
-    columnWidth: 1,
-    gutter: ".gutter-sizer",
-    horizontalOrder: true,
-    percentPosition: true,
-    // fitWidth: true,
-    resize: true,
-  });
-
-  $(window).resize(function () {
-    $grid.masonry("layout");
-  });
-
   const upAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".technology-sec",
@@ -124,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     duration: 0.5,
   });
   upAnimation.from($(".technology-sec .common-title-area"), { y: 100, opacity: 0 });
-  upAnimation.from($(".technology-sec .grid"), { y: 100, opacity: 0 });
+  upAnimation.from($(".technology-sec .content-area"), { y: 100, opacity: 0 });
 
   // pricing-sec
   const upAnimation2 = gsap.timeline({
@@ -241,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
       delay: 3000,
       disableOnInteraction: false,
     },
-    // autoplay: false,
+    autoplay: false,
   });
 
   ScrollTrigger.refresh();
