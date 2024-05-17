@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="272" height="241" viewBox="0 0 272 241">
+  <g id="그룹_5830" data-name="그룹 5830" transform="translate(-44 -6002)">
+    <g id="그룹_5829" data-name="그룹 5829" transform="translate(-16 13)">
+      <rect id="사각형_2065" data-name="사각형 2065" width="272" height="42" rx="6" transform="translate(60 5989)" fill="#10e4ff"/>
+      <text id="외부_API_커텍터" data-name="외부 API 커텍터" transform="translate(196 6015)" fill="#111" font-size="15" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="-47.91" y="0">외부 API 커텍터</tspan></text>
+    </g>
+    <g id="그룹_5828" data-name="그룹 5828" transform="translate(0 461)">
+      <rect id="사각형_2064" data-name="사각형 2064" width="272" height="178" rx="6" transform="translate(44 5604)" fill="#182e3c"/>
+      <text id="외부_인터페이스" data-name="외부 인터페이스" transform="translate(180 5634)" fill="#fff" font-size="15" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-47.145" y="0">외부 인터페이스</tspan></text>
+      <g id="mo-다이어그램-박스" transform="translate(60 5662)">
+        <rect id="사각형_2072" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="PG" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-8.052" y="0">PG</tspan></text>
+      </g>
+      <g id="mo-다이어그램-박스-2" data-name="mo-다이어그램-박스" transform="translate(60 5698)">
+        <rect id="사각형_2072-2" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="본인인증" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">본인인증</tspan></text>
+      </g>
+      <g id="mo-다이어그램-박스-3" data-name="mo-다이어그램-박스" transform="translate(60 5734)">
+        <rect id="사각형_2072-3" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="CRM" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-13.26" y="0">CRM</tspan></text>
+      </g>
+      <g id="mo-다이어그램-박스-4" data-name="mo-다이어그램-박스" transform="translate(184 5662)">
+        <rect id="사각형_2072-4" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="물류택배" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">물류택배</tspan></text>
+      </g>
+      <g id="mo-다이어그램-박스-5" data-name="mo-다이어그램-박스" transform="translate(184 5698)">
+        <rect id="사각형_2072-5" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="제휴_채널" data-name="제휴 채널" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-22.164" y="0">제휴 채널</tspan></text>
+      </g>
+      <g id="mo-다이어그램-박스-6" data-name="mo-다이어그램-박스" transform="translate(184 5734)">
+        <rect id="사각형_2072-6" data-name="사각형 2072" width="116" height="28" rx="4" fill="#2a4252"/>
+        <text id="챗봇" transform="translate(58 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">챗봇</tspan></text>
+      </g>
+      <line id="선_44" data-name="선 44" x2="240" transform="translate(60 5650)" fill="none" stroke="#2a4252" stroke-width="1"/>
+    </g>
+    <g id="그룹_5005" data-name="그룹 5005" transform="translate(6887.5 5424) rotate(90)">
+      <g id="그룹_5000" data-name="그룹 5000" transform="translate(7748 5746.5) rotate(90)">
+        <line id="선_54" data-name="선 54" y2="24" transform="translate(961 7106)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      </g>
+      <g id="그룹_5001" data-name="그룹 5001" transform="translate(7955 6080) rotate(90)">
+        <circle id="타원_43" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" transform="translate(622 7307)" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(625 7310)" fill="#10e4ff"/>
+      </g>
+    </g>
+  </g>
+</svg>

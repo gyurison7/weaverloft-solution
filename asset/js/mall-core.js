@@ -150,10 +150,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $(document).on("click", ".pricing-sec .btn-more", function () {
     $(this).hide();
-    $(".pricing-sec .hide").delay(400).show();
+    $(".pricing-sec .hide").delay(1000).show();
     $(".pricing-sec .link-inquire").css("display", "inline-block");
-    $(".detail-sec").addClass("on");
     $(".pricing-item").addClass("on");
+  });
+
+  $(document).on("click", ".pricing-sec .mo-btn-more", function () {
+    if ($(this).text() === "더보기") {
+      $(this).text("접기");
+    } else {
+      $(this).text("더보기");
+    }
+    $(this).toggleClass("on");
+    $(this).closest(".pricing-item").toggleClass("on");
+    $(this).closest(".pricing-item").find(".hide").delay(1000).toggle();
   });
 
   // diagram-sec
@@ -228,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
       delay: 3000,
       disableOnInteraction: false,
     },
-    autoplay: false,
+    // autoplay: false,
   });
 
   ScrollTrigger.refresh();

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="272" height="922" viewBox="0 0 272 922">
+  <g id="그룹_5838" data-name="그룹 5838" transform="translate(-44 -6285)">
+    <g id="사각형_2073" data-name="사각형 2073" transform="translate(44 6285)" fill="none" stroke="#3f4b64" stroke-width="1">
+      <rect width="272" height="922" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="271" height="921" rx="5.5" fill="none"/>
+    </g>
+    <g id="그룹_4985" data-name="그룹 4985" transform="translate(-535 -387)">
+      <rect id="사각형_2065" data-name="사각형 2065" width="248" height="42" rx="6" transform="translate(591 6688)" fill="#006476"/>
+      <text id="Frontend_통합_API_커넥터" data-name="Frontend 통합 API 커넥터" transform="translate(715 6715)" fill="#fff" font-size="15" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="-81.6" y="0">Frontend 통합 API 커넥터</tspan></text>
+    </g>
+    <g id="그룹_5834" data-name="그룹 5834" transform="translate(-535 461)">
+      <rect id="사각형_2065-2" data-name="사각형 2065" width="248" height="42" rx="6" transform="translate(591 6688)" fill="#006476"/>
+      <text id="Backend_통합_API_커넥터" data-name="Backend 통합 API 커넥터" transform="translate(715 6715)" fill="#fff" font-size="15" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="-80.22" y="0">Backend 통합 API 커넥터</tspan></text>
+    </g>
+    <g id="그룹_5836" data-name="그룹 5836" transform="translate(0 -28)">
+      <g id="그룹_5831" data-name="그룹 5831" transform="translate(0 18)">
+        <rect id="사각형_2064" data-name="사각형 2064" width="248" height="250" rx="6" transform="translate(56 6379)" fill="#182e3c"/>
+        <text id="통합_백오피스" data-name="통합 백오피스" transform="translate(180 6409)" fill="#fff" font-size="15" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-40.665" y="0">통합 백오피스</tspan></text>
+        <g id="mo-다이어그램-박스" transform="translate(72 6437)">
+          <rect id="사각형_2072" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="기본설정" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">기본설정</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-2" data-name="mo-다이어그램-박스" transform="translate(72 6473)">
+          <rect id="사각형_2072-2" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="주문_배송" data-name="주문/배송" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-22.884" y="0">주문/배송</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-3" data-name="mo-다이어그램-박스" transform="translate(72 6545)">
+          <rect id="사각형_2072-3" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="전시관리" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">전시관리</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-4" data-name="mo-다이어그램-박스" transform="translate(72 6509)">
+          <rect id="사각형_2072-4" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="게시판" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-15.552" y="0">게시판</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-5" data-name="mo-다이어그램-박스" transform="translate(72 6581)">
+          <rect id="사각형_2072-5" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="통계" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">통계</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-6" data-name="mo-다이어그램-박스" transform="translate(184 6437)">
+          <rect id="사각형_2072-6" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="상품관리" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">상품관리</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-7" data-name="mo-다이어그램-박스" transform="translate(184 6473)">
+          <rect id="사각형_2072-7" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="회원관리" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">회원관리</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-8" data-name="mo-다이어그램-박스" transform="translate(184 6545)">
+          <rect id="사각형_2072-8" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="프로모션" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">프로모션</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-9" data-name="mo-다이어그램-박스" transform="translate(184 6509)">
+          <rect id="사각형_2072-9" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="고객지원" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">고객지원</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-10" data-name="mo-다이어그램-박스" transform="translate(184 6581)">
+          <rect id="사각형_2072-10" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="디자인" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-15.552" y="0">디자인</tspan></text>
+        </g>
+        <line id="선_44" data-name="선 44" x2="216" transform="translate(72 6425)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="그룹_5832" data-name="그룹 5832" transform="translate(0 288)">
+        <rect id="사각형_2064-2" data-name="사각형 2064" width="248" height="250" rx="6" transform="translate(56 6379)" fill="#182e3c"/>
+        <text id="서비스_구성" data-name="서비스 구성" transform="translate(180 6409)" fill="#fff" font-size="15" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-34.185" y="0">서비스 구성</tspan></text>
+        <g id="mo-다이어그램-박스-11" data-name="mo-다이어그램-박스" transform="translate(72 6437)">
+          <rect id="사각형_2072-11" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="상품" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">상품</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-12" data-name="mo-다이어그램-박스" transform="translate(72 6473)">
+          <rect id="사각형_2072-12" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="프로모션-2" data-name="프로모션" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-20.736" y="0">프로모션</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-13" data-name="mo-다이어그램-박스" transform="translate(72 6545)">
+          <rect id="사각형_2072-13" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="정산" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">정산</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-14" data-name="mo-다이어그램-박스" transform="translate(72 6509)">
+          <rect id="사각형_2072-14" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="주문" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">주문</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-15" data-name="mo-다이어그램-박스" transform="translate(72 6581)">
+          <rect id="사각형_2072-15" data-name="사각형 2072" width="216" height="28" rx="4" fill="#2a4252"/>
+          <text id="시스템" transform="translate(108 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-15.552" y="0">시스템</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-16" data-name="mo-다이어그램-박스" transform="translate(184 6437)">
+          <rect id="사각형_2072-16" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="고객" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">고객</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-17" data-name="mo-다이어그램-박스" transform="translate(184 6473)">
+          <rect id="사각형_2072-17" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="전시" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">전시</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-18" data-name="mo-다이어그램-박스" transform="translate(184 6545)">
+          <rect id="사각형_2072-18" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="고객서비스" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-25.92" y="0">고객서비스</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-19" data-name="mo-다이어그램-박스" transform="translate(184 6509)">
+          <rect id="사각형_2072-19" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="배송" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-10.368" y="0">배송</tspan></text>
+        </g>
+        <line id="선_44-2" data-name="선 44" x2="216" transform="translate(72 6425)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="그룹_5833" data-name="그룹 5833" transform="translate(0 558)">
+        <rect id="사각형_2064-3" data-name="사각형 2064" width="248" height="214" rx="6" transform="translate(56 6379)" fill="#182e3c"/>
+        <text id="데이터_저장소" data-name="데이터 저장소" transform="translate(180 6409)" fill="#fff" font-size="15" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-40.665" y="0">데이터 저장소</tspan></text>
+        <g id="mo-다이어그램-박스-20" data-name="mo-다이어그램-박스" transform="translate(72 6437)">
+          <rect id="사각형_2072-20" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="상품_DB" data-name="상품 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-19.752" y="0">상품 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-21" data-name="mo-다이어그램-박스" transform="translate(72 6473)">
+          <rect id="사각형_2072-21" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="주문_DB" data-name="주문 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-19.752" y="0">주문 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-22" data-name="mo-다이어그램-박스" transform="translate(72 6545)">
+          <rect id="사각형_2072-22" data-name="사각형 2072" width="216" height="28" rx="4" fill="#2a4252"/>
+          <text id="기준정보_DB" data-name="기준정보 DB" transform="translate(108 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-30.12" y="0">기준정보 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-23" data-name="mo-다이어그램-박스" transform="translate(72 6509)">
+          <rect id="사각형_2072-23" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="배송_DB" data-name="배송 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-19.752" y="0">배송 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-24" data-name="mo-다이어그램-박스" transform="translate(184 6437)">
+          <rect id="사각형_2072-24" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="회원_DB" data-name="회원 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-19.752" y="0">회원 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-25" data-name="mo-다이어그램-박스" transform="translate(184 6473)">
+          <rect id="사각형_2072-25" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="결제_DB" data-name="결제 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-19.752" y="0">결제 DB</tspan></text>
+        </g>
+        <g id="mo-다이어그램-박스-26" data-name="mo-다이어그램-박스" transform="translate(184 6509)">
+          <rect id="사각형_2072-26" data-name="사각형 2072" width="104" height="28" rx="4" fill="#2a4252"/>
+          <text id="매출_정산_DB" data-name="매출/정산 DB" transform="translate(52 18)" fill="#ddd" font-size="12" font-family="Pretendard-SemiBold, Pretendard" font-weight="600"><tspan x="-32.268" y="0">매출/정산 DB</tspan></text>
+        </g>
+        <line id="선_44-3" data-name="선 44" x2="216" transform="translate(72 6425)" fill="none" stroke="#2a4252" stroke-width="1"/>
+      </g>
+      <g id="그룹_4982" data-name="그룹 4982" transform="translate(7077.5 5829.5) rotate(90)">
+        <line id="선_55" data-name="선 55" x2="20" transform="translate(817.5 6888.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+        <line id="선_56" data-name="선 56" x2="20" transform="translate(817.5 6906.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+      </g>
+      <g id="그룹_5835" data-name="그룹 5835" transform="translate(7077.5 6099.5) rotate(90)">
+        <line id="선_55-2" data-name="선 55" x2="20" transform="translate(817.5 6888.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+        <line id="선_56-2" data-name="선 56" x2="20" transform="translate(817.5 6906.5)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="4 4"/>
+      </g>
+    </g>
+    <g id="그룹_5008" data-name="그룹 5008" transform="translate(-780 -715.5)">
+      <line id="선_55-3" data-name="선 55" x2="25.693" transform="translate(960 7058) rotate(90)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <g id="그룹_4990" data-name="그룹 4990" transform="translate(954.5 7078.193)">
+        <circle id="타원_43" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(3 3)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_5006" data-name="그룹 5006" transform="translate(954.5 7052.5)">
+        <circle id="타원_43-2" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-2" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(3 3)" fill="#10e4ff"/>
+      </g>
+    </g>
+    <g id="그룹_5837" data-name="그룹 5837" transform="translate(-780 65.5)">
+      <line id="선_55-4" data-name="선 55" x2="25.693" transform="translate(960 7058) rotate(90)" fill="none" stroke="#10e4ff" stroke-width="1" stroke-dasharray="3 4"/>
+      <g id="그룹_4990-2" data-name="그룹 4990" transform="translate(954.5 7078.193)">
+        <circle id="타원_43-3" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-3" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(3 3)" fill="#10e4ff"/>
+      </g>
+      <g id="그룹_5006-2" data-name="그룹 5006" transform="translate(954.5 7052.5)">
+        <circle id="타원_43-4" data-name="타원 43" cx="5.5" cy="5.5" r="5.5" fill="#10e4ff" opacity="0.2"/>
+        <circle id="타원_44-4" data-name="타원 44" cx="2.5" cy="2.5" r="2.5" transform="translate(3 3)" fill="#10e4ff"/>
+      </g>
+    </g>
+  </g>
+</svg>
