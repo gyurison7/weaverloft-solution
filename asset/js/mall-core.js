@@ -229,16 +229,25 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     pagination: {
       el: ".swiper-pagination",
-      type: "custom",
-      renderCustom: function (_, current, total) {
-        return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
+      clickable: true,
+    },
+    breakpoints: {
+      769: {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "custom",
+          renderCustom: function (_, current, total) {
+            return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
+          },
+        },
       },
     },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
-    // autoplay: false,
+    autoplay: false,
+    grabCursor: true,
   });
 
   ScrollTrigger.refresh();
