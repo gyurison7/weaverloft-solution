@@ -23,18 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // solution-sec
-  function animate() {
-    const randomX = Math.random() * 200 - 200; // -200 ~ 0
-    const randomY = Math.random() * 200 - 50; // -50 ~ 150
+  if (window.innerWidth > 768) {
+    function animate() {
+      const randomX = Math.random() * 200 - 200; // -200 ~ 0
+      const randomY = Math.random() * 200 - 50; // -50 ~ 150
 
-    gsap.to(".solution-sec", {
-      duration: 4,
-      "--translate-x": `${randomX}%`,
-      "--translate-y": `${randomY}%`,
-      ease: "power1.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
+      gsap.to(".solution-sec", {
+        duration: 4,
+        "--translate-x": `${randomX}%`,
+        "--translate-y": `${randomY}%`,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+    }
   }
 
   animate();
@@ -43,27 +45,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const solutionAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".solution-sec",
-      start: "0% 50%",
-      end: "100% 0%",
+      start: "0% 60%",
+      end: "100% 60%",
       toggleActions: "play none none reverse",
       // markers: true,
     },
   });
   solutionAnimation
-    .to($(".solution-sec .title .split span"), {
-      stagger: 0.05,
-      color: "#15C1D8",
-      duration: 0.3,
-      ease: "power2.inOut",
-    })
-    .from($(".solution-sec .solution-list h3"), { "--height": 0, stagger: 0.3 });
+    .to(
+      $(".solution-sec .title .split span"),
+      {
+        stagger: 0.03,
+        color: "#15C1D8",
+        duration: 0.2,
+        ease: "power2.inOut",
+      },
+      "a"
+    )
+    .from($(".solution-sec .solution-list h3"), { "--height": 0, stagger: 0.25 }, "a+=0.2");
 
   // benefit-sec
   const benefitAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".benefit-sec",
       start: "0% 50%",
-      end: "100% 0%",
+      end: "100% 60%",
       toggleActions: "play none none reverse",
       // markers: true,
     },
@@ -76,13 +82,17 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   benefitAnimation
-    .to($(".benefit-sec .title .split span"), {
-      stagger: 0.05,
-      color: "#15C1D8",
-      duration: 0.3,
-      ease: "power2.inOut",
-    })
-    .to($(".benefit-sec .benefit-list li p"), { "--width": "100%", duration: 2 }, "a");
+    .to(
+      $(".benefit-sec .title .split span"),
+      {
+        stagger: 0.03,
+        color: "#15C1D8",
+        duration: 0.2,
+        ease: "power2.inOut",
+      },
+      "a"
+    )
+    .to($(".benefit-sec .benefit-list li p"), { "--width": "100%", duration: 1.1 }, "a+=0.2");
   Object.keys(counters).forEach((key) => {
     benefitAnimation.fromTo(
       counters[key],
@@ -93,76 +103,77 @@ document.addEventListener("DOMContentLoaded", function () {
           const value = this.targets()[0].value.toFixed();
           document.querySelector(counters[key].selector).innerHTML = value + "<sup>%</sup>";
         },
-        duration: 2,
+        duration: 1.1,
       },
-      "a"
+      "a+=0.2"
     );
   });
 
   // technology-sec
-  gsap.to(".technology-sec .title .split span", {
-    scrollTrigger: {
-      trigger: ".technology-sec",
-      start: "0% 60%",
-      end: "100% 0%",
-      toggleActions: "play none none reverse",
-      // markers: true,
-    },
-    stagger: 0.05,
-    color: "#15C1D8",
-    duration: 0.3,
-    ease: "power2.inOut",
-  });
-
-  const upAnimation = gsap.timeline({
+  const technologyAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".technology-sec",
       start: "0% 80%",
-      end: "100% 0%",
+      end: "100% 100%",
       toggleActions: "play none none reverse",
       // markers: true,
     },
     duration: 0.5,
   });
-  upAnimation
-    .from($(".technology-sec .common-title-area"), { y: 100, opacity: 0 })
+  technologyAnimation
+    .from($(".technology-sec .common-title-area"), { y: 100, opacity: 0 }, "a")
+    .to(
+      $(".technology-sec .title .split span"),
+      {
+        stagger: 0.03,
+        color: "#15C1D8",
+        duration: 0.2,
+        ease: "power2.inOut",
+      },
+      "a+=0.1"
+    )
     .from($(".technology-sec .content-area"), { y: 100, opacity: 0 });
 
   // pricing-sec
-  const upAnimation2 = gsap.timeline({
+  const pricingAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".pricing-sec",
       start: "0% 80%",
       end: "100% 0%",
       toggleActions: "play none none reverse",
+      // scrub: true,
       // markers: true,
     },
   });
-  upAnimation2
+  pricingAnimation
     .from($(".pricing-sec .detail-title-area"), { y: 100, opacity: 0 })
     .from($(".pricing-sec .list-area"), { y: 100, opacity: 0 })
     .from($(".pricing-sec .btn-area"), { y: 100, opacity: 0 });
 
-  const items = $(".pricing-sec .pricing-item");
-  const indexArr = [1, 2, 0];
-  let index = 0;
-  let intervel;
+  if (window.innerWidth > 768) {
+    const items = $(".pricing-sec .pricing-item");
+    const indexArr = [1, 2, 0];
+    let index = 0;
+    let intervel;
 
-  function activeItem() {
-    items.removeClass("active");
+    function activeItem() {
+      items.removeClass("active");
+      items.eq(indexArr[index]).addClass("active");
+      index = (index + 1) % indexArr.length;
+    }
     items.eq(indexArr[index]).addClass("active");
-    index = (index + 1) % indexArr.length;
-  }
-  items.eq(indexArr[index]).addClass("active");
 
-  intervel = setInterval(activeItem, 2000);
-
-  items.mouseenter(() => {
-    clearInterval(intervel);
-  });
-  items.mouseleave(() => {
     intervel = setInterval(activeItem, 2000);
-  });
+
+    items.mouseenter(() => {
+      clearInterval(intervel);
+    });
+    items.mouseleave(() => {
+      intervel = setInterval(activeItem, 2000);
+    });
+  } else {
+    $(".pricing-sec .pricing-item").removeClass("active");
+  }
 
   $(document).on("click", ".pricing-sec .btn-more", function () {
     $(this).hide();
@@ -183,33 +194,50 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // diagram-sec
-  const diagramAnimation = gsap.timeline({
+  gsap.from(".diagram-sec .detail-title-area", {
     scrollTrigger: {
       trigger: ".diagram-sec",
-      start: "0% 70%",
-      end: "100% 0%",
+      start: "0% 60%",
+      end: "100% 60%",
       toggleActions: "play none none reverse",
       // markers: true,
     },
+    y: 100,
+    opacity: 0,
+  });
+
+  const diagramAnimation = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".diagram-sec .diagram-area",
+      start: "0% 70%",
+      end: "100% 100%",
+      toggleActions: "play none none reverse",
+      // markers: true,
+      onEnter: () => {
+        diagramAnimation.timeScale(1).play();
+      },
+      onLeaveBack: () => {
+        diagramAnimation.timeScale(2).reverse();
+      },
+    },
     ease: "power2.inOut",
   });
-  diagramAnimation
-    .from($(".diagram-sec .detail-title-area"), { y: 100, opacity: 0 })
-    .from($(".diagram-title"), { y: 100, opacity: 0 }, "a");
-  if (window.innerWidth > 768) {
+
+  diagramAnimation.from($(".diagram-title"), { y: 100, opacity: 0 }, "a");
+  if (window.innerWidth > 860) {
     diagramAnimation
       .from($(".diagram-center"), { y: 100, opacity: 0 }, "a")
       .from($(".diagram-left"), { x: -100, opacity: 0 })
-      .from($(".left-line #circle1"), { opacity: 0 }, "-=0.1")
-      .from($(".left-line #path"), { strokeDashoffset: -81, duration: 0.5 }, "-=0.1")
-      .from($(".left-line #circle2"), { opacity: 0 }, "-=0.1")
+      .from($(".left-line #circle1"), { opacity: 0 }, "-=0.2")
+      .from($(".left-line #path"), { strokeDashoffset: -81, duration: 0.4 }, "-=0.2")
+      .from($(".left-line #circle2"), { opacity: 0 }, "-=0.2")
       .from($(".diagram-right"), { x: 100, opacity: 0 })
-      .from($(".right-line #circle1"), { opacity: 0 }, "-=0.1")
-      .from($(".right-line #path"), { strokeDashoffset: 50, duration: 0.5 }, "-=0.1")
-      .from($(".right-line #circle2"), { opacity: 0 }, "-=0.1")
+      .from($(".right-line #circle1"), { opacity: 0 }, "-=0.2")
+      .from($(".right-line #path"), { strokeDashoffset: 50, duration: 0.4 }, "-=0.2")
+      .from($(".right-line #circle2"), { opacity: 0 }, "-=0.2")
       .from($(".diagram-bottom"), { y: 100, opacity: 0 })
-      .from($(".bottom-line #path"), { strokeDashoffset: -100, duration: 0.5 }, "-=0.1")
-      .from($(".bottom-line #circle"), { opacity: 0 }, "-=0.1");
+      .from($(".bottom-line #path"), { strokeDashoffset: -100, duration: 0.4 }, "-=0.2")
+      .from($(".bottom-line #circle"), { opacity: 0 }, "-=0.2");
   } else {
     diagramAnimation.from($(".mo-diagram"), { y: 100, opacity: 0 }, "a");
   }
@@ -217,8 +245,8 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.from(".consulting-sec", {
     scrollTrigger: {
       trigger: ".consulting-sec",
-      start: "0% 80%",
-      end: "100% 0%",
+      start: "0% 70%",
+      end: "100% 70%",
       toggleActions: "play none none reverse",
       // markers: true,
     },
@@ -242,35 +270,44 @@ document.addEventListener("DOMContentLoaded", function () {
     .from($(".function-sec .common-title-area"), { y: 100, opacity: 0 })
     .from($(".function-sec .swiper"), { y: 100, opacity: 0 });
 
-  const swiper = new Swiper(".swiper", {
-    slidesPerView: "auto",
-    centeredSlides: true,
-    loop: true,
-    navigation: {
-      prevEl: ".btn-prev",
-      nextEl: ".btn-next",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      769: {
-        pagination: {
-          el: ".swiper-pagination",
-          type: "custom",
-          renderCustom: function (_, current, total) {
-            return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
+  let swiper;
+  function initSwiper() {
+    swiper = new Swiper(".swiper", {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      loop: true,
+      navigation: {
+        prevEl: ".btn-prev",
+        nextEl: ".btn-next",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        769: {
+          pagination: {
+            el: ".swiper-pagination",
+            type: "custom",
+            renderCustom: function (_, current, total) {
+              return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
+            },
           },
         },
       },
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    autoplay: false,
-    grabCursor: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      grabCursor: true,
+    });
+  }
+
+  initSwiper();
+
+  window.addEventListener("resize", function () {
+    swiper.destroy(true, true);
+    initSwiper();
   });
 
   ScrollTrigger.refresh();
