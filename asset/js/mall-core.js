@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   // introduce-sec
-  document.fonts.ready.then(function () {
-    const mainTitleAnimation = gsap.timeline();
+  let mainTitleAnimation;
+
+  function init() {
+    if (mainTitleAnimation) {
+      mainTitleAnimation.kill();
+    }
+    mainTitleAnimation = gsap.timeline({ invalidateOnRefresh: true });
 
     if (window.innerWidth > 768) {
       mainTitleAnimation
-        .to($(".introduce-sec .introduce-title-area"), { xPercent: 20, opacity: 1 }, "a")
-        .to($(".introduce-sec .description-area"), { xPercent: -20, opacity: 1 }, "a");
+        .to($(".introduce-sec .introduce-title-area"), { x: 0, opacity: 1 }, "a")
+        .to($(".introduce-sec .description-area"), { x: 0, opacity: 1 }, "a");
     } else {
       mainTitleAnimation
-        .to($(".introduce-sec .introduce-title-area"), { yPercent: -30, opacity: 1 })
-        .to($(".introduce-sec .description-area"), { yPercent: -30, opacity: 1 });
+        .to($(".introduce-sec .introduce-title-area"), { y: 0, opacity: 1 })
+        .to($(".introduce-sec .description-area"), { y: 0, opacity: 1 });
     }
-  });
+  }
+
+  document.fonts.ready.then(init);
+  window.addEventListener("resize", init);
 
   // title 한 글자씩 자르기
   document.querySelectorAll(".title .split").forEach((element) => {
@@ -37,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
         repeat: -1,
       });
     }
-  }
 
-  animate();
-  setInterval(animate, 4000);
+    animate();
+    setInterval(animate, 4000);
+  }
 
   const solutionAnimation = gsap.timeline({
     scrollTrigger: {
@@ -138,11 +146,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const pricingAnimation = gsap.timeline({
     scrollTrigger: {
       trigger: ".pricing-sec",
-      start: "0% 80%",
-      end: "100% 0%",
+      start: "0% 70%",
+      end: "100% 70%",
       toggleActions: "play none none reverse",
-      // scrub: true,
       // markers: true,
+      onEnter: () => {
+        pricingAnimation.timeScale(1).play();
+      },
+      onLeaveBack: () => {
+        pricingAnimation.timeScale(2).reverse();
+      },
     },
   });
   pricingAnimation
@@ -150,30 +163,50 @@ document.addEventListener("DOMContentLoaded", function () {
     .from($(".pricing-sec .list-area"), { y: 100, opacity: 0 })
     .from($(".pricing-sec .btn-area"), { y: 100, opacity: 0 });
 
-  if (window.innerWidth > 768) {
+  function initActiveItem() {
     const items = $(".pricing-sec .pricing-item");
     const indexArr = [1, 2, 0];
     let index = 0;
-    let intervel;
+    let interval;
 
     function activeItem() {
       items.removeClass("active");
       items.eq(indexArr[index]).addClass("active");
       index = (index + 1) % indexArr.length;
     }
-    items.eq(indexArr[index]).addClass("active");
 
-    intervel = setInterval(activeItem, 2000);
+    function startInterval() {
+      interval = setInterval(activeItem, 2000);
+    }
 
-    items.mouseenter(() => {
-      clearInterval(intervel);
-    });
-    items.mouseleave(() => {
-      intervel = setInterval(activeItem, 2000);
-    });
-  } else {
-    $(".pricing-sec .pricing-item").removeClass("active");
+    function stopInterval() {
+      clearInterval(interval);
+    }
+
+    if (window.innerWidth > 768) {
+      items.eq(indexArr[index]).addClass("active");
+      startInterval();
+
+      items.mouseenter(stopInterval);
+      items.mouseleave(startInterval);
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          stopInterval();
+          activeItem();
+          startInterval();
+        } else {
+          stopInterval();
+          items.removeClass("active");
+        }
+      });
+    } else {
+      items.removeClass("active");
+    }
   }
+
+  initActiveItem();
+  window.addEventListener("resize", initActiveItem);
 
   $(document).on("click", ".pricing-sec .btn-more", function () {
     $(this).hide();
@@ -228,16 +261,16 @@ document.addEventListener("DOMContentLoaded", function () {
     diagramAnimation
       .from($(".diagram-center"), { y: 100, opacity: 0 }, "a")
       .from($(".diagram-left"), { x: -100, opacity: 0 })
-      .from($(".left-line #circle1"), { opacity: 0 }, "-=0.2")
-      .from($(".left-line #path"), { strokeDashoffset: -81, duration: 0.4 }, "-=0.2")
-      .from($(".left-line #circle2"), { opacity: 0 }, "-=0.2")
+      .from($(".left-line .circle1"), { opacity: 0 }, "-=0.2")
+      .from($(".left-line .path"), { strokeDashoffset: -81, duration: 0.4 }, "-=0.2")
+      .from($(".left-line .circle2"), { opacity: 0 }, "-=0.2")
       .from($(".diagram-right"), { x: 100, opacity: 0 })
-      .from($(".right-line #circle1"), { opacity: 0 }, "-=0.2")
-      .from($(".right-line #path"), { strokeDashoffset: 50, duration: 0.4 }, "-=0.2")
-      .from($(".right-line #circle2"), { opacity: 0 }, "-=0.2")
+      .from($(".right-line .circle1"), { opacity: 0 }, "-=0.2")
+      .from($(".right-line .path"), { strokeDashoffset: 50, duration: 0.4 }, "-=0.2")
+      .from($(".right-line .circle2"), { opacity: 0 }, "-=0.2")
       .from($(".diagram-bottom"), { y: 100, opacity: 0 })
-      .from($(".bottom-line #path"), { strokeDashoffset: -100, duration: 0.4 }, "-=0.2")
-      .from($(".bottom-line #circle"), { opacity: 0 }, "-=0.2");
+      .from($(".bottom-line .path"), { strokeDashoffset: -100, duration: 0.4 }, "-=0.2")
+      .from($(".bottom-line .circle"), { opacity: 0 }, "-=0.2");
   } else {
     diagramAnimation.from($(".mo-diagram"), { y: 100, opacity: 0 }, "a");
   }
@@ -301,6 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       grabCursor: true,
     });
+    swiper.autoplay.stop();
   }
 
   initSwiper();
@@ -309,6 +343,26 @@ document.addEventListener("DOMContentLoaded", function () {
     swiper.destroy(true, true);
     initSwiper();
   });
+
+  const swiperElement = document.querySelector(".swiper");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          swiper.slideToLoop(0);
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  observer.observe(swiperElement);
 
   ScrollTrigger.refresh();
 });
