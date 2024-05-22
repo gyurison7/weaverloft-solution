@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.432" height="30.605" viewBox="0 0 32.432 30.605">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_447" data-name="사각형 447" width="32.432" height="30.605" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="사각형_446" data-name="사각형 446" width="32.432" height="30.605" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="airplane-white" clip-path="url(#clip-path)">
+    <g id="그룹_183" data-name="그룹 183" clip-path="url(#clip-path-2)">
+      <path id="패스_1" data-name="패스 1" d="M29.878.155,1.1,12.7A1.828,1.828,0,0,0,.991,16l5.835,3.012L24.207,6.919a.243.243,0,0,1,.382.193L10.03,21.012a1.827,1.827,0,0,0-.572,1.324v6.433a1.83,1.83,0,0,0,3.391.954l3.532-5.781,7.472,3.86a1.83,1.83,0,0,0,2.618-1.2L32.38,2.263a1.83,1.83,0,0,0-2.5-2.109" transform="translate(0 0.003)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

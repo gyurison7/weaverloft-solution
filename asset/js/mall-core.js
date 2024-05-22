@@ -1,8 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function debounce(func, sec) {
+    let timeout;
+    return function (...args) {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), sec);
+    };
+  }
+
   // introduce-sec
   let mainTitleAnimation;
 
-  function init() {
+  function initMainAnimation() {
     if (mainTitleAnimation) {
       mainTitleAnimation.kill();
     }
@@ -19,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.fonts.ready.then(init);
-  window.addEventListener("resize", init);
+  document.fonts.ready.then(initMainAnimation);
+  const debouncingInitMainAnimation = debounce(initMainAnimation, 200);
+  window.addEventListener("resize", debouncingInitMainAnimation);
 
   // title 한 글자씩 자르기
   document.querySelectorAll(".title .split").forEach((element) => {
@@ -31,24 +41,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // solution-sec
-  if (window.innerWidth > 768) {
-    function animate() {
-      const randomX = Math.random() * 200 - 200; // -200 ~ 0
-      const randomY = Math.random() * 200 - 50; // -50 ~ 150
-
-      gsap.to(".solution-sec", {
-        duration: 4,
-        "--translate-x": `${randomX}%`,
-        "--translate-y": `${randomY}%`,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
+  let animateInterval;
+  function initCicleAnimate() {
+    if (animateInterval) {
+      clearInterval(animateInterval);
     }
 
-    animate();
-    setInterval(animate, 4000);
+    if (window.innerWidth > 768) {
+      function circleAnimate() {
+        const randomX = Math.random() * 200 - 200; // -200 ~ 0
+        const randomY = Math.random() * 200 - 50; // -50 ~ 150
+
+        gsap.to(".solution-sec", {
+          duration: 4,
+          "--translate-x": `${randomX}%`,
+          "--translate-y": `${randomY}%`,
+          ease: "power1.inOut",
+          yoyo: true,
+          repeat: -1,
+        });
+      }
+
+      circleAnimate();
+      animateInterval = setInterval(circleAnimate, 4000);
+    } else {
+      gsap.killTweensOf(".solution-sec");
+      gsap.set(".solution-sec", { "--translate-x": 0, "--translate-y": 0 });
+    }
   }
+
+  initCicleAnimate();
+  const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
+  window.addEventListener("resize", debouncingInitCircleAnimate);
 
   const solutionAnimation = gsap.timeline({
     scrollTrigger: {
@@ -183,30 +207,34 @@ document.addEventListener("DOMContentLoaded", function () {
       clearInterval(interval);
     }
 
+    function resize() {
+      if (window.innerWidth > 768) {
+        stopInterval();
+        activeItem();
+        startInterval();
+      } else {
+        stopInterval();
+        items.removeClass("active");
+      }
+    }
+
     if (window.innerWidth > 768) {
       items.eq(indexArr[index]).addClass("active");
       startInterval();
 
       items.mouseenter(stopInterval);
       items.mouseleave(startInterval);
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-          stopInterval();
-          activeItem();
-          startInterval();
-        } else {
-          stopInterval();
-          items.removeClass("active");
-        }
-      });
     } else {
       items.removeClass("active");
     }
+
+    const debouncingResize = debounce(resize, 200);
+    window.addEventListener("resize", debouncingResize);
   }
 
   initActiveItem();
-  window.addEventListener("resize", initActiveItem);
+  const debouncingIntitActiveItem = debounce(initActiveItem, 200);
+  window.addEventListener("resize", debouncingIntitActiveItem);
 
   $(document).on("click", ".pricing-sec .btn-more", function () {
     $(this).hide();
@@ -305,6 +333,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let swiper;
   function initSwiper() {
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+
     swiper = new Swiper(".swiper", {
       slidesPerView: "auto",
       centeredSlides: true,
@@ -338,11 +370,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   initSwiper();
-
-  window.addEventListener("resize", function () {
-    swiper.destroy(true, true);
-    initSwiper();
-  });
+  const debouncingInitSwiper = debounce(initSwiper, 200);
+  window.addEventListener("resize", debouncingInitSwiper);
 
   const swiperElement = document.querySelector(".swiper");
 
