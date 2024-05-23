@@ -74,72 +74,217 @@ document.addEventListener("DOMContentLoaded", function () {
   const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
   window.addEventListener("resize", debouncingInitCircleAnimate);
 
-  const solutionAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".solution-sec",
-      start: "0% 60%",
-      end: "100% 60%",
-      toggleActions: "play none none reverse",
-      // markers: true,
-    },
-  });
-  solutionAnimation
-    .to(
-      $(".solution-sec .title .split span"),
-      {
-        stagger: 0.03,
-        color: "#15C1D8",
-        duration: 0.2,
-        ease: "power2.inOut",
+  function initSolutionAnimation() {
+    const titleAnimation = {
+      stagger: 0.03,
+      color: "#15C1D8",
+      duration: 0.2,
+      ease: "power2.inOut",
+    };
+
+    const heightAnimation = (percent) => ({
+      scrollTrigger: {
+        trigger: ".solution-list",
+        start: `0% ${percent}%`,
+        end: `100% ${percent}%`,
+        toggleActions: "play none none reverse",
+        // markers: true,
       },
-      "a"
-    )
-    .from($(".solution-sec .solution-list h3"), { "--height": 0, stagger: 0.25 }, "a+=0.2");
+      "--height": 0,
+    });
+
+    function clearAnimations() {
+      gsap.killTweensOf(".solution-sec .title .split span");
+      gsap.killTweensOf(".solution-list .solution-item1 h3");
+      gsap.killTweensOf(".solution-list .solution-item2 h3");
+      gsap.killTweensOf(".solution-list .solution-item3 h3");
+      document.querySelectorAll(".solution-sec .title .split").forEach((element) => {
+        element.innerHTML = element.textContent
+          .split("")
+          .map((char) => `<span>${char}</span>`)
+          .join("");
+      });
+    }
+
+    function pcAnimation() {
+      const solutionAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".solution-sec",
+          start: "0% 60%",
+          end: "100% 60%",
+          toggleActions: "play none none reverse",
+          // markers: true,
+        },
+      });
+      solutionAnimation
+        .to($(".solution-sec .title .split span"), titleAnimation, "a")
+        .from($(".solution-sec .solution-list h3"), { "--height": 0, stagger: 0.3 }, "a+=0.3");
+    }
+
+    function moAnimation() {
+      gsap.to(".solution-sec .title .split span", {
+        scrollTrigger: {
+          trigger: ".solution-sec",
+          start: "0% 70%",
+          end: "100% 70%",
+          toggleActions: "play none none reverse",
+          // markers: true,
+        },
+        ...titleAnimation,
+      });
+      gsap.from(".solution-list .solution-item1 h3", heightAnimation(70));
+      gsap.from(".solution-list .solution-item2 h3", heightAnimation(50));
+      gsap.from(".solution-list .solution-item3 h3", heightAnimation(30));
+    }
+
+    function resize() {
+      clearAnimations();
+      if (window.innerWidth > 768) {
+        pcAnimation();
+      } else {
+        moAnimation();
+      }
+    }
+
+    resize();
+    const debouncingResize = debounce(resize, 200);
+    window.addEventListener("resize", debouncingResize);
+  }
+
+  initSolutionAnimation();
+  const debouncingInitSolutionAnimation = debounce(initSolutionAnimation, 200);
+  window.addEventListener("resize", debouncingInitSolutionAnimation);
 
   // benefit-sec
-  const benefitAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".benefit-sec",
-      start: "0% 50%",
-      end: "100% 60%",
-      toggleActions: "play none none reverse",
-      // markers: true,
-    },
-  });
+  function initBenefitAnimation() {
+    const titleAnimation = {
+      stagger: 0.03,
+      color: "#15C1D8",
+      duration: 0.2,
+      ease: "power2.inOut",
+    };
 
-  const counters = {
-    buildCost: { selector: "#build-cost", value: 0 },
-    operationCost: { selector: "#operation-cost", value: 0 },
-    speed: { selector: "#speed", value: 0 },
-  };
-
-  benefitAnimation
-    .to(
-      $(".benefit-sec .title .split span"),
-      {
-        stagger: 0.03,
-        color: "#15C1D8",
-        duration: 0.2,
-        ease: "power2.inOut",
+    const lineAnimation = (percent) => ({
+      scrollTrigger: {
+        trigger: ".benefit-list",
+        start: `0% ${percent}%`,
+        end: `100% ${percent}%`,
+        toggleActions: "play none none reverse",
+        // markers: true,
       },
-      "a"
-    )
-    .to($(".benefit-sec .benefit-list li p"), { "--width": "100%", duration: 1.1 }, "a+=0.2");
-  Object.keys(counters).forEach((key) => {
-    benefitAnimation.fromTo(
-      counters[key],
-      { value: 0 },
-      {
-        value: key === "buildCost" ? -50 : key === "operationCost" ? -70 : 200,
-        onUpdate: function () {
-          const value = this.targets()[0].value.toFixed();
-          document.querySelector(counters[key].selector).innerHTML = value + "<sup>%</sup>";
+      "--width": "100%",
+      duration: 1.2,
+    });
+
+    const counters = {
+      buildCost: { selector: "#build-cost", value: 0, percent: 85, endValue: -50 },
+      operationCost: { selector: "#operation-cost", value: 0, percent: 70, endValue: -70 },
+      speed: { selector: "#speed", value: 0, percent: 55, endValue: 200 },
+    };
+
+    const counterAnimation = (element, percent, endValue) => ({
+      scrollTrigger: {
+        trigger: ".benefit-list",
+        start: `0% ${percent}%`,
+        end: `100% ${percent}%`,
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+      value: endValue,
+      onUpdate: function () {
+        const value = this.targets()[0].value.toFixed();
+        document.querySelector(element).innerHTML = value + "<sup>%</sup>";
+      },
+      duration: 1.2,
+    });
+
+    function clearAnimations() {
+      gsap.killTweensOf(".benefit-sec .title .split span");
+      gsap.killTweensOf(".benefit-list .benefit-item1 p");
+      gsap.killTweensOf(".benefit-list .benefit-item2 p");
+      gsap.killTweensOf(".benefit-list .benefit-item3 p");
+      Object.values(counters).forEach((counter) => {
+        gsap.killTweensOf(counter.selector);
+        document.querySelector(counter.selector).innerHTML = "0<sup>%</sup>";
+      });
+      document.querySelectorAll(".benefit-sec .title .split").forEach((element) => {
+        element.innerHTML = element.textContent
+          .split("")
+          .map((char) => `<span>${char}</span>`)
+          .join("");
+      });
+    }
+
+    function pcAnimation() {
+      const benefitAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".benefit-sec",
+          start: "0% 50%",
+          end: "100% 50%",
+          toggleActions: "play none none reverse",
+          // markers: true,
         },
-        duration: 1.1,
-      },
-      "a+=0.2"
-    );
-  });
+      });
+      benefitAnimation
+        .to($(".benefit-sec .title .split span"), titleAnimation, "a")
+        .to($(".benefit-sec .benefit-list li p"), { "--width": "100%", duration: 1.2 }, "a+=0.2");
+      Object.keys(counters).forEach((key) => {
+        benefitAnimation.fromTo(
+          counters[key],
+          { value: 0 },
+          {
+            value: key === "buildCost" ? -50 : key === "operationCost" ? -70 : 200,
+            onUpdate: function () {
+              const value = this.targets()[0].value.toFixed();
+              document.querySelector(counters[key].selector).innerHTML = value + "<sup>%</sup>";
+            },
+            duration: 1.2,
+          },
+          "a+=0.3"
+        );
+      });
+    }
+
+    function moAnimation() {
+      gsap.to(".benefit-sec .title .split span", {
+        scrollTrigger: {
+          trigger: ".benefit-sec",
+          start: "0% 60%",
+          end: "100% 60%",
+          toggleActions: "play none none reverse",
+          // markers: true,
+        },
+        ...titleAnimation,
+      });
+      gsap.to(".benefit-list .benefit-item1 p", lineAnimation(85));
+      gsap.to(".benefit-list .benefit-item2 p", lineAnimation(70));
+      gsap.to(".benefit-list .benefit-item3 p", lineAnimation(55));
+      Object.keys(counters).forEach((key) => {
+        gsap.fromTo(
+          counters[key],
+          { value: 0 },
+          counterAnimation(counters[key].selector, counters[key].percent, counters[key].endValue)
+        );
+      });
+    }
+
+    function resize() {
+      clearAnimations();
+      if (window.innerWidth > 768) {
+        pcAnimation();
+      } else {
+        moAnimation();
+      }
+    }
+
+    resize();
+    const debouncingResize = debounce(resize, 200);
+    window.addEventListener("resize", debouncingResize);
+  }
+
+  initBenefitAnimation();
+  const debouncingInitBenefitAnimation = debounce(initBenefitAnimation, 200);
+  window.addEventListener("resize", debouncingInitBenefitAnimation);
 
   // technology-sec
   const technologyAnimation = gsap.timeline({
@@ -380,7 +525,7 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           swiper.slideToLoop(0);
-          swiper.autoplay.start();
+          // swiper.autoplay.start();
         } else {
           swiper.autoplay.stop();
         }
