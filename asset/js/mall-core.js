@@ -92,21 +92,22 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleActions: "play none none reverse",
         // markers: true,
       },
-      "--height": 0,
+      "--height": "60px",
     });
 
     function clearAnimations() {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       document.querySelectorAll(".solution-sec .title .split span").forEach((span) => {
         gsap.killTweensOf(span);
         span.style.color = ""; // 컬러링 초기화
       });
-      gsap.killTweensOf(".solution-list .solution-item1 h3");
-      gsap.killTweensOf(".solution-list .solution-item2 h3");
-      gsap.killTweensOf(".solution-list .solution-item3 h3");
+      const items = document.querySelectorAll(".solution-list li h3");
+      items.forEach((item) => {
+        gsap.killTweensOf(item);
+        item.style.setProperty("--height", "0");
+      });
     }
 
-    document.querySelectorAll(".title .split").forEach((element) => {
+    document.querySelectorAll(".solution-sec .title .split").forEach((element) => {
       element.innerHTML = element.textContent
         .split("")
         .map((char) => `<span>${char}</span>`)
@@ -134,7 +135,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             solutionAnimation
               .to(".solution-sec .title .split span", titleAnimation, "a")
-              .from(".solution-sec .solution-list h3", { "--height": 0, stagger: 0.3 }, "a+=0.3");
+              .fromTo(
+                ".solution-sec .solution-list h3",
+                { "--height": 0 },
+                { "--height": "78px", stagger: 0.3 },
+                "a+=0.3"
+              );
           } else if (isMobile) {
             gsap.to(".solution-sec .title .split span", {
               scrollTrigger: {
@@ -146,9 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
               },
               ...titleAnimation,
             });
-            gsap.from(".solution-list .solution-item1 h3", heightAnimation(70));
-            gsap.from(".solution-list .solution-item2 h3", heightAnimation(50));
-            gsap.from(".solution-list .solution-item3 h3", heightAnimation(30));
+            gsap.fromTo(".solution-list .solution-item1 h3", { "--height": 0 }, heightAnimation(70));
+            gsap.fromTo(".solution-list .solution-item2 h3", { "--height": 0 }, heightAnimation(50));
+            gsap.fromTo(".solution-list .solution-item3 h3", { "--height": 0 }, heightAnimation(30));
           }
         }
 
@@ -211,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function clearAnimations() {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       document.querySelectorAll(".benefit-sec .title .split span").forEach((span) => {
         gsap.killTweensOf(span);
         span.style.color = ""; // 컬러링 초기화
@@ -433,41 +438,78 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: 0,
   });
 
-  const diagramAnimation = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".diagram-sec .diagram-area",
-      start: "0% 70%",
-      end: "100% 100%",
-      toggleActions: "play none none reverse",
-      // markers: true,
-      onEnter: () => {
-        diagramAnimation.timeScale(1).play();
-      },
-      onLeaveBack: () => {
-        diagramAnimation.timeScale(2).reverse();
-      },
-    },
-    ease: "power2.inOut",
-  });
+  function initDiagramAnimation() {
+    const mm = gsap.matchMedia();
 
-  diagramAnimation.from($(".diagram-title"), { y: 100, opacity: 0 }, "a");
-  if (window.innerWidth > 860) {
-    diagramAnimation
-      .from($(".diagram-center"), { y: 100, opacity: 0 }, "a")
-      .from($(".diagram-left"), { x: -100, opacity: 0 })
-      .from($(".left-line .circle1"), { opacity: 0 }, "-=0.2")
-      .from($(".left-line .path"), { strokeDashoffset: -81, duration: 0.4 }, "-=0.2")
-      .from($(".left-line .circle2"), { opacity: 0 }, "-=0.2")
-      .from($(".diagram-right"), { x: 100, opacity: 0 })
-      .from($(".right-line .circle1"), { opacity: 0 }, "-=0.2")
-      .from($(".right-line .path"), { strokeDashoffset: 50, duration: 0.4 }, "-=0.2")
-      .from($(".right-line .circle2"), { opacity: 0 }, "-=0.2")
-      .from($(".diagram-bottom"), { y: 100, opacity: 0 })
-      .from($(".bottom-line .path"), { strokeDashoffset: -100, duration: 0.4 }, "-=0.2")
-      .from($(".bottom-line .circle"), { opacity: 0 }, "-=0.2");
-  } else {
-    diagramAnimation.from($(".mo-diagram"), { y: 100, opacity: 0 }, "a");
+    const diagramAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".diagram-sec .diagram-area",
+        start: "0% 70%",
+        end: "100% 70%",
+        toggleActions: "play none none reverse",
+        // markers: true,
+        onEnter: () => {
+          diagramAnimation.timeScale(1).play();
+        },
+        onLeaveBack: () => {
+          diagramAnimation.timeScale(2).reverse();
+        },
+      },
+      ease: "power2.inOut",
+    });
+
+    function clearAnimations() {
+      diagramAnimation.kill();
+    }
+
+    mm.add(
+      {
+        isDesktop: "(min-width: 861px)",
+        isMobile: "(max-width: 860px)",
+      },
+      (context) => {
+        const { isDesktop, isMobile } = context.conditions;
+
+        function setupAnimations() {
+          if (isDesktop) {
+            diagramAnimation
+              .fromTo($(".diagram-title"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, "a")
+              .fromTo($(".diagram-center"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, "a")
+              .fromTo($(".diagram-left"), { x: -100, opacity: 0 }, { x: 0, opacity: 1 })
+              .fromTo($(".left-line .circle1"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
+              .fromTo($(".left-line .path"), { strokeDashoffset: -81 }, { strokeDashoffset: 0, duration: 0.4 }, "-=0.2")
+              .fromTo($(".left-line .circle2"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
+              .fromTo($(".diagram-right"), { x: 100, opacity: 0 }, { x: 0, opacity: 1 })
+              .fromTo($(".right-line .circle1"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
+              .fromTo($(".right-line .path"), { strokeDashoffset: 50 }, { strokeDashoffset: 0, duration: 0.4 }, "-=0.2")
+              .fromTo($(".right-line .circle2"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
+              .fromTo($(".diagram-bottom"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
+              .fromTo(
+                $(".bottom-line .path"),
+                { strokeDashoffset: -100 },
+                { strokeDashoffset: 0, duration: 0.4 },
+                "-=0.2"
+              )
+              .fromTo($(".bottom-line .circle"), { opacity: 0 }, { opacity: 1 }, "-=0.2");
+          } else if (isMobile) {
+            diagramAnimation
+              .fromTo($(".diagram-title"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, "a")
+              .fromTo($(".mo-diagram"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, "a");
+          }
+        }
+
+        setupAnimations();
+
+        return () => {
+          clearAnimations();
+        };
+      }
+    );
   }
+
+  initDiagramAnimation();
+  const debouncingInitDiagramAnimation = debounce(initDiagramAnimation, 200);
+  window.addEventListener("resize", debouncingInitDiagramAnimation);
 
   gsap.from(".consulting-sec", {
     scrollTrigger: {
@@ -497,47 +539,29 @@ document.addEventListener("DOMContentLoaded", function () {
     .from($(".function-sec .common-title-area"), { y: 100, opacity: 0 })
     .from($(".function-sec .swiper"), { y: 100, opacity: 0 });
 
-  let swiper;
-  function initSwiper() {
-    if (swiper) {
-      swiper.destroy(true, true);
-    }
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: "auto",
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      prevEl: ".btn-prev",
+      nextEl: ".btn-next",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "custom",
+      renderCustom: function (_, current, total) {
+        return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
+      },
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    grabCursor: true,
+  });
 
-    swiper = new Swiper(".swiper", {
-      slidesPerView: "auto",
-      centeredSlides: true,
-      loop: true,
-      navigation: {
-        prevEl: ".btn-prev",
-        nextEl: ".btn-next",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        769: {
-          pagination: {
-            el: ".swiper-pagination",
-            type: "custom",
-            renderCustom: function (_, current, total) {
-              return "<span class='current'>0" + current + "</span> / <span class='total'>" + "0" + total + "</span>";
-            },
-          },
-        },
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      grabCursor: true,
-    });
-    swiper.autoplay.stop();
-  }
-
-  initSwiper();
-  const debouncingInitSwiper = debounce(initSwiper, 200);
-  window.addEventListener("resize", debouncingInitSwiper);
+  swiper.autoplay.stop();
 
   const swiperElement = document.querySelector(".swiper");
 
@@ -546,7 +570,7 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           swiper.slideToLoop(0);
-          // swiper.autoplay.start();
+          swiper.autoplay.start();
         } else {
           swiper.autoplay.stop();
         }
