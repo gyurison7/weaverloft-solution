@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").one("transitionend", function () {
         $(".mo-gnb").removeClass("on");
         $("body").removeClass("no-scroll");
+        menuOpen = false;
       });
       menuOpen = false;
     }
@@ -392,6 +393,39 @@ document.addEventListener("DOMContentLoaded", function () {
     )
     .from($(".technology-sec .content-area"), { y: 100, opacity: 0 });
 
+  const resizeModalAction = function () {
+    if ($(window).width() <= 768) {
+      $(".technology-list .item").on("click", modalAction);
+    } else {
+      $(".technology-list .item").off("click", modalAction);
+    }
+  };
+
+  const modalAction = function () {
+    const itemId = $(this).attr("id");
+    const modalId = itemId + "-modal";
+    const content = $("#" + modalId).find(".modal-content");
+    content.html($("#" + itemId).html());
+    $("#" + modalId).addClass("on");
+    $(".dim").addClass("on");
+  };
+
+  resizeModalAction();
+  const debouncingResizeModalAction = debounce(resizeModalAction, 200);
+  window.addEventListener("resize", debouncingResizeModalAction);
+
+  $(".item-modal .close").click(function () {
+    $(this).closest(".item-modal").removeClass("on");
+    $(".dim").removeClass("on");
+  });
+
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest(".item-modal, .technology-list .item").length) {
+      $(".item-modal").removeClass("on");
+      $(".dim").removeClass("on");
+    }
+  });
+
   // pricing-sec
   const pricingAnimation = gsap.timeline({
     scrollTrigger: {
@@ -637,6 +671,49 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(swiperElement);
+
+  const targetY = document.documentElement.scrollHeight * 0.1;
+
+  window.addEventListener("scroll", function () {
+    const currentY = document.documentElement.scrollTop;
+
+    if (currentY > targetY) {
+      $(".quick-btn").addClass("on");
+      $(".top-btn").addClass("on");
+    } else {
+      $(".quick-btn").removeClass("on");
+      $(".top-btn").removeClass("on");
+    }
+  });
+
+  const footer = document.querySelector(".footer");
+
+  const scrollObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          $(".quick-btn").addClass("bottom");
+          $(".top-btn").addClass("bottom");
+        } else {
+          $(".quick-btn").removeClass("bottom");
+          $(".top-btn").removeClass("bottom");
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    }
+  );
+
+  scrollObserver.observe(footer);
+
+  $(".top-btn a").click(function (e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "600");
+    return false;
+  });
 
   ScrollTrigger.refresh();
 });
