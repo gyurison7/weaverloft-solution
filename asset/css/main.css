@@ -338,7 +338,7 @@
  .technology-sec .common-title-area .title .mo-only { display: block; } 
  .technology-sec .content-area { padding-top: 61px; } 
  .technology-sec .content-area .technology-list { display: grid; grid-template-columns: repeat(2, 1fr); width: 80%; gap: 16px; } 
- .technology-sec .content-area .technology-list .item { height: auto; min-height: 148px; margin-top: 0; padding: 0; background: linear-gradient(135deg, #F2FAFF, #FFFFFF, #FFFFFF); cursor: pointer;} 
+ .technology-sec .content-area .technology-list .item { height: auto; min-height: 148px; margin-top: 0; padding: 0; background: linear-gradient(135deg, #F2FAFF, #FFFFFF, #FFFFFF); cursor: pointer; } 
  .technology-sec .content-area .technology-list .item::before { bottom: 10px; right: 10px; width: 64px; height: 64px; } 
  .technology-sec .content-area .technology-list .item h4 { padding: 24px 18px 0; font-size: 18px; word-break: keep-all; } 
  .technology-sec .content-area .technology-list .item h4 .mo-only { display: block; } 

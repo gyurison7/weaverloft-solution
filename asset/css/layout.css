@@ -125,7 +125,7 @@
  .mo-gnb .mo-gnb-bottom .brochure { position: relative; } 
  .mo-gnb .mo-gnb-bottom .brochure::before { display: block; position: absolute; top: 0.21em; left: -1.07em; width: 1px; height: 0.858em; background: #707070; content: ''; } 
  .mo-gnb .mo-gnb-bottom .brochure a { display: flex; align-items: center; gap: 8px; } 
- .mo-gnb .mo-gnb-bottom .brochure a::after { display: block; width: 12.87px; height: 10.2px; background-image: url("../images/common/download.svg"); content: ''; } 
+ .mo-gnb .mo-gnb-bottom .brochure a::after { display: block; width: 0.92em; height: 0.73em; background-image: url("../images/common/download.svg"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; } 
 
  .footer { padding: 35px 24px 40px; } 
  .footer .footer-top { flex-direction: column; padding-bottom: 30px; gap: 24px; } 
