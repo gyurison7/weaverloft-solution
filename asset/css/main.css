@@ -96,8 +96,8 @@
 .pricing-sec .list-area .pricing-list { display: flex; justify-content: center; width: 100%; gap: 2.109vw; } 
 .pricing-sec .list-area .pricing-list .pricing-item { position: relative; z-index: 1; max-width: 373px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; flex: 1; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; transition: all 1s; -webkit-transition: all 1s; -moz-transition: all 1s; -ms-transition: all 1s; -o-transition: all 1s; will-change: height; } 
 .pricing-sec .list-area .pricing-list .pricing-item:before { display: block; position: absolute; z-index: -1; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(16, 163, 255, 0.25), rgba(16, 219, 255, 0)); border-radius: 10px; content: ''; } 
-.pricing-sec .list-area .pricing-list .pricing-item.active::before { background: linear-gradient(135deg, rgba(16, 163, 255, 0.65), rgba(16, 219, 255, 0)); } 
 .pricing-sec .list-area .pricing-list .pricing-item.on::before { background: linear-gradient(135deg, rgba(16, 163, 255, 0.1), rgba(255, 255, 255, 0)); } 
+.pricing-sec .list-area .pricing-list .pricing-item.active::before { background: linear-gradient(135deg, rgba(16, 163, 255, 0.65), rgba(16, 219, 255, 0)); } 
 .pricing-sec .list-area .pricing-list .pricing-item.on.active::before { background: linear-gradient(135deg, rgba(16, 163, 255, 0.45), rgba(16, 219, 255, 0)); } 
 .pricing-sec .list-area .pricing-list .pricing-item .content { width: 100%; height: 100%; padding: 12.386% 9.156% 10.501%; } 
 .pricing-sec .list-area .pricing-list .pricing-item .pricing-title-area h4 { font-size: 30px; } 
@@ -105,23 +105,23 @@
 .pricing-sec .list-area .pricing-list .pricing-item.active .pricing-title-area p { color: #D7D8D9; } 
 .pricing-sec .list-area .pricing-list .pricing-item .price { padding-top: 1.147em; font-size: 34px; font-weight: 600; } 
 .pricing-sec .list-area .pricing-list .pricing-item .price span { color: var(--gray-color); font-size: 18px; } 
-.pricing-sec .list-area .pricing-list .pricing-item .period, .pricing-sec .list-area .pricing-list .pricing-item .custom { display: flex; justify-content: space-between; font-size: 18px; color: #A3AFB7; } 
-.pricing-sec .list-area .pricing-list .pricing-item .period { padding-top: 2.056em; } 
-.pricing-sec .list-area .pricing-list .pricing-item .custom { padding-top: 0.778em; } 
+.pricing-sec .list-area .pricing-list .pricing-item .basic-content { display: flex; flex-direction: column; position: relative; padding-top: 2.056em; font-size: 18px; color: #A3AFB7; gap: 0.778em; } 
+.pricing-sec .list-area .pricing-list .pricing-item .basic-content::before { display: block; position: absolute; top: 1.25em; left: 50%; width: 122.4%; height: 1px; background: rgba(255, 255, 255, 0.05); content: ''; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); } 
+.pricing-sec .list-area .pricing-list .pricing-item .period, .pricing-sec .list-area .pricing-list .pricing-item .custom { display: flex; justify-content: space-between; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .period { display: flex; flex-direction: column; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .custom { display: none; } 
+.pricing-sec .list-area .pricing-list .pricing-item dd { font-weight: 600; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on dt { font-size: 15px; color: var(--gray-color); } 
+.pricing-sec .list-area .pricing-list .pricing-item.on dd { padding-top: 0.56em; color: #ccc; } 
+.pricing-sec .list-area .pricing-list .pricing-item .more-content { pointer-events: none; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .more-content { display: flex; flex-direction: column; padding-top: 1.67em; font-size: 18px; color: #ccc; gap: 1.67em; } 
 .pricing-sec .list-area .pricing-list .pricing-item .opacity { pointer-events: none; opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s; -moz-transition: opacity 1s; -ms-transition: opacity 1s; -o-transition: opacity 1s; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .opacity { opacity: 1; } 
-.pricing-sec .list-area .pricing-list .pricing-item dl { position: relative; pointer-events: none; } 
-.pricing-sec .list-area .pricing-list .pricing-item dl::before { display: block; position: absolute; top: 1.25em; left: 50%; width: 122.4%; height: 1px; background: rgba(255, 255, 255, 0.05); content: ''; transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -ms-transform: translateX(-50%); -o-transform: translateX(-50%); } 
-.pricing-sec .list-area .pricing-list .pricing-item dd { font-weight: 600; } 
-.pricing-sec .list-area .pricing-list .pricing-item.on dl { display: flex; flex-direction: column; gap: 30px; } 
-.pricing-sec .list-area .pricing-list .pricing-item.on dt { font-size: 15px; color: var(--gray-color); } 
-.pricing-sec .list-area .pricing-list .pricing-item.on dd, .list-area .pricing-list .pricing-item.on .provide p { font-size: 18px; color: #ccc; } 
-.pricing-sec .list-area .pricing-list .pricing-item.on dd { padding-top: 10px; } 
-.pricing-sec .list-area .pricing-list .pricing-item.on .provide p { padding-bottom: 16px; } 
-.pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li { position: relative; padding-left: 30px; font-size: 18px; font-weight: 400; color: #ccc; line-height: 1.7; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .provide p { padding-bottom: 0.89em; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li { display: flex; align-items: center; position: relative; padding-left: 30px; font-weight: 400; line-height: 1.7; } 
 .pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li::before { display: block; position: absolute; width: 24px; height: 24px; margin-left: -30px; background: url("../images/mall-core/check.svg"); content: ''; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .service dd { display: flex; align-items: center; position: relative; padding-left: 30px; } 
+.pricing-sec .list-area .pricing-list .pricing-item.on .service dd::before { display: block; position: absolute; width: 24px; height: 24px; margin-left: -30px; background: url("../images/mall-core/check.svg"); content: ''; } 
 .pricing-sec .list-area .description { padding-top: 30px; font-size: 14px; color: var(--gray-color); } 
 .pricing-sec .btn-area { padding-top: 78px; text-align: center; } 
 .pricing-sec .btn-area .description { font-size: 26px; font-weight: 600; padding-bottom: 38px; } 
@@ -247,9 +247,8 @@
  .pricing-sec .list-area .pricing-list .pricing-item .pricing-title-area h4 { font-size:clamp(26px, 2.727vw, 30px); } 
  .pricing-sec .list-area .pricing-list .pricing-item .pricing-title-area p { font-size: clamp(15px, 1.636vw, 18px); } 
  .pricing-sec .list-area .pricing-list .pricing-item .price { font-size: clamp(30px, 3.091vw, 34px); } 
- .pricing-sec .list-area .pricing-list .pricing-item .price span, .pricing-sec .list-area .pricing-list .pricing-item .period, .pricing-sec .list-area .pricing-list .pricing-item .custom { font-size: clamp(16px, 1.636vw, 18px); } 
+ .pricing-sec .list-area .pricing-list .pricing-item .price span, .pricing-sec .list-area .pricing-list .pricing-item .basic-content, .pricing-sec .list-area .pricing-list .pricing-item.on .more-content { font-size: clamp(16px, 1.636vw, 18px); } 
  .pricing-sec .list-area .pricing-list .pricing-item.on dt { font-size: clamp(14px, 1.364vw, 15px); } 
- .pricing-sec .list-area .pricing-list .pricing-item.on dd, .list-area .pricing-list .pricing-item.on .provide p, .pricing-sec .list-area .pricing-list .pricing-item.on .provide ul li { font-size: clamp(16px, 1.636vw, 18px); } 
  .pricing-sec .btn-area .description { font-size: clamp(20px, 2.364vw, 26px); } 
  .pricing-sec .btn-area .btn-more, .pricing-sec .btn-area .link-inquire { font-size: clamp(16px, 1.818vw, 20px); } 
  .diagram-sec .diagram-area .diagram-title { font-size: clamp(15px, 1.636vw, 18px); } 

@@ -33,36 +33,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // gnb
-    $(".mo-menu").click(function () {
+    $(".menu-btn").click(function () {
         if (!$(".mo-gnb").hasClass("on")) {
             if ($(".header").hasClass("white")) {
                 $(".header").removeClass("white");
             }
-            $(".mo-menu").addClass("on");
+            $(".menu-btn").addClass("on");
             $(".mo-gnb").addClass("on");
             $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").addClass("on");
             $(".mo-gnb .mo-gnb-bottom").addClass("on");
-            $("body").addClass("no-scroll");
+            $("html, body").addClass("no-scroll");
             menuOpen = true;
         } else {
-            $(".mo-menu").removeClass("on");
-            if ($(".sub-gnb").is(":visible")) {
-                $(".sub-gnb").slideUp();
-            }
-            $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").removeClass("on");
-            $(".mo-gnb .mo-gnb-bottom").removeClass("on");
-            $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").one("transitionend", function () {
-                $(".mo-gnb").removeClass("on");
-                $("body").removeClass("no-scroll");
-                menuOpen = false;
-            });
-            menuOpen = false;
+            closeMenu();
         }
     });
 
-    $(".gnb-solution span").click(function () {
-        $(".sub-gnb").slideToggle();
+    const closeMenu = function () {
+        $(".menu-btn").removeClass("on");
+        if ($(".sub-gnb").is(":visible")) {
+            $(".sub-gnb").slideUp();
+        }
+        $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").removeClass("on");
+        $(".mo-gnb .mo-gnb-bottom").removeClass("on");
+        $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").one("transitionend", function () {
+            $(".mo-gnb").removeClass("on");
+            $("html, body").removeClass("no-scroll");
+            menuOpen = false;
+        });
+        menuOpen = false;
+    };
+
+    $(document).on("keydown", function (e) {
+        if (menuOpen && e.key === "Escape") {
+            closeMenu();
+        }
     });
+
+    $(".gnb-solution span")
+        .click(function () {
+            $(".sub-gnb").slideToggle();
+        })
+        .keydown(function (e) {
+            if (e.keyCode === 13 || e.keyCode === 32) {
+                e.preventDefault();
+                $(this).click();
+            }
+        });
 
     // introduce-sec
     let mainTitleAnimation;
@@ -191,12 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                         solutionAnimation
                             .to(".solution-sec .title .split span", titleAnimation, "a")
-                            .fromTo(
-                                ".solution-sec .solution-list h3",
-                                { "--height": 0 },
-                                { "--height": "78px", stagger: 0.3 },
-                                "a+=0.3"
-                            );
+                            .fromTo(".solution-sec .solution-list h3", { "--height": 0 }, { "--height": "78px", stagger: 0.3 }, "a+=0.3");
                     } else if (isMobile) {
                         gsap.to(".solution-sec .title .split span", {
                             scrollTrigger: {
@@ -324,8 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     value: counters[key].endValue,
                                     onUpdate: function () {
                                         const value = this.targets()[0].value.toFixed();
-                                        document.querySelector(counters[key].selector).innerHTML =
-                                            value + "<sup>%</sup>";
+                                        document.querySelector(counters[key].selector).innerHTML = value + "<sup>%</sup>";
                                     },
                                     duration: 1.2,
                                 },
@@ -396,36 +407,107 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const resizeModalAction = function () {
         if ($(window).width() <= 768) {
-            $(".technology-list .item").on("click", modalAction);
+            $(".technology-list .item").on("click keydown", modalAction);
         } else {
-            $(".technology-list .item").off("click", modalAction);
+            $(".technology-list .item").off("click keydown", modalAction);
         }
     };
 
-    const modalAction = function () {
-        const itemId = $(this).attr("id");
-        const modalId = itemId + "-modal";
-        const content = $("#" + modalId).find(".modal-content");
-        content.html($("#" + itemId).html());
-        $("#" + modalId).addClass("on");
-        $(".dim").addClass("on");
+    let focusItem;
+
+    const modalAction = function (e) {
+        if (e.type === "click" || e.keyCode === 13 || e.keyCode === 32) {
+            e.preventDefault();
+
+            focusItem = document.activeElement; // 마지막으로 focus를 받은 element 저장
+
+            const itemId = $(this).attr("id");
+            const modalId = itemId + "-modal";
+            const content = $("#" + modalId).find(".modal-content");
+            content.html($("#" + itemId).html());
+            $("#" + modalId).addClass("on");
+            $(".dim").addClass("on");
+            $("html, body").addClass("no-scroll");
+
+            setTimeout(() => {
+                $("#" + modalId)
+                    .attr("tabindex", "-1")
+                    .focus();
+            }, 100);
+
+            trapFocus($("#" + modalId));
+
+            $(document).on("keydown.closeModal", function (e) {
+                if (e.key === "Escape") {
+                    closeModal();
+                }
+            });
+        }
     };
+
+    const trapFocus = function (modal) {
+        const focusElements = modal.find("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+        const firstFocusElements = focusElements.first();
+        const lastFocusElements = focusElements.last();
+
+        modal.on("keydown.focusTrap", function (e) {
+            if (!e.key === "Tab" || !e.keyCode === 9) {
+                return;
+            }
+
+            if (e.shiftKey) {
+                // shift + tab
+                if ($(document.activeElement).is(firstFocusElements)) {
+                    e.preventDefault();
+                    lastFocusElements.focus();
+                }
+            } else {
+                // tab
+                if ($(document.activeElement).is(lastFocusElements)) {
+                    e.preventDefault();
+                    firstFocusElements.focus();
+                }
+            }
+        });
+
+        $(document).on("focusin.focusTrap", function (e) {
+            if (modal[0] !== e.target && !modal.has(e.target.length)) {
+                // focus가 모달 내부에서만 이동하도록
+                firstFocusElements.focus();
+            }
+        });
+    };
+
+    const closeModal = function () {
+        $(".item-modal.on").removeClass("on");
+        $(".dim").removeClass("on");
+        $("html, body").removeClass("no-scroll");
+        $(document).off("keydown.closeModal");
+        $(document).off("focusin.focusTrap"); // focusTrap 이벤트 제거
+
+        if (focusItem) $(focusItem).focus(); // 마지막으로 focus를 받은 element로 다시 초점 이동
+    };
+
+    $(".item-modal .close")
+        .click(function () {
+            closeModal();
+        })
+        .keydown(function (e) {
+            if (e.keyCode === 13 || e.keyCode === 32) {
+                e.preventDefault();
+                $(this).click();
+            }
+        });
+
+    $(document).on("click", function (e) {
+        if ($(".item-modal").hasClass("on") && !$(e.target).closest(".item-modal, .technology-list .item").length) {
+            closeModal();
+        }
+    });
 
     resizeModalAction();
     const debouncingResizeModalAction = debounce(resizeModalAction, 200);
     window.addEventListener("resize", debouncingResizeModalAction);
-
-    $(".item-modal .close").click(function () {
-        $(this).closest(".item-modal").removeClass("on");
-        $(".dim").removeClass("on");
-    });
-
-    $(document).on("click", function (e) {
-        if (!$(e.target).closest(".item-modal, .technology-list .item").length) {
-            $(".item-modal").removeClass("on");
-            $(".dim").removeClass("on");
-        }
-    });
 
     // pricing-sec
     const pricingAnimation = gsap.timeline({
@@ -567,29 +649,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             .fromTo($(".diagram-center"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, "a")
                             .fromTo($(".diagram-left"), { x: -100, opacity: 0 }, { x: 0, opacity: 1 })
                             .fromTo($(".left-line .circle1"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
-                            .fromTo(
-                                $(".left-line .path"),
-                                { strokeDashoffset: -81 },
-                                { strokeDashoffset: 0, duration: 0.4 },
-                                "-=0.2"
-                            )
+                            .fromTo($(".left-line .path"), { strokeDashoffset: -81 }, { strokeDashoffset: 0, duration: 0.4 }, "-=0.2")
                             .fromTo($(".left-line .circle2"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
                             .fromTo($(".diagram-right"), { x: 100, opacity: 0 }, { x: 0, opacity: 1 })
                             .fromTo($(".right-line .circle1"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
-                            .fromTo(
-                                $(".right-line .path"),
-                                { strokeDashoffset: 50 },
-                                { strokeDashoffset: 0, duration: 0.4 },
-                                "-=0.2"
-                            )
+                            .fromTo($(".right-line .path"), { strokeDashoffset: 50 }, { strokeDashoffset: 0, duration: 0.4 }, "-=0.2")
                             .fromTo($(".right-line .circle2"), { opacity: 0 }, { opacity: 1 }, "-=0.2")
                             .fromTo($(".diagram-bottom"), { y: 100, opacity: 0 }, { y: 0, opacity: 1 })
-                            .fromTo(
-                                $(".bottom-line .path"),
-                                { strokeDashoffset: -100 },
-                                { strokeDashoffset: 0, duration: 0.4 },
-                                "-=0.2"
-                            )
+                            .fromTo($(".bottom-line .path"), { strokeDashoffset: -100 }, { strokeDashoffset: 0, duration: 0.4 }, "-=0.2")
                             .fromTo($(".bottom-line .circle"), { opacity: 0 }, { opacity: 1 }, "-=0.2");
                     } else if (isMobile) {
                         diagramAnimation
@@ -635,9 +702,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         duration: 0.5,
     });
-    upAnimation3
-        .from($(".function-sec .common-title-area"), { y: 100, opacity: 0 })
-        .from($(".function-sec .swiper"), { y: 100, opacity: 0 });
+    upAnimation3.from($(".function-sec .common-title-area"), { y: 100, opacity: 0 }).from($(".function-sec .swiper"), { y: 100, opacity: 0 });
 
     const swiper = new Swiper(".swiper", {
         slidesPerView: "auto",
