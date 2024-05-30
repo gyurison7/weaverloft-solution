@@ -196,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const { isDesktop, isMobile } = context.conditions;
 
                 function setupAnimations() {
+                    clearAnimations();
                     if (isDesktop) {
                         const solutionAnimation = gsap.timeline({
                             scrollTrigger: {
@@ -230,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return () => {
                     clearAnimations();
+                    gsap.matchMediaRefresh();
                 };
             }
         );
@@ -315,6 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const { isDesktop, isMobile } = context.conditions;
 
                 function setupAnimations() {
+                    clearAnimations();
                     if (isDesktop) {
                         const benefitAnimation = gsap.timeline({
                             scrollTrigger: {
@@ -371,6 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return () => {
                     clearAnimations();
+                    gsap.matchMediaRefresh();
                 };
             }
         );
@@ -579,22 +583,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingIntitActiveItem = debounce(initActiveItem, 200);
     window.addEventListener("resize", debouncingIntitActiveItem);
 
-    $(document).on("click", ".pricing-sec .btn-more", function () {
+    $(document).on("click", ".btn-more", function () {
         $(this).hide();
         $(".pricing-sec .hide").delay(1000).show();
         $(".pricing-sec .link-inquire").css("display", "inline-block");
         $(".pricing-item").addClass("on");
     });
 
-    $(document).on("click", ".pricing-sec .mo-btn-more", function () {
-        if ($(this).text() === "더보기") {
-            $(this).text("접기");
-        } else {
-            $(this).text("더보기");
-        }
+    $(document).on("click", ".mo-btn-more, .mo-btn-close", function () {
+        const pricingItem = $(this).closest(".pricing-item");
+        const isMoreBtn = $(this).hasClass("mo-btn-more");
+
         $(this).toggleClass("on");
-        $(this).closest(".pricing-item").toggleClass("on");
-        $(this).closest(".pricing-item").find(".hide").delay(1000).toggle();
+        pricingItem.toggleClass("on");
+
+        if (isMoreBtn) {
+            pricingItem.find(".mo-btn-close").toggleClass("on");
+        } else {
+            pricingItem.find(".mo-btn-more").toggleClass("on");
+        }
+
+        pricingItem.find(".hide").delay(1000).toggle();
     });
 
     // diagram-sec

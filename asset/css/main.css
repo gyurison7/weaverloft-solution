@@ -265,15 +265,19 @@
  .pricing-sec .list-area { padding-top: 61px; } 
  .pricing-sec .list-area .pricing-list { flex-direction: column; align-items: center; gap: 30px; } 
  .pricing-sec .list-area .pricing-list .pricing-item { width: 312px; } 
+ .pricing-sec .list-area .pricing-list .pricing-item.on::before { background: linear-gradient(135deg, rgba(16, 163, 255, 0.25), rgba(16, 219, 255, 0)); } 
  .pricing-sec .list-area .pricing-list .pricing-item .content { padding: 41px 30px 16px; } 
- .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-more { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 28px; font-size: 16px; color: #A3AFB7; gap: 2px; } 
+ .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-more, .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-close { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 28px; font-size: 16px; color: #A3AFB7; gap: 2px; } 
+ .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-more.on { display: none; } 
  .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-more::after { display: block; width: 23px; height: 23px; background-image: url("../images/mall-core/arrow-down.svg"); content: ''; } 
- .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-more.on::after { background-image: url("../images/mall-core/arrow-up.svg"); } 
+ .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-close { display: none; } 
+ .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-close.on { display: flex; } 
+ .pricing-sec .list-area .pricing-list .pricing-item .mo-btn-close::after { display: block; width: 23px; height: 23px; background-image: url("../images/mall-core/arrow-up.svg"); content: ''; } 
  .pricing-sec .btn-area.pc-only { display: none; } 
  .diagram-sec .detail-title-area .title .mo-only { display: block; } 
  .diagram-sec .detail-title-area .title .pc-only { display: none; } 
  .diagram-sec .diagram-area { display: flex; flex-direction: column; align-items: center; margin-top: 61px; gap: 40px; } 
- .diagram-sec .diagram-area .diagram-title { display: flex; justify-content: center; align-items: center; width: 272px; min-width: 0; height: 64px; padding: 14px 22px; font-size: 15px; line-height: 1.2; } 
+ .diagram-sec .diagram-area .diagram-title { display: flex; justify-content: center; align-items: center; width: 272px; min-width: 0; height: 64px; padding: 14px 22px; font-size: 15px; font-weight: 700; line-height: 1.2; } 
  .diagram-sec .diagram-area .mo-only { display: block; } 
  .diagram-sec .diagram-area .pc-diagram { display: none; } 
  .diagram-sec .diagram-area .mo-diagram { display: flex; flex-direction: column; gap: 40px; } 
