@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 gsap.killTweensOf(span);
                 span.style.color = ""; // 컬러링 초기화
             });
-            const items = document.querySelectorAll(".solution-list li h3");
+            const items = document.querySelectorAll(".solution-list li h4");
             items.forEach((item) => {
                 gsap.killTweensOf(item);
                 item.style.setProperty("--height", "0");
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                         solutionAnimation
                             .to(".solution-sec .title .split span", titleAnimation, "a")
-                            .fromTo(".solution-sec .solution-list h3", { "--height": 0 }, { "--height": "78px", stagger: 0.3 }, "a+=0.3");
+                            .fromTo(".solution-sec .solution-list h4", { "--height": 0 }, { "--height": "78px", stagger: 0.3 }, "a+=0.3");
                     } else if (isMobile) {
                         gsap.to(".solution-sec .title .split span", {
                             scrollTrigger: {
@@ -221,9 +221,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             },
                             ...titleAnimation,
                         });
-                        gsap.fromTo(".solution-list .solution-item1 h3", { "--height": 0 }, heightAnimation(70));
-                        gsap.fromTo(".solution-list .solution-item2 h3", { "--height": 0 }, heightAnimation(50));
-                        gsap.fromTo(".solution-list .solution-item3 h3", { "--height": 0 }, heightAnimation(30));
+                        gsap.fromTo(".solution-list .solution-item1 h4", { "--height": 0 }, heightAnimation(70));
+                        gsap.fromTo(".solution-list .solution-item2 h4", { "--height": 0 }, heightAnimation(50));
+                        gsap.fromTo(".solution-list .solution-item3 h4", { "--height": 0 }, heightAnimation(30));
                     }
                 }
 
@@ -231,7 +231,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return () => {
                     clearAnimations();
-                    gsap.matchMediaRefresh();
                 };
             }
         );
@@ -374,7 +373,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return () => {
                     clearAnimations();
-                    gsap.matchMediaRefresh();
                 };
             }
         );
@@ -425,11 +423,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             focusItem = document.activeElement; // 마지막으로 focus를 받은 element 저장
 
-            const itemId = $(this).attr("id");
-            const modalId = itemId + "-modal";
-            const content = $("#" + modalId).find(".modal-content");
-            content.html($("#" + itemId).html());
-            $("#" + modalId).addClass("on");
+            document.querySelectorAll(".technology-list .item").forEach((item) => {
+                const itemId = item.id;
+                const content = $("#" + itemId + "-modal").find(".modal-content");
+                content.html($("#" + itemId).html());
+            });
+
+            const clickItemId = $(this).attr("id");
+            const modalId = clickItemId + "-modal";
+
+            $(".item-modal").addClass("on");
             $(".dim").addClass("on");
             $("html, body").addClass("no-scroll");
 
@@ -492,7 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (focusItem) $(focusItem).focus(); // 마지막으로 focus를 받은 element로 다시 초점 이동
     };
 
-    $(".item-modal .close")
+    $(".item-modal .btn-close")
         .click(function () {
             closeModal();
         })
@@ -503,15 +506,31 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    $(document).on("click", function (e) {
-        if ($(".item-modal").hasClass("on") && !$(e.target).closest(".item-modal, .technology-list .item").length) {
-            closeModal();
-        }
-    });
+    // $(document).on("click", function (e) {
+    //     if ($(".item-modal").hasClass("on") && !$(e.target).closest(".item-modal, .technology-list .item").length) {
+    //         closeModal();
+    //     }
+    // });
 
     resizeModalAction();
     const debouncingResizeModalAction = debounce(resizeModalAction, 200);
     window.addEventListener("resize", debouncingResizeModalAction);
+
+    const modalSwiper = new Swiper(".modal-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 34,
+        loop: true,
+        navigation: {
+            prevEl: ".btn-prev",
+            nextEl: ".btn-next",
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        grabCursor: true,
+        autoplay: false,
+    });
 
     // pricing-sec
     const pricingAnimation = gsap.timeline({
@@ -555,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function resize() {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 860) {
                 stopInterval();
                 activeItem();
                 startInterval();
@@ -565,7 +584,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 860) {
             items.eq(indexArr[index]).addClass("active");
             startInterval();
 
@@ -713,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     upAnimation3.from($(".function-sec .common-title-area"), { y: 100, opacity: 0 }).from($(".function-sec .swiper"), { y: 100, opacity: 0 });
 
-    const swiper = new Swiper(".swiper", {
+    const swiper = new Swiper(".function-swiper", {
         slidesPerView: "auto",
         centeredSlides: true,
         loop: true,
@@ -737,7 +756,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     swiper.autoplay.stop();
 
-    const swiperElement = document.querySelector(".swiper");
+    const swiperElement = document.querySelector(".function-swiper");
 
     const observer = new IntersectionObserver(
         (entries) => {
