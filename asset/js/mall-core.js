@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const heightAnimation = (trigger, delay = 0) => ({
         scrollTrigger: {
             trigger: trigger,
-            start: "0% 75%",
+            start: "0% 80%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
@@ -276,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     let focusItem;
+    let modalSwiper;
 
     const modalAction = function (e) {
         if (e.type === "click" || e.keyCode === 13 || e.keyCode === 32) {
@@ -283,22 +284,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
             focusItem = document.activeElement; // 마지막으로 focus를 받은 element 저장
 
-            document.querySelectorAll(".technology-list .item").forEach((item) => {
-                const itemId = item.id;
-                const content = $("#" + itemId + "-modal").find(".modal-content");
-                content.html($("#" + itemId).html());
-            });
+            const itemId = $(this).attr("id");
+            const modalId = itemId + "-modal";
+            const content = $("#" + modalId).find(".modal-content");
+            content.html($("#" + itemId).html());
 
-            const clickItemId = $(this).attr("id");
-            const modalId = clickItemId + "-modal";
-
-            $(".item-modal").addClass("on");
+            $(".modal-swiper").addClass("on");
+            $("#" + modalId).addClass("on");
             $(".dim").addClass("on");
             $("html, body").addClass("no-scroll");
 
+            const index = $(this).index(); // 클릭한 아이템의 index
+            initSwiper(index);
+            if ($("#" + modalId).is(":visible")) updateAllModals();
+
             setTimeout(() => {
                 $("#" + modalId)
-                    .attr("tabindex", "-1")
+                    .find("button")
                     .focus();
             }, 100);
 
@@ -346,11 +348,17 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const closeModal = function () {
-        $(".item-modal.on").removeClass("on");
+        $(".item-modal").removeClass("on");
+        $(".modal-swiper").removeClass("on");
         $(".dim").removeClass("on");
         $("html, body").removeClass("no-scroll");
         $(document).off("keydown.closeModal");
         $(document).off("focusin.focusTrap"); // focusTrap 이벤트 제거
+
+        if (modalSwiper) {
+            modalSwiper.destroy(true, true);
+            modalSwiper = null;
+        }
 
         if (focusItem) $(focusItem).focus(); // 마지막으로 focus를 받은 element로 다시 초점 이동
     };
@@ -366,49 +374,41 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    // $(document).on("click", function (e) {
-    //     if ($(".item-modal").hasClass("on") && !$(e.target).closest(".item-modal, .technology-list .item").length) {
-    //         closeModal();
-    //     }
-    // });
-
     resizeModalAction();
     const debouncingResizeModalAction = debounce(resizeModalAction, 200);
     window.addEventListener("resize", debouncingResizeModalAction);
 
-    const modalSwiper = new Swiper(".modal-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 34,
-        loop: true,
-        navigation: {
-            prevEl: ".btn-prev",
-            nextEl: ".btn-next",
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        grabCursor: true,
-        autoplay: false,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: true,
-        },
-    });
+    const updateAllModals = function () {
+        document.querySelectorAll(".technology-list .item").forEach((item) => {
+            const itemId = item.id;
+            const content = $("#" + itemId + "-modal").find(".modal-content");
+            content.html($("#" + itemId).html());
+        });
 
-    $(".btn-prev").keydown(function (e) {
-        if (e.keyCode === 13 || e.keyCode === 32) {
-            e.preventDefault();
-            $(this).click();
-        }
-    });
+        $(".item-modal").addClass("on");
+    };
 
-    $(".btn-next").keydown(function (e) {
-        if (e.keyCode === 13 || e.keyCode === 32) {
-            e.preventDefault();
-            $(this).click();
+    const initSwiper = function (index) {
+        if (modalSwiper) {
+            modalSwiper.destroy(true, true);
         }
-    });
+
+        modalSwiper = new Swiper(".modal-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 34,
+            loop: true,
+            initialSlide: index,
+            navigation: {
+                prevEl: ".btn-prev",
+                nextEl: ".btn-next",
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            grabCursor: true,
+        });
+    };
 
     // pricing-sec
     const pricingAnimation = gsap.timeline({
