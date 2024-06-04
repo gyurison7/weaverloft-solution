@@ -147,240 +147,100 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
     window.addEventListener("resize", debouncingInitCircleAnimate);
 
-    function initSolutionAnimation() {
-        const mm = gsap.matchMedia();
+    gsap.to(".solution-sec .title .split span", {
+        scrollTrigger: {
+            trigger: ".solution-sec .title",
+            start: "0% 60%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        stagger: 0.03,
+        color: "#15C1D8",
+        duration: 0.2,
+        ease: "power2.inOut",
+    });
 
-        const titleAnimation = {
-            stagger: 0.03,
-            color: "#15C1D8",
-            duration: 0.2,
-            ease: "power2.inOut",
-        };
+    const heightAnimation = (trigger, delay = 0) => ({
+        scrollTrigger: {
+            trigger: trigger,
+            start: "0% 75%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        "--height": "calc(100% + 17px)",
+        delay: delay,
+    });
 
-        const heightAnimation = (percent) => ({
-            scrollTrigger: {
-                trigger: ".solution-list",
-                start: `0% ${percent}%`,
-                end: `100% ${percent}%`,
-                toggleActions: "play none none reverse",
-                // markers: true,
-            },
-            "--height": "60px",
-        });
+    const sItem1 = document.querySelector(".solution-list .solution-item1");
+    const sItem2 = document.querySelector(".solution-list .solution-item2");
+    const sItem3 = document.querySelector(".solution-list .solution-item3");
 
-        function clearAnimations() {
-            document.querySelectorAll(".solution-sec .title .split span").forEach((span) => {
-                gsap.killTweensOf(span);
-                span.style.color = ""; // 컬러링 초기화
-            });
-            const items = document.querySelectorAll(".solution-list li h4");
-            items.forEach((item) => {
-                gsap.killTweensOf(item);
-                item.style.setProperty("--height", "0");
-            });
-        }
-
-        document.querySelectorAll(".solution-sec .title .split").forEach((element) => {
-            element.innerHTML = element.textContent
-                .split("")
-                .map((char) => `<span>${char}</span>`)
-                .join("");
-        });
-
-        mm.add(
-            {
-                isDesktop: "(min-width: 769px)",
-                isMobile: "(max-width: 768px)",
-            },
-            (context) => {
-                const { isDesktop, isMobile } = context.conditions;
-
-                function setupAnimations() {
-                    clearAnimations();
-                    if (isDesktop) {
-                        const solutionAnimation = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: ".solution-sec",
-                                start: "0% 60%",
-                                end: "100% 60%",
-                                toggleActions: "play none none reverse",
-                                // markers: true,
-                            },
-                        });
-                        solutionAnimation
-                            .to(".solution-sec .title .split span", titleAnimation, "a")
-                            .fromTo(".solution-sec .solution-list h4", { "--height": 0 }, { "--height": "78px", stagger: 0.3 }, "a+=0.3");
-                    } else if (isMobile) {
-                        gsap.to(".solution-sec .title .split span", {
-                            scrollTrigger: {
-                                trigger: ".solution-sec",
-                                start: "0% 70%",
-                                end: "100% 70%",
-                                toggleActions: "play none none reverse",
-                                // markers: true,
-                            },
-                            ...titleAnimation,
-                        });
-                        gsap.fromTo(".solution-list .solution-item1 h4", { "--height": 0 }, heightAnimation(70));
-                        gsap.fromTo(".solution-list .solution-item2 h4", { "--height": 0 }, heightAnimation(50));
-                        gsap.fromTo(".solution-list .solution-item3 h4", { "--height": 0 }, heightAnimation(30));
-                    }
-                }
-
-                setupAnimations();
-
-                return () => {
-                    clearAnimations();
-                };
-            }
-        );
-    }
-
-    initSolutionAnimation();
-    const debouncingInitSolutionAnimation = debounce(initSolutionAnimation, 200);
-    window.addEventListener("resize", debouncingInitSolutionAnimation);
+    gsap.to(sItem1.querySelector("h4"), heightAnimation(sItem1, 0));
+    gsap.to(sItem2.querySelector("h4"), heightAnimation(sItem2, 0.3));
+    gsap.to(sItem3.querySelector("h4"), heightAnimation(sItem3, 0.6));
 
     // benefit-sec
-    function initBenefitAnimation() {
-        const mm = gsap.matchMedia();
+    gsap.to(".benefit-sec .title .split span", {
+        scrollTrigger: {
+            trigger: ".benefit-sec .title",
+            start: "0% 60%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        stagger: 0.03,
+        color: "#15C1D8",
+        duration: 0.2,
+        ease: "power2.inOut",
+    });
 
-        const titleAnimation = {
-            stagger: 0.03,
-            color: "#15C1D8",
-            duration: 0.2,
-            ease: "power2.inOut",
-        };
+    const lineAnimation = (trigger) => ({
+        scrollTrigger: {
+            trigger: trigger,
+            start: "0% 80%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        "--width": "100%",
+        duration: 1.2,
+    });
 
-        const lineAnimation = (percent) => ({
-            scrollTrigger: {
-                trigger: ".benefit-list",
-                start: `0% ${percent}%`,
-                end: `100% ${percent}%`,
-                toggleActions: "play none none reverse",
-                // markers: true,
-            },
-            "--width": "100%",
-            duration: 1.2,
-        });
+    const bItem1 = document.querySelector(".benefit-list .benefit-item1");
+    const bItem2 = document.querySelector(".benefit-list .benefit-item2");
+    const bItem3 = document.querySelector(".benefit-list .benefit-item3");
 
-        const counters = {
-            buildCost: { selector: "#build-cost", value: 0, percent: 85, endValue: -50 },
-            operationCost: { selector: "#operation-cost", value: 0, percent: 70, endValue: -70 },
-            speed: { selector: "#speed", value: 0, percent: 55, endValue: 200 },
-        };
+    gsap.to(bItem1.querySelector("p"), lineAnimation(bItem1));
+    gsap.to(bItem2.querySelector("p"), lineAnimation(bItem2));
+    gsap.to(bItem3.querySelector("p"), lineAnimation(bItem3));
 
-        const counterAnimation = (element, percent, endValue) => ({
-            scrollTrigger: {
-                trigger: ".benefit-list",
-                start: `0% ${percent}%`,
-                end: `100% ${percent}%`,
-                toggleActions: "play none none reverse",
-                // markers: true,
-            },
-            value: endValue,
-            onUpdate: function () {
-                const value = this.targets()[0].value.toFixed();
-                document.querySelector(element).innerHTML = value + "<sup>%</sup>";
-            },
-            duration: 1.2,
-        });
+    const counters = {
+        build: { selector: "#build-cost", trigger: bItem1, value: 0, endValue: -50 },
+        operation: { selector: "#operation-cost", trigger: bItem2, value: 0, endValue: -70 },
+        speed: { selector: "#speed", trigger: bItem3, value: 0, endValue: 200 },
+    };
 
-        function clearAnimations() {
-            document.querySelectorAll(".benefit-sec .title .split span").forEach((span) => {
-                gsap.killTweensOf(span);
-                span.style.color = ""; // 컬러링 초기화
-            });
-            document.querySelectorAll(".benefit-list li p").forEach((item) => {
-                gsap.killTweensOf(item);
-                item.style.setProperty("--width", "0");
-            });
-            Object.values(counters).forEach((counter) => {
-                gsap.killTweensOf(counter.selector);
-                document.querySelector(counter.selector).innerHTML = "0<sup>%</sup>"; // 초기화된 값 설정
-            });
-        }
+    const counterAnimation = (selector, trigger, endValue) => ({
+        scrollTrigger: {
+            trigger: trigger,
+            start: "0% 80%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        value: endValue,
+        onUpdate: function () {
+            const value = this.targets()[0].value.toFixed();
+            document.querySelector(selector).innerHTML = value + "<sup>%</sup>";
+        },
+        duration: 1.2,
+    });
 
-        document.querySelectorAll(".benefit-sec .title .split").forEach((element) => {
-            element.innerHTML = element.textContent
-                .split("")
-                .map((char) => `<span>${char}</span>`)
-                .join("");
-        });
-
-        mm.add(
-            {
-                isDesktop: "(min-width: 769px)",
-                isMobile: "(max-width: 768px)",
-            },
-            (context) => {
-                const { isDesktop, isMobile } = context.conditions;
-
-                function setupAnimations() {
-                    clearAnimations();
-                    if (isDesktop) {
-                        const benefitAnimation = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: ".benefit-sec",
-                                start: "0% 50%",
-                                end: "100% 50%",
-                                toggleActions: "play none none reverse",
-                                // markers: true,
-                            },
-                        });
-                        benefitAnimation
-                            .to(".benefit-sec .title .split span", titleAnimation, "a")
-                            .to(".benefit-sec .benefit-list li p", { "--width": "100%", duration: 1.2 }, "a+=0.2");
-                        Object.keys(counters).forEach((key) => {
-                            benefitAnimation.fromTo(
-                                counters[key],
-                                { value: 0 },
-                                {
-                                    value: counters[key].endValue,
-                                    onUpdate: function () {
-                                        const value = this.targets()[0].value.toFixed();
-                                        document.querySelector(counters[key].selector).innerHTML = value + "<sup>%</sup>";
-                                    },
-                                    duration: 1.2,
-                                },
-                                "a+=0.3"
-                            );
-                        });
-                    } else if (isMobile) {
-                        gsap.to(".benefit-sec .title .split span", {
-                            scrollTrigger: {
-                                trigger: ".benefit-sec",
-                                start: "0% 60%",
-                                end: "100% 60%",
-                                toggleActions: "play none none reverse",
-                                // markers: true,
-                            },
-                            ...titleAnimation,
-                        });
-                        gsap.to(".benefit-list .benefit-item1 p", lineAnimation(85));
-                        gsap.to(".benefit-list .benefit-item2 p", lineAnimation(70));
-                        gsap.to(".benefit-list .benefit-item3 p", lineAnimation(55));
-                        Object.keys(counters).forEach((key) => {
-                            gsap.fromTo(
-                                counters[key],
-                                { value: 0 },
-                                counterAnimation(counters[key].selector, counters[key].percent, counters[key].endValue)
-                            );
-                        });
-                    }
-                }
-
-                setupAnimations();
-
-                return () => {
-                    clearAnimations();
-                };
-            }
-        );
-    }
-
-    initBenefitAnimation();
-    const debouncingInitBenefitAnimation = debounce(initBenefitAnimation, 200);
-    window.addEventListener("resize", debouncingInitBenefitAnimation);
+    Object.keys(counters).forEach((key) => {
+        gsap.to(counters[key], counterAnimation(counters[key].selector, counters[key].trigger, counters[key].endValue));
+    });
 
     // technology-sec
     const technologyAnimation = gsap.timeline({
@@ -458,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const lastFocusElements = focusElements.last();
 
         modal.on("keydown.focusTrap", function (e) {
-            if (!e.key === "Tab" || !e.keyCode === 9) {
+            if (e.key !== "Tab" || e.keyCode !== 9) {
                 return;
             }
 
@@ -530,6 +390,24 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         grabCursor: true,
         autoplay: false,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+    });
+
+    $(".btn-prev").keydown(function (e) {
+        if (e.keyCode === 13 || e.keyCode === 32) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+
+    $(".btn-next").keydown(function (e) {
+        if (e.keyCode === 13 || e.keyCode === 32) {
+            e.preventDefault();
+            $(this).click();
+        }
     });
 
     // pricing-sec
