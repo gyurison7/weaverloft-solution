@@ -10,26 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // header
     let menuOpen = false;
+    let modalOpen = false;
     let lastScroll = 0;
 
-    ScrollTrigger.create({
-        onUpdate: (self) => {
-            if (menuOpen) return;
+    $(window).on("scroll", function () {
+        if (menuOpen || modalOpen) return;
 
-            let currentScroll = self.scroll();
-            if (currentScroll > lastScroll) {
-                // scroll down
-                $(".header").addClass("hide");
-            } else {
-                // scroll up
-                $(".header").removeClass("hide");
-                $(".header").addClass("white");
-            }
-            lastScroll = currentScroll;
-            if (currentScroll === 0) {
-                $(".header").removeClass("white");
-            }
-        },
+        let currentScroll = $(this).scrollTop();
+        if (currentScroll > lastScroll) {
+            // scroll down
+            $(".header").addClass("hide");
+        } else {
+            // scroll up
+            $(".header").removeClass("hide");
+            $(".header").addClass("white");
+        }
+        lastScroll = currentScroll;
+        if (currentScroll === 0) {
+            $(".header").removeClass("hide");
+            $(".header").removeClass("white");
+        }
     });
 
     // gnb
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".mo-gnb").addClass("on");
             $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").addClass("on");
             $(".mo-gnb .mo-gnb-bottom").addClass("on");
-            $("html, body").addClass("no-scroll");
+            $("body").addClass("no-scroll");
             menuOpen = true;
         } else {
             closeMenu();
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(".mo-gnb .mo-gnb-bottom").removeClass("on");
         $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").one("transitionend", function () {
             $(".mo-gnb").removeClass("on");
-            $("html, body").removeClass("no-scroll");
+            $("body").removeClass("no-scroll");
             menuOpen = false;
         });
         menuOpen = false;
@@ -292,11 +292,11 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".modal-swiper").addClass("on");
             $("#" + modalId).addClass("on");
             $(".dim").addClass("on");
-            $("html, body").addClass("no-scroll");
+            modalOpen = true;
+            disableScroll();
 
             const index = $(this).index(); // 클릭한 아이템의 index
             initSwiper(index);
-            if ($("#" + modalId).is(":visible")) updateAllModals();
 
             setTimeout(() => {
                 $("#" + modalId)
@@ -313,6 +313,72 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     };
+
+    const updateAllModals = function () {
+        document.querySelectorAll(".technology-list .item").forEach((item) => {
+            const itemId = item.id;
+            const content = $("#" + itemId + "-modal").find(".modal-content");
+            content.html($("#" + itemId).html());
+        });
+
+        $(".item-modal").addClass("on");
+    };
+
+    const initSwiper = function (index) {
+        if (modalSwiper) {
+            modalSwiper.destroy(true, true);
+        }
+
+        modalSwiper = new Swiper(".modal-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 34,
+            loop: true,
+            initialSlide: index,
+            navigation: {
+                prevEl: ".btn-prev",
+                nextEl: ".btn-next",
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            grabCursor: true,
+            on: {
+                init: function () {
+                    updateAllModals();
+                },
+            },
+        });
+    };
+
+    function disableScroll() {
+        const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+        const body = document.body;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}`;
+        body.style.width = "100%";
+        ScrollTrigger.getAll().forEach((st) => st.kill(false)); // 애니메이션 상태 저장
+    }
+
+    function ableScroll() {
+        const body = document.body;
+        const scrollY = body.style.top;
+        const originalScrollbehavior = document.documentElement.style.scrollBehavior;
+
+        body.style.position = "";
+        body.style.top = "";
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        ScrollTrigger.getAll().forEach((st) => st.refresh()); // 애니메이션 상태 복원
+
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = originalScrollbehavior;
+        }, 0);
+    }
+
+    window.addEventListener("scroll", () => {
+        document.documentElement.style.setProperty("--scroll-y", `${window.scrollY}px`);
+    });
 
     const trapFocus = function (modal) {
         const focusElements = modal.find("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
@@ -351,7 +417,9 @@ document.addEventListener("DOMContentLoaded", function () {
         $(".item-modal").removeClass("on");
         $(".modal-swiper").removeClass("on");
         $(".dim").removeClass("on");
-        $("html, body").removeClass("no-scroll");
+        modalOpen = false;
+        ableScroll();
+
         $(document).off("keydown.closeModal");
         $(document).off("focusin.focusTrap"); // focusTrap 이벤트 제거
 
@@ -377,38 +445,6 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeModalAction();
     const debouncingResizeModalAction = debounce(resizeModalAction, 200);
     window.addEventListener("resize", debouncingResizeModalAction);
-
-    const updateAllModals = function () {
-        document.querySelectorAll(".technology-list .item").forEach((item) => {
-            const itemId = item.id;
-            const content = $("#" + itemId + "-modal").find(".modal-content");
-            content.html($("#" + itemId).html());
-        });
-
-        $(".item-modal").addClass("on");
-    };
-
-    const initSwiper = function (index) {
-        if (modalSwiper) {
-            modalSwiper.destroy(true, true);
-        }
-
-        modalSwiper = new Swiper(".modal-swiper", {
-            slidesPerView: 1,
-            spaceBetween: 34,
-            loop: true,
-            initialSlide: index,
-            navigation: {
-                prevEl: ".btn-prev",
-                nextEl: ".btn-next",
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            grabCursor: true,
-        });
-    };
 
     // pricing-sec
     const pricingAnimation = gsap.timeline({
