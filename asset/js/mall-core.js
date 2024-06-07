@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
         body.style.position = "fixed";
         body.style.top = `-${scrollY}`;
         body.style.width = "100%";
-        ScrollTrigger.getAll().forEach((st) => st.kill(false)); // 애니메이션 상태 저장
+        ScrollTrigger.getAll().forEach((st) => st.disable()); // 애니메이션 상태 저장
     }
 
     function ableScroll() {
@@ -369,7 +369,11 @@ document.addEventListener("DOMContentLoaded", function () {
         body.style.top = "";
         document.documentElement.style.scrollBehavior = "auto";
         window.scrollTo(0, parseInt(scrollY || "0") * -1);
-        ScrollTrigger.getAll().forEach((st) => st.refresh()); // 애니메이션 상태 복원
+        ScrollTrigger.getAll().forEach((st) => {
+            // 애니메이션 상태 복원
+            st.enable();
+            st.refresh();
+        });
 
         setTimeout(() => {
             document.documentElement.style.scrollBehavior = originalScrollbehavior;
@@ -450,8 +454,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const pricingAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: ".pricing-sec",
-            start: "0% 70%",
-            end: "100% 70%",
+            start: "0% 60%",
+            end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
             onEnter: () => {
@@ -559,7 +563,7 @@ document.addEventListener("DOMContentLoaded", function () {
             scrollTrigger: {
                 trigger: ".diagram-sec .diagram-area",
                 start: "0% 70%",
-                end: "100% 70%",
+                end: "100% 0%",
                 toggleActions: "play none none reverse",
                 // markers: true,
                 onEnter: () => {
@@ -620,33 +624,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingInitDiagramAnimation = debounce(initDiagramAnimation, 200);
     window.addEventListener("resize", debouncingInitDiagramAnimation);
 
-    gsap.from(".consulting-sec", {
-        scrollTrigger: {
-            trigger: ".consulting-sec",
-            start: "0% 70%",
-            end: "100% 70%",
-            toggleActions: "play none none reverse",
-            // markers: true,
-        },
-        y: 100,
-        opacity: 0,
+    // consulting-sec
+    const consultingSec = document.querySelector(".consulting-sec");
+
+    const consultingAnimation = gsap.timeline({
+        paused: true,
         duration: 0.5,
     });
+    consultingAnimation.from($(".consulting-sec"), { y: 100, opacity: 0 });
+
+    const consultingObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    consultingAnimation.play();
+                } else {
+                    consultingAnimation.reverse();
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    consultingObserver.observe(consultingSec);
 
     // function-sec
-    const upAnimation3 = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".function-sec",
-            start: "0% 80%",
-            end: "100% 0%",
-            toggleActions: "play none none reverse",
-            // markers: true,
-        },
+    const functionSec = document.querySelector(".function-sec");
+    const functionSwiper = document.querySelector(".function-swiper");
+
+    const functionAnimation = gsap.timeline({
+        paused: true,
         duration: 0.5,
     });
-    upAnimation3.from($(".function-sec .common-title-area"), { y: 100, opacity: 0 }).from($(".function-sec .swiper"), { y: 100, opacity: 0 });
+    functionAnimation.from($(".function-sec .common-title-area"), { y: 100, opacity: 0 }).from($(".function-sec .swiper"), { y: 100, opacity: 0 });
 
-    const swiper = new Swiper(".function-swiper", {
+    const swiper = new Swiper(functionSwiper, {
         slidesPerView: "auto",
         centeredSlides: true,
         loop: true,
@@ -670,34 +682,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     swiper.autoplay.stop();
 
-    const swiperElement = document.querySelector(".function-swiper");
-
-    const observer = new IntersectionObserver(
+    const functionObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
+                    functionAnimation.play();
                     swiper.slideToLoop(0);
                     swiper.autoplay.start();
                 } else {
+                    functionAnimation.reverse();
                     swiper.autoplay.stop();
                 }
             });
         },
-        {
-            threshold: 0.1,
-        }
+        { threshold: 0.1 }
     );
 
-    observer.observe(swiperElement);
+    functionObserver.observe(functionSec);
 
-    swiperElement.addEventListener("mouseenter", () => {
+    functionSwiper.addEventListener("mouseenter", () => {
         swiper.autoplay.stop();
     });
 
-    swiperElement.addEventListener("mouseleave", () => {
+    functionSwiper.addEventListener("mouseleave", () => {
         swiper.autoplay.start();
     });
 
+    // side-btn
     const targetY = document.documentElement.scrollHeight * 0.1;
 
     window.addEventListener("scroll", function () {
