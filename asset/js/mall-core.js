@@ -279,23 +279,29 @@ document.addEventListener("DOMContentLoaded", function () {
     let modalSwiper;
 
     function adjustHeight() {
-        const activeSlide = document.querySelector(".modal-swiper .swiper-slide-active");
         const modalItem = document.querySelector(".mo-modal-item");
-        const closeButton = document.querySelector(".mo-modal-item .btn-close");
+        const activeSlide = document.querySelector(".modal-swiper .swiper-slide-active");
+        const closeBtn = document.querySelector(".mo-modal-item .btn-close");
         const controlArea = document.querySelector(".mo-modal-item .control-area");
 
-        if (activeSlide && modalItem) {
-            let totalHeight = activeSlide.scrollHeight;
-
-            if (closeButton) {
-                totalHeight += closeButton.offsetHeight;
+        const updateHeight = () => {
+            if (modalItem && activeSlide) {
+                modalItem.style.height = "auto"; // 높이 초기화
+                
+                let totalHeight = activeSlide.scrollHeight;
+                
+                if (closeBtn) {
+                    totalHeight += closeBtn.offsetHeight;
+                }
+                if (controlArea) {
+                    totalHeight += controlArea.offsetHeight;
+                }
+                
+                modalItem.style.height = totalHeight + 20 + "px";
             }
-            if (controlArea) {
-                totalHeight += controlArea.offsetHeight;
-            }
-
-            modalItem.style.height = totalHeight + 30 + "px";
         }
+
+       setTimeout(updateHeight, 100);
     }
 
     const modalAction = function (e) {
@@ -311,13 +317,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             $(".mo-modal-item").addClass("on");
             $(".dim").addClass("on");
+            initSwiper(index);
             modalOpen = true;
             disableScroll();
 
-            initSwiper(index);
-
             setTimeout(() => {
-                $(".mo-modal-item").eq(0).find("button").focus();
+                $(".mo-modal-item").find("button").focus();
             }, 100);
 
             trapFocus($(".mo-modal-item"));
@@ -377,15 +382,14 @@ document.addEventListener("DOMContentLoaded", function () {
             slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
-            initialSlide: 0,
             navigation: {
                 prevEl: ".btn-prev",
                 nextEl: ".btn-next",
             },
-            // autoplay: {
-            //     delay: 3000,
-            //     disableOnInteraction: false,
-            // },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             grabCursor: true,
             on: {
                 init: function (swiper) {
@@ -398,8 +402,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
             },
         });
-
-        modalSwiper.slideTo(0, 0);
     };
 
     function disableScroll() {

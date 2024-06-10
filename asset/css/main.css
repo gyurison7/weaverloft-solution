@@ -362,9 +362,7 @@
  .technology-sec .mo-modal-item.mo-only { display: block; visibility: hidden; opacity: 0; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; overflow: hidden; width: calc(100% - 48px); max-width: 312px; height: auto; max-height: 80vh; padding: 40px 30px 23px; border: 1px solid #ddd; border-radius: 10px; background: linear-gradient(135deg, #F2FAFF, #FFFFFF, #FFFFFF); color: #333; pointer-events: none; transition: all 0.5s; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; } 
  .technology-sec .mo-modal-item.on { visibility: visible; opacity: 1; pointer-events: auto; } 
  .technology-sec .mo-modal-item .btn-close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; } 
- .technology-sec .mo-modal-item .modal-swiper { height: auto; } 
- .technology-sec .mo-modal-item .modal-swiper .swiper-wrapper { width: auto; height: auto; } 
- .technology-sec .mo-modal-item .modal-swiper .swiper-wrapper .swiper-slide { height: auto; } 
+ .technology-sec .mo-modal-item .modal-swiper { height: calc(100% - 53px); } 
  .technology-sec .mo-modal-item .modal-swiper .swiper-wrapper .swiper-slide .item-icon { display: block; width: 60px; height: 60px; } 
  .technology-sec .mo-modal-item .modal-swiper .swiper-wrapper .swiper-slide .item-icon img { width: 100%; height: 100%; } 
  .technology-sec .mo-modal-item .modal-swiper .swiper-wrapper .swiper-slide h4 { padding-top: 20px; font-size: 18px; font-weight: 700; } 
@@ -382,6 +380,8 @@
  .technology-sec .mo-modal-item .control-area .custom-pagination { display: flex; align-items: center; height: 30px; font-size: 12px; font-weight: 500; color: #333; gap: 4px; } 
  .technology-sec .mo-modal-item .control-area .custom-pagination .total { color: #aaa; } 
  .technology-sec .mo-modal-item .control-area button { display: flex; justify-content: center; align-items: center; width: 30px; height: 30px; } 
+ .dim { display: block; visibility: hidden; opacity: 0; position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%; background: #000; transition: all 0.5s; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; } 
+ .dim.on { visibility: visible; opacity: 0.45; }
 
  /* function-sec */
  .function-sec .pc-only { display: none; } 
