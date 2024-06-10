@@ -278,33 +278,49 @@ document.addEventListener("DOMContentLoaded", function () {
     let focusItem;
     let modalSwiper;
 
+    function adjustHeight() {
+        const activeSlide = document.querySelector(".modal-swiper .swiper-slide-active");
+        const modalItem = document.querySelector(".mo-modal-item");
+        const closeButton = document.querySelector(".mo-modal-item .btn-close");
+        const controlArea = document.querySelector(".mo-modal-item .control-area");
+
+        if (activeSlide && modalItem) {
+            let totalHeight = activeSlide.scrollHeight;
+
+            if (closeButton) {
+                totalHeight += closeButton.offsetHeight;
+            }
+            if (controlArea) {
+                totalHeight += controlArea.offsetHeight;
+            }
+
+            modalItem.style.height = totalHeight + 30 + "px";
+        }
+    }
+
     const modalAction = function (e) {
         if (e.type === "click" || e.keyCode === 13 || e.keyCode === 32) {
             e.preventDefault();
 
             focusItem = document.activeElement; // 마지막으로 focus를 받은 element 저장
 
-            const itemId = $(this).attr("id");
-            const modalId = itemId + "-modal";
-            const content = $("#" + modalId).find(".modal-content");
-            content.html($("#" + itemId).html());
+            $(".modal-swiper .swiper-wrapper").empty();
 
-            $(".modal-swiper").addClass("on");
-            $("#" + modalId).addClass("on");
+            const index = $(this).index(); // 클릭한 index
+            updateClickContent(index);
+
+            $(".mo-modal-item").addClass("on");
             $(".dim").addClass("on");
             modalOpen = true;
             disableScroll();
 
-            const index = $(this).index(); // 클릭한 아이템의 index
             initSwiper(index);
 
             setTimeout(() => {
-                $("#" + modalId)
-                    .find("button")
-                    .focus();
+                $(".mo-modal-item").eq(0).find("button").focus();
             }, 100);
 
-            trapFocus($("#" + modalId));
+            trapFocus($(".mo-modal-item"));
 
             $(document).on("keydown.closeModal", function (e) {
                 if (e.key === "Escape") {
@@ -314,41 +330,76 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    const updateAllModals = function () {
-        document.querySelectorAll(".technology-list .item").forEach((item) => {
-            const itemId = item.id;
-            const content = $("#" + itemId + "-modal").find(".modal-content");
-            content.html($("#" + itemId).html());
-        });
-
-        $(".item-modal").addClass("on");
+    const updateClickContent = function (index) {
+        const items = $(".technology-list .item");
+        const slideContent = $(items).eq(index).html();
+        $(".modal-swiper .swiper-wrapper").append(`
+            <div class="swiper-slide">
+                ${slideContent}
+            </div>
+        `);
     };
+
+    const updateAllContent = function (index) {
+        const items = $(".technology-list .item");
+        const total = items.length;
+        for (let i = 0; i < total; i++) {
+            const nextIndex = (index + i) % total;
+            const slideContent = $(items).eq(nextIndex).html();
+            $(".modal-swiper .swiper-wrapper").append(`
+                <div class="swiper-slide">
+                    ${slideContent}
+                </div>
+            `);
+        }
+    };
+
+    function updatePagination(swiper, index) {
+        const total = swiper.slides.length;
+        const current = ((index + swiper.realIndex) % total) + 1;
+
+        document.querySelectorAll(".custom-pagination").forEach((item) => {
+            item.innerHTML = `
+                <span class="current">${String(current).padStart(2, "0")}</span> / <span class="total">${String(total).padStart(2, "0")}</span>
+            `;
+        });
+    }
 
     const initSwiper = function (index) {
         if (modalSwiper) {
             modalSwiper.destroy(true, true);
         }
 
+        $(".modal-swiper .swiper-wrapper").empty();
+        updateAllContent(index);
+
         modalSwiper = new Swiper(".modal-swiper", {
             slidesPerView: 1,
-            spaceBetween: 34,
+            spaceBetween: 24,
             loop: true,
-            initialSlide: index,
+            initialSlide: 0,
             navigation: {
                 prevEl: ".btn-prev",
                 nextEl: ".btn-next",
             },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
             grabCursor: true,
             on: {
-                init: function () {
-                    updateAllModals();
+                init: function (swiper) {
+                    updatePagination(swiper, index);
+                    adjustHeight();
+                },
+                slideChangeTransitionEnd: function (swiper) {
+                    updatePagination(swiper, index);
+                    adjustHeight();
                 },
             },
         });
+
+        modalSwiper.slideTo(0, 0);
     };
 
     function disableScroll() {
@@ -418,8 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const closeModal = function () {
-        $(".item-modal").removeClass("on");
-        $(".modal-swiper").removeClass("on");
+        $(".mo-modal-item").removeClass("on");
         $(".dim").removeClass("on");
         modalOpen = false;
         ableScroll();
@@ -435,16 +485,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (focusItem) $(focusItem).focus(); // 마지막으로 focus를 받은 element로 다시 초점 이동
     };
 
-    $(".item-modal .btn-close")
-        .click(function () {
+    $(document).on("click", ".btn-close", function () {
+        closeModal();
+    });
+    $(document).on("keydown", "btn-close", function (e) {
+        if (e.keyCode === 13 || e.keyCode === 32) {
+            e.preventDefault();
+            $(this).click();
+        }
+    });
+    $(document).on("click", function (e) {
+        if ($(".mo-modal-item").hasClass("on") && !$(e.target).closest(".mo-modal-item, .technology-list .item").length) {
             closeModal();
-        })
-        .keydown(function (e) {
-            if (e.keyCode === 13 || e.keyCode === 32) {
-                e.preventDefault();
-                $(this).click();
-            }
-        });
+        }
+    });
 
     resizeModalAction();
     const debouncingResizeModalAction = debounce(resizeModalAction, 200);
@@ -750,6 +804,23 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         $("html, body").animate({ scrollTop: 0 }, "600");
         return false;
+    });
+
+    const footerLink = document.querySelectorAll(".footer a");
+    const quickBtnLink = document.querySelector(".quick-btn a");
+    const topBtnLink = document.querySelector(".top-btn a");
+
+    footerLink[footerLink.length - 1].addEventListener("keydown", function (e) {
+        if (e.key === "Tab") {
+            e.preventDefault();
+            quickBtnLink.focus();
+        }
+    });
+    quickBtnLink.addEventListener("keydown", function (e) {
+        if (e.key === "Tab") {
+            e.preventDefault();
+            topBtnLink.focus();
+        }
     });
 
     ScrollTrigger.refresh();
