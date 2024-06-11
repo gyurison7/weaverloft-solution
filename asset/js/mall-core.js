@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $(".gnb-solution span")
+    $(".gnb-solution-link")
         .click(function () {
             $(".sub-gnb").slideToggle();
         })
@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".technology-list .item").on("click keydown", modalAction);
         } else {
             $(".technology-list .item").off("click keydown", modalAction);
+            if ($(".mo-modal-item").hasClass("on")) closeModal();
         }
     };
 
@@ -287,21 +288,21 @@ document.addEventListener("DOMContentLoaded", function () {
         const updateHeight = () => {
             if (modalItem && activeSlide) {
                 modalItem.style.height = "auto"; // 높이 초기화
-                
+
                 let totalHeight = activeSlide.scrollHeight;
-                
+
                 if (closeBtn) {
                     totalHeight += closeBtn.offsetHeight;
                 }
                 if (controlArea) {
                     totalHeight += controlArea.offsetHeight;
                 }
-                
+
                 modalItem.style.height = totalHeight + 20 + "px";
             }
-        }
+        };
 
-       setTimeout(updateHeight, 100);
+        setTimeout(updateHeight, 0);
     }
 
     const modalAction = function (e) {
@@ -388,6 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             autoplay: {
                 delay: 3000,
+                pauseOnMouseEnter: true,
                 disableOnInteraction: false,
             },
             grabCursor: true,
@@ -731,6 +733,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         autoplay: {
             delay: 3000,
+            pauseOnMouseEnter: true,
             disableOnInteraction: false,
         },
         grabCursor: true,
@@ -755,14 +758,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     functionObserver.observe(functionSec);
-
-    functionSwiper.addEventListener("mouseenter", () => {
-        swiper.autoplay.stop();
-    });
-
-    functionSwiper.addEventListener("mouseleave", () => {
-        swiper.autoplay.start();
-    });
 
     // side-btn
     const targetY = document.documentElement.scrollHeight * 0.1;

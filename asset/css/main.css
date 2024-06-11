@@ -82,7 +82,6 @@
  .technology-sec .content-area .technology-list .cloud-icon .img-wrapper:first-child { width: 4.11em; } 
  .technology-sec .content-area .technology-list .cloud-icon .img-wrapper:last-child { width: 6.89em; } 
  .technology-sec .content-area .technology-list .content-icon img { width: 100%; height: 100%; } 
- .technology-sec .modal-swiper.mo-only { display: none; } 
 
 /* detail-sec */
 .detail-sec { position: relative; width: 100%; margin-top: 190px; padding-bottom: 140px; background-color: #161E1F; color: #fff; } 
@@ -354,11 +353,6 @@
  .technology-sec .content-area .technology-list .item-omni { grid-row: span 1; } 
  .technology-sec .content-area .technology-list .item-devops { grid-column: 1 / 3; } 
  .technology-sec .content-area .technology-list .item .pc-only { display: none; } 
-
- /* .technology-sec .modal-swiper.mo-only { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; overflow: hidden; width: calc(100% - 48px); max-width: 312px; height: auto; max-height: 80vh; border-radius: 10px; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); } 
- .technology-sec .modal-swiper.on { z-index: 1001; } 
- .technology-sec .modal-swiper .swiper-wrapper { display: flex; align-items: center; } 
- .technology-sec .modal-swiper .swiper-wrapper .swiper-slide { visibility: hidden; opacity: 0; height: auto; max-height: 100%; padding: 40px 30px 23px; border: 1px solid #ddd; border-radius: 10px; background: linear-gradient(135deg, #F2FAFF, #FFFFFF, #FFFFFF); color: #333; pointer-events: none; transition: all 0.5s; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; } */
  .technology-sec .mo-modal-item.mo-only { display: block; visibility: hidden; opacity: 0; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; overflow: hidden; width: calc(100% - 48px); max-width: 312px; height: auto; max-height: 80vh; padding: 40px 30px 23px; border: 1px solid #ddd; border-radius: 10px; background: linear-gradient(135deg, #F2FAFF, #FFFFFF, #FFFFFF); color: #333; pointer-events: none; transition: all 0.5s; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; } 
  .technology-sec .mo-modal-item.on { visibility: visible; opacity: 1; pointer-events: auto; } 
  .technology-sec .mo-modal-item .btn-close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; } 
