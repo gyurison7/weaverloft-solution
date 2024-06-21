@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 nextEl: ".btn-next",
             },
             autoplay: {
-                delay: 3000,
+                delay: 5000,
                 pauseOnMouseEnter: true,
                 disableOnInteraction: false,
             },
