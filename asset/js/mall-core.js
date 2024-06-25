@@ -393,6 +393,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 disableOnInteraction: false,
             },
             grabCursor: true,
+            keyboard: {
+                enabled: true,
+            },
             on: {
                 init: function (swiper) {
                     updatePagination(swiper, index);
@@ -737,6 +740,9 @@ document.addEventListener("DOMContentLoaded", function () {
             disableOnInteraction: false,
         },
         grabCursor: true,
+        keyboard: {
+            enabled: true,
+        },
     });
 
     swiper.autoplay.stop();
