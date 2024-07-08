@@ -113,6 +113,97 @@ document.addEventListener("DOMContentLoaded", function () {
             .join("");
     });
 
+    $(".link-apply").click(function () {
+        $(".apply-modal, .dim").addClass("on");
+        $("body").addClass("no-scroll");
+    });
+
+    $(".btn-modal").click(function (event) {
+        event.preventDefault();
+        $(".agree-modal").addClass("on");
+        if (window.innerWidth <= 768) {
+            $(".dim").css("z-index", "1001");
+        } else {
+            $(".dim").css("z-index", "1000");
+        }
+    });
+    function initModalFunction() {
+        if ($(".agree-modal").hasClass("on")) {
+            if (window.innerWidth <= 768) {
+                $(".dim").css("z-index", "1001");
+            } else {
+                $(".dim").css("z-index", "1000");
+            }
+        }
+    }
+    initModalFunction();
+    const debouncingInitModalFunction = debounce(initModalFunction, 200);
+    window.addEventListener("resize", debouncingInitModalFunction);
+
+    function applyModalClose() {
+        $(".apply-modal, .dim").removeClass("on");
+        if ($(".agree-modal").hasClass("on")) {
+            agreeModalClose();
+        }
+        $("body").removeClass("no-scroll");
+    }
+
+    function agreeModalClose() {
+        $(".agree-modal").removeClass("on");
+        $(".dim").css("z-index", "1000");
+    }
+
+    $(".btn-apply-modal-close").click(function () {
+        applyModalClose();
+    });
+
+    $(".btn-agree-modal-close").click(function () {
+        agreeModalClose();
+    });
+
+    $(document).on("click", function (e) {
+        if ($(".apply-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal, .link-apply").length) {
+            applyModalClose();
+        }
+    });
+
+    $(document).on("click", function (e) {
+        if ($(".agree-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal").length) {
+            agreeModalClose();
+        }
+    });
+
+    $(".submit-btn").click(function (event) {
+        event.preventDefault();
+        if ($("#applicant").val() === "") {
+            $("#applicant").closest(".input-wrapper").find(".error").addClass("on");
+        } else if ($("#contact").val() === "") {
+            $("#contact").closest(".input-wrapper").find(".error").addClass("on");
+        } else if (!/^\d{9,}$/.test($("#contact").val())) {
+            $("#contact").closest(".input-wrapper").find(".error").addClass("on");
+        } else if ($("#email").val() === "") {
+            $("#email").closest(".input-wrapper").find(".error").addClass("on");
+        } else if (!/^[^@]+@[^@]+\.[^@]+/.test($("#email").val())) {
+            $("#email").closest(".input-wrapper").find(".error").addClass("on");
+        } else if ($("#company").val() === "") {
+            $("#company").closest(".input-wrapper").find(".error").addClass("on");
+        } else if (!$("#agree").is(":checked")) {
+            alert("개인정보수집에 동의해주세요.");
+        } else {
+            $(".apply-modal").removeClass("on");
+            $(".complete-modal").addClass("on");
+        }
+    });
+
+    $(".input-wrapper input").on("input", function () {
+        $(this).closest(".input-wrapper").find(".error").removeClass("on");
+    });
+
+    $(".btn-check").click(function () {
+        $(".complete-modal, .dim").removeClass("on");
+        $("body").removeClass("no-scroll");
+    });
+
     // solution-sec
     let animateInterval;
     function initCicleAnimate() {

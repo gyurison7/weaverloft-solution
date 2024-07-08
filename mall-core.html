@@ -188,7 +188,7 @@
                                         개발한 D2C 커머스 솔루션입니다.
                                     </p>
                                     <div class="link-area">
-                                        <a href="https://weaverloft.com/contact/" target="_blank" class="link-apply hover" title="소개서 신청하기 페이지 새 창으로 열기">
+                                        <a href="javascript:;" class="link-apply hover">
                                             소개서 신청하기
                                         </a>
                                         <a href="https://weaverloft.com/contact/" target="_blank" class="link-inquire hover-white" title="도입 문의하기 페이지 새 창으로 열기">
@@ -198,6 +198,79 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="apply-modal">
+                            <div class="modal-header">
+                                <h4 class="modal-title">소개서 신청하기</h4>
+                                <p class="modal-description">
+                                    MallCORE 소개서를 신청해 보세요.<br>
+                                    아래 양식을 작성해 주시면, 빠른 시일 내에 담당자가 확인하여 연락 드리겠습니다.
+                                </p>
+                                <button class="btn-apply-modal-close"><img src="./asset/images/mall-core/btn-modal-close.svg" alt=""></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#">
+                                    <div class="apply-form-wrapper">
+                                        <div class="input-wrapper">
+                                            <label for="applicant">신청인</label>
+                                            <input type="text" id="applicant" name="applicant" placeholder="신청인 이름을 입력해 주세요.">
+                                            <span class="error">신청인을 확인해주세요.</span>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <label for="contact">연락처</label>
+                                            <input type="text" id="contact" name="contact" placeholder="연락처를 입력해 주세요.">
+                                            <span class="error">연락처를 확인해주세요.</span>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <label for="email">이메일</label>
+                                            <input type="text" id="email" name="email" placeholder="이메일을 입력해 주세요.">
+                                            <span class="error">이메일을 확인해주세요.</span>
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <label for="company">회사명</label>
+                                            <input type="text" id="company" name="company" placeholder="회사명을 입력해 주세요.">
+                                            <span class="error">회사명을 확인해주세요.</span>
+                                        </div>
+                                        <div class="textarea-wrapper">
+                                            <textarea id="details" name="details" placeholder="문의사항이 있으시면 자유롭게 작성해 주세요."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="agree-check">
+                                        <div class="checkbox-wrapper">
+                                            <input type="checkbox" id="agree" name="agree">
+                                            <label for="agree">개인정보수집에 동의하십니까? (필수)</label>
+                                        </div>
+                                        <button class="btn-modal"><img src="./asset/images/mall-core/btn-modal.svg" alt=""></button>
+                                    </div>
+                                    <div class="btn-area">
+                                        <button type="submit" class="submit-btn">소개서 신청하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="agree-modal">
+                            <h5 class="modal-title">개인정보수집 동의</h5>
+                            <button class="btn-agree-modal-close"><img src="./asset/images/mall-core/btn-modal-close.svg" alt=""></button>
+                            <div class="modal-body">
+                                <p class="modal-description">
+                                    위버로프트는 관련 법령에 따라 개인정보 수집 이용 동의를 받고 있습니다.
+                                </p>
+                                <p class="modal-description">
+                                    관련 법령 : 개인정보 보호법, 정보통신망법 등
+                                </p>
+                                <p class="modal-description">
+                                    회사 내부 규정에 따라 개인 정보는 신청 처리 및 연락 목적으로만 사용되며 신청 목적을 달성한 후 3개월 
+                                    이내에 폐기됩니다. 소개서 신청은 개인정보 수집 및 이용 동의에 거부할 경우 신청이 불가합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="complete-modal">
+                            <p>
+                                신청해 주셔서 감사합니다.<br>
+                                빠른 시일 내에 연락 드리겠습니다.
+                            </p>
+                            <button class="btn-check">확인</button>
+                        </div>
+                        <div class="dim"></div>
                     </div>
                 </section>
 
