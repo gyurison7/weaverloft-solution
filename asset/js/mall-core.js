@@ -114,25 +114,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     $(".link-apply").click(function () {
-        $(".apply-modal, .dim").addClass("on");
+        $(".apply-modal, .introduce-sec .dim").addClass("on");
         $("body").addClass("no-scroll");
+        modalOpen = true;
     });
 
     $(".btn-modal").click(function (event) {
         event.preventDefault();
         $(".agree-modal").addClass("on");
-        if (window.innerWidth <= 768) {
-            $(".dim").css("z-index", "1001");
+        if (window.innerWidth <= 1620) {
+            $(".introduce-sec .dim").css("z-index", "1001");
         } else {
-            $(".dim").css("z-index", "1000");
+            $(".introduce-sec .dim").css("z-index", "1000");
         }
     });
     function initModalFunction() {
         if ($(".agree-modal").hasClass("on")) {
-            if (window.innerWidth <= 768) {
-                $(".dim").css("z-index", "1001");
+            if (window.innerWidth <= 1620) {
+                $(".introduce-sec .dim").css("z-index", "1001");
             } else {
-                $(".dim").css("z-index", "1000");
+                $(".introduce-sec .dim").css("z-index", "1000");
             }
         }
     }
@@ -141,16 +142,17 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", debouncingInitModalFunction);
 
     function applyModalClose() {
-        $(".apply-modal, .dim").removeClass("on");
+        $(".apply-modal, .introduce-sec .dim").removeClass("on");
         if ($(".agree-modal").hasClass("on")) {
             agreeModalClose();
         }
         $("body").removeClass("no-scroll");
+        modalOpen = false;
     }
 
     function agreeModalClose() {
         $(".agree-modal").removeClass("on");
-        $(".dim").css("z-index", "1000");
+        $(".introduce-sec .dim").css("z-index", "1000");
     }
 
     $(".btn-apply-modal-close").click(function () {
@@ -162,14 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     $(document).on("click", function (e) {
-        if ($(".apply-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal, .link-apply").length) {
-            applyModalClose();
-        }
-    });
-
-    $(document).on("click", function (e) {
         if ($(".agree-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal").length) {
             agreeModalClose();
+        } else if ($(".apply-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal, .link-apply").length) {
+            applyModalClose();
         }
     });
 
@@ -192,6 +190,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             $(".apply-modal").removeClass("on");
             $(".complete-modal").addClass("on");
+            $(".apply-modal input").val("");
+            $("#agree").prop("checked", false);
         }
     });
 
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     $(".btn-check").click(function () {
-        $(".complete-modal, .dim").removeClass("on");
+        $(".complete-modal, .introduce-sec .dim").removeClass("on");
         $("body").removeClass("no-scroll");
     });
 
@@ -408,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateClickContent(index);
 
             $(".mo-modal-item").addClass("on");
-            $(".dim").addClass("on");
+            $(".technology-sec .dim").addClass("on");
             initSwiper(index);
             modalOpen = true;
             disableScroll();
@@ -568,7 +568,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const closeModal = function () {
         $(".mo-modal-item").removeClass("on");
-        $(".dim").removeClass("on");
+        $(".technology-sec .dim").removeClass("on");
         modalOpen = false;
         ableScroll();
 
