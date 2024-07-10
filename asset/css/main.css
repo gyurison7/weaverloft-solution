@@ -41,7 +41,7 @@
  .introduce-sec .apply-modal .modal-body .apply-form-wrapper { display: flex; flex-direction: column; gap: 30px; margin-bottom: 16px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label { display: flex; position: relative; font-size: 18px; font-weight: 600; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label::after { display: block; position: absolute; top: 3px; left: 50px; width: 5px; height: 5px; border-radius: 50%; background-color: #E61E1E; content: ''; } 
- .introduce-sec .apply-modal .modal-body .input-wrapper input { width: 100%; padding: 12px 0 16px; border-bottom: 2px solid #ddd; color: #333; transition: border 0.3s ease; -webkit-transition: border 0.3s ease; -moz-transition: border 0.3s ease; -ms-transition: border 0.3s ease; -o-transition: border 0.3s ease; } 
+ .introduce-sec .apply-modal .modal-body .input-wrapper input { width: 100%; padding: 12px 0 16px; border-bottom: 2px solid #ddd; font-size: 16px; color: #333; transition: border 0.3s ease; -webkit-transition: border 0.3s ease; -moz-transition: border 0.3s ease; -ms-transition: border 0.3s ease; -o-transition: border 0.3s ease; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper input::placeholder { color: #888; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper input:focus { border-color: var(--em-color-10); } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error { display: none; align-items: center; margin-top: 8px; font-size: 13px; color: #E61E1E; } 
@@ -374,6 +374,7 @@
  .introduce-sec .apply-modal .modal-body .apply-form-wrapper { gap: 22px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label { font-size: 16px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label::after { left: 45px; } 
+ .introduce-sec .apply-modal .modal-body .input-wrapper input { font-size: 15px; }
  .introduce-sec .apply-modal .modal-body .input-wrapper .error { margin-top: 6px; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details { font-size: 15px; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details::placeholder { font-size: 15px; } 
