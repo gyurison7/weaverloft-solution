@@ -122,30 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".btn-modal").click(function (event) {
         event.preventDefault();
         $(".agree-modal").addClass("on");
-        if (window.innerWidth <= 1620) {
-            $(".introduce-sec .dim").css("z-index", "1001");
-        } else {
-            $(".introduce-sec .dim").css("z-index", "1000");
-        }
+        $(".introduce-sec .dim").css("z-index", "1001");
     });
-    function initModalFunction() {
-        if ($(".agree-modal").hasClass("on")) {
-            if (window.innerWidth <= 1620) {
-                $(".introduce-sec .dim").css("z-index", "1001");
-            } else {
-                $(".introduce-sec .dim").css("z-index", "1000");
-            }
-        }
-    }
-    initModalFunction();
-    const debouncingInitModalFunction = debounce(initModalFunction, 200);
-    window.addEventListener("resize", debouncingInitModalFunction);
 
     function applyModalClose() {
         $(".apply-modal, .introduce-sec .dim").removeClass("on");
-        if ($(".agree-modal").hasClass("on")) {
-            agreeModalClose();
-        }
         $("body").removeClass("no-scroll");
         modalOpen = false;
     }
@@ -164,34 +145,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     $(document).on("click", function (e) {
-        if ($(".agree-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal").length) {
-            agreeModalClose();
-        } else if ($(".apply-modal").hasClass("on") && !$(e.target).closest(".apply-modal, .agree-modal, .link-apply").length) {
+        if (
+            $(".apply-modal").hasClass("on") &&
+            !$(".agree-modal").hasClass("on") &&
+            !$(e.target).closest(".apply-modal, .agree-modal, .link-apply").length
+        ) {
             applyModalClose();
         }
     });
 
     $(".submit-btn").click(function (event) {
         event.preventDefault();
+        let errorElement;
         if ($("#applicant").val() === "") {
-            $("#applicant").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#applicant").closest(".input-wrapper").find(".error").addClass("on");
         } else if ($("#contact").val() === "") {
-            $("#contact").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#contact").closest(".input-wrapper").find(".error").addClass("on");
         } else if (!/^\d{9,}$/.test($("#contact").val())) {
-            $("#contact").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#contact").closest(".input-wrapper").find(".error").addClass("on");
         } else if ($("#email").val() === "") {
-            $("#email").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#email").closest(".input-wrapper").find(".error").addClass("on");
         } else if (!/^[^@]+@[^@]+\.[^@]+/.test($("#email").val())) {
-            $("#email").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#email").closest(".input-wrapper").find(".error").addClass("on");
         } else if ($("#company").val() === "") {
-            $("#company").closest(".input-wrapper").find(".error").addClass("on");
+            errorElement = $("#company").closest(".input-wrapper").find(".error").addClass("on");
         } else if (!$("#agree").is(":checked")) {
             alert("개인정보수집에 동의해주세요.");
+            errorElement = $("#agree");
         } else {
             $(".apply-modal").removeClass("on");
             $(".complete-modal").addClass("on");
             $(".apply-modal input").val("");
             $("#agree").prop("checked", false);
+        }
+
+        if (errorElement && errorElement.length > 0) {
+            errorElement.focus();
+            errorElement[0].scrollIntoView({ behavior: "smooth", block: "center" });
         }
     });
 

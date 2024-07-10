@@ -42,11 +42,13 @@
  .introduce-sec .apply-modal .modal-body .input-wrapper label { display: flex; position: relative; font-size: 18px; font-weight: 600; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label::after { display: block; position: absolute; top: 3px; left: 50px; width: 5px; height: 5px; border-radius: 50%; background-color: #E61E1E; content: ''; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper input { width: 100%; padding: 12px 0 16px; border-bottom: 2px solid #ddd; color: #333; transition: border 0.3s ease; -webkit-transition: border 0.3s ease; -moz-transition: border 0.3s ease; -ms-transition: border 0.3s ease; -o-transition: border 0.3s ease; } 
+ .introduce-sec .apply-modal .modal-body .input-wrapper input::placeholder { color: #888; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper input:focus { border-color: var(--em-color-10); } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error { display: none; align-items: center; margin-top: 8px; font-size: 13px; color: #E61E1E; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error::before { display: block; width: 14px; height: 14px; margin-right: 4px; background-image: url("../images/mall-core/error.svg"); content: ''; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error.on { display: flex; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details { width: 100%; height: 140px; padding: 18px; border: 2px solid #ddd; border-radius: 2px; color: #333; resize: none; } 
+ .introduce-sec .apply-modal .modal-body .textarea-wrapper #details::placeholder { color: #888; } 
  .introduce-sec .apply-modal .modal-body .agree-check { display: flex; align-items: center; justify-content: space-between; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper { display: flex; align-items: center; cursor: pointer; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper label { padding-left: 10px; font-weight: 500; cursor: inherit; } 
@@ -57,7 +59,13 @@
  .introduce-sec .apply-modal .modal-body .agree-check .btn-modal img { width: 100%; height: 100%; } 
  .introduce-sec .apply-modal .modal-body .btn-area { display: flex; justify-content: center; margin-top: 40px; } 
  .introduce-sec .apply-modal .modal-body .btn-area .submit-btn { padding: 0.85em 2.42em; border: 1px solid var(--em-color-10); border-radius: 37px; font-size: 18px; font-weight: 600; color: var(--em-color-10); } 
- .introduce-sec .agree-modal { visibility: hidden; opacity: 0; position: fixed; top: calc(50% + 311px); left: calc(50% + 580px); z-index: 1002; transform: translate(-50%, -50%); width: 400px; height: 304px; padding: 26px 56px 40px 31px; border-radius: 6px; background-color: #fff; color: #333; transition: all 0.3s; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition: all 0.3s; -o-transition: all 0.3s; } 
+.introduce-sec .apply-modal .modal-body::-webkit-scrollbar { width: 5px; } 
+.introduce-sec .apply-modal .modal-body::-webkit-scrollbar-track { background: #ddd; } 
+.introduce-sec .apply-modal .modal-body::-webkit-scrollbar-thumb { background: #999; } 
+.introduce-sec .apply-modal .modal-body textarea::-webkit-scrollbar { width: 3px; } 
+.introduce-sec .apply-modal .modal-body textarea::-webkit-scrollbar-track { background: #ddd; } 
+.introduce-sec .apply-modal .modal-body textarea::-webkit-scrollbar-thumb { background: #999; } 
+ .introduce-sec .agree-modal { visibility: hidden; opacity: 0; position: fixed; top: 50%; left: 50%; z-index: 1002; width: 400px; height: 304px; padding: 26px 56px 40px 31px; border-radius: 6px; background-color: #fff; color: #333; transform: translate(-50%, -50%); transition: all 0.3s; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition: all 0.3s; -o-transition: all 0.3s; } 
  .introduce-sec .agree-modal.on { visibility: visible; opacity: 1; } 
  .introduce-sec .agree-modal .modal-title { font-size: 18px; font-weight: 600; } 
  .introduce-sec .agree-modal .btn-agree-modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; } 
@@ -243,16 +251,11 @@
 .bottom-banner .content-area .title { padding-top: 41px; } 
  
 @media all and (max-width: 1620px){
- .introduce-sec .agree-modal { top: 50%; left: 50%; } 
  .function-sec .swiper .swiper-slide { width: clamp(721px, 67.901vw, 1100px); } 
  .function-sec .swiper .swiper-slide .content-area { font-size: clamp(18px, 1.543vw, 25px); } 
  .function-sec .swiper .swiper-slide .content-area .bold { font-size: clamp(12px, 1.364vw, 15px); } 
  .function-sec .swiper .swiper-slide .content-area p { font-size: clamp(16px, 1.636vw, 18px); } 
  .function-sec .swiper .swiper-slide .content-area .tag-list { font-size: clamp(13px, 1.273vw, 14px); } 
- }
-
- @media all and (max-height: 1028px) and (min-width: 1621px){
- .introduce-sec .agree-modal { bottom: 5vh; top: auto; transform: translate(-50%, 0); -webkit-transform: translate(-50%, 0); -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); } 
  }
 
  @media all and (max-width: 1430px){
@@ -372,6 +375,7 @@
  .introduce-sec .apply-modal .modal-body .input-wrapper label { font-size: 16px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper label::after { left: 45px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error { margin-top: 6px; } 
+ .introduce-sec .apply-modal .modal-body .textarea-wrapper #details { font-size: 15px; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details::placeholder { font-size: 15px; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper #agree { width: 24px; height: 24px; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper label { padding-left: 6px; font-size: 14px; } 
