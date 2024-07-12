@@ -381,6 +381,7 @@
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper #agree { width: 24px; height: 24px; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper label { padding-left: 6px; font-size: 14px; } 
  .introduce-sec .apply-modal .modal-body .btn-area { margin-top: 30px; } 
+ .introduce-sec .apply-modal .modal-body .btn-area .submit-btn { font-size: 16px; }
  .introduce-sec .agree-modal { width: 312px; height: 352px; padding: 26px 31px 40px; } 
  .introduce-sec .complete-modal { width: 312px; height: 212px; } 
  .introduce-sec .complete-modal button { padding: 0.85em 6.04em; } 
