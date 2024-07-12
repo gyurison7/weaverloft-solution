@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // gnb
-    $(".menu-btn").click(function () {
+    $(document).on("click", ".menu-btn", function () {
         if (!$(".mo-gnb").hasClass("on")) {
             if ($(".header").hasClass("white")) {
                 $(".header").removeClass("white");
@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $(".gnb-solution-link")
-        .click(function () {
+    $(document)
+        .on("click", ".gnb-solution-link", function () {
             $(".sub-gnb").slideToggle();
         })
-        .keydown(function (e) {
+        .on("keydown", ".gnb-solution-link", function (e) {
             if (e.keyCode === 13 || e.keyCode === 32) {
                 e.preventDefault();
                 $(this).click();
@@ -847,65 +847,85 @@ document.addEventListener("DOMContentLoaded", function () {
     functionObserver.observe(functionSec);
 
     // side-btn
-    const targetY = document.documentElement.scrollHeight * 0.1;
+    let footerLoad = false;
+    let sideBtnLoad = false;
 
-    window.addEventListener("scroll", function () {
-        const currentY = document.documentElement.scrollTop;
-
-        if (currentY > targetY) {
-            $(".quick-btn").addClass("on");
-            $(".top-btn").addClass("on");
-        } else {
-            $(".quick-btn").removeClass("on");
-            $(".top-btn").removeClass("on");
+    function checkLoad() {
+        if (footerLoad && sideBtnLoad) {
+            initFooterAndSideBtn();
         }
+    }
+
+    $(".footer-area").load("include/footer.html", function () {
+        footerLoad = true;
+        checkLoad();
+    });
+    $(".side-btn-area").load("include/side-btn.html", function () {
+        sideBtnLoad = true;
+        checkLoad();
     });
 
-    const footer = document.querySelector(".footer");
+    function initFooterAndSideBtn() {
+        const targetY = document.documentElement.scrollHeight * 0.1;
 
-    const scrollObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    $(".quick-btn").addClass("bottom");
-                    $(".top-btn").addClass("bottom");
-                } else {
-                    $(".quick-btn").removeClass("bottom");
-                    $(".top-btn").removeClass("bottom");
-                }
-            });
-        },
-        {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.3,
-        }
-    );
+        window.addEventListener("scroll", function () {
+            const currentY = document.documentElement.scrollTop;
 
-    scrollObserver.observe(footer);
+            if (currentY > targetY) {
+                $(".quick-btn").addClass("on");
+                $(".top-btn").addClass("on");
+            } else {
+                $(".quick-btn").removeClass("on");
+                $(".top-btn").removeClass("on");
+            }
+        });
 
-    $(".top-btn a").click(function (e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, "600");
-        return false;
-    });
+        const footer = document.querySelector(".footer");
 
-    const footerLink = document.querySelectorAll(".footer a");
-    const quickBtnLink = document.querySelector(".quick-btn a");
-    const topBtnLink = document.querySelector(".top-btn a");
+        const scrollObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        $(".quick-btn").addClass("bottom");
+                        $(".top-btn").addClass("bottom");
+                    } else {
+                        $(".quick-btn").removeClass("bottom");
+                        $(".top-btn").removeClass("bottom");
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.3,
+            }
+        );
 
-    footerLink[footerLink.length - 1].addEventListener("keydown", function (e) {
-        if (e.key === "Tab") {
+        scrollObserver.observe(footer);
+
+        $(".top-btn a").click(function (e) {
             e.preventDefault();
-            quickBtnLink.focus();
-        }
-    });
-    quickBtnLink.addEventListener("keydown", function (e) {
-        if (e.key === "Tab") {
-            e.preventDefault();
-            topBtnLink.focus();
-        }
-    });
+            $("html, body").animate({ scrollTop: 0 }, "600");
+            return false;
+        });
+
+        const footerLink = document.querySelectorAll(".footer a");
+        const quickBtnLink = document.querySelector(".quick-btn a");
+        const topBtnLink = document.querySelector(".top-btn a");
+
+        footerLink[footerLink.length - 1].addEventListener("keydown", function (e) {
+            if (e.key === "Tab") {
+                e.preventDefault();
+                quickBtnLink.focus();
+            }
+        });
+        quickBtnLink.addEventListener("keydown", function (e) {
+            if (e.key === "Tab") {
+                e.preventDefault();
+                topBtnLink.focus();
+            }
+        });
+    }
 
     ScrollTrigger.refresh();
 });
