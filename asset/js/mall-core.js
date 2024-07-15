@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .join("");
     });
 
+    // 소개 신청하기
     $(".link-apply").click(function () {
         $(".apply-modal, .introduce-sec .dim").addClass("on");
         $("body").addClass("no-scroll");
