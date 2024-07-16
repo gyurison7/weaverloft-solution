@@ -6,17 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="format-detection" content="telephone=no, address=no, email=no">
         <title>WEAVERLOFT SOLUTION</title>
+        <style>
+            * { box-sizing: border-box; }
+             @media all and (max-width: 620px){
+                table { width: 100% !important; max-width: 600px; }
+                .title-td { padding: 2.81em 1em 1.88em !important; }
+                .table-td { padding: 0 1em 3.75em !important; }
+                .list-item1, .list-item4 { flex-direction: column; }
+                .border { border-top: 1px solid #E5E5E5; border-left: none !important; }
+             }
+             @media all and (max-width: 360px){
+                .list-item3 { display: flex; flex-direction: column; }
+                .list-item3 span { margin-left: 0 !important; padding-top: 10px; }
+             }
+        </style>
     </head>
 
     <body style="background-color: #F5F5F5;">
-        <table border="0" cellpadding="0" cellspacing="0" style="width: 600px; margin: 207px auto; padding: 45px 40px 60px; border-top: 6px solid #15C1D8; background-color: #fff; font-size: 16px; font-family: 'Pretendard', sans-serif; color: #666; letter-spacing: -0.04em; table-layout: fixed;">
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 600px; margin: 207px auto; padding: 0; border-top: 6px solid #15C1D8; background-color: #fff; font-size: clamp(14px, 0.833vw, 16px); font-family: 'Pretendard', sans-serif; color: #666; letter-spacing: -0.04em;">
             <tbody>
                 <tr style="margin: 0; padding: 0;">
-                    <td colspan="4" style="padding: 0; margin: 0;">
-                        <a href="http://solution.weaverloft.com/mall-core" target="_blank" style="display: block; width: 140px; height: 20.06px; margin-bottom: 46px;">
+                    <td class="title-td" style="margin: 0; padding: 2.81em 2.5em 1.88em;">
+                        <a href="http://solution.weaverloft.com/mall-core" target="_blank" style="display: block; width: 140px; height: 20.06px; margin-bottom: 2.88em;">
                             <img src="http://solution.weaverloft.com/asset/images/mall-core/mall-core-logo-black.svg" alt="MALLCORE" style="width: 100%; height: 100%;">
                         </a>
-                        <p style="margin: 0; padding-bottom: 30px; font-weight: 600; font-size: 22px; line-height: 30px; color: #111;" >
+                        <p class="title" style="margin: 0; font-size: clamp(18px, 1.146vw, 22px); font-weight: 600; line-height: 1.36; color: #111; word-break: keep-all;" >
                             MallCORE 소개서 신청 내역입니다.
                             <br>
                             신청서 내역을 확인해 주세요.
@@ -24,31 +38,44 @@
                     </td>
                 </tr>
                 <tr style="margin: 0; padding: 0;">
-                    <th style="padding: 18px 20px; border-top: 1px solid #ccc; text-align: left;">신청인</th>
-                    <td style="padding: 0; border-top: 1px solid #ccc;">강유림</td>
-                    <th style="padding: 18px 20px; border-top: 1px solid #ccc; border-left: 1px solid #E5E5E5;  text-align: left;">연락처</th>
-                    <td style="padding: 0; border-top: 1px solid #ccc;">010-1234-1234</td>
-                </tr>
-                <tr style="margin: 0; padding: 0;">
-                    <th style="padding: 18px 20px; border-top: 1px solid #E5E5E5;  text-align: left;">회사명</th>
-                    <td colspan="3" style="padding: 0; border-top: 1px solid #E5E5E5;">위버로프트</td>
-                </tr>
-                <tr style="margin: 0; padding: 0;">
-                    <th style="padding: 18px 20px; border-top: 1px solid #E5E5E5;  text-align: left;">이메일</th>
-                    <td colspan="3" style="padding: 0; border-top: 1px solid #E5E5E5;">mallcore@weaverloft.com</td>
-                </tr>
-                <tr style="margin: 0; padding: 0;">
-                    <th style="padding: 18px 20px; border-top: 1px solid #E5E5E5;  text-align: left;">개인정보수집</th>
-                    <td style="padding: 0; border-top: 1px solid #E5E5E5;">동의</td>
-                    <th style="padding: 18px 20px; border-top: 1px solid #E5E5E5; border-left: 1px solid #E5E5E5;  text-align: left;">신청일자</th>
-                    <td style="padding: 0; border-top: 1px solid #E5E5E5;">2024.07.15 09:49</td>
-                </tr>
-                <tr style="margin: 0; padding: 0;">
-                    <td colspan="4" style="padding: 18px 20px; border-top: 1px solid #E5E5E5; border-bottom: 1px solid #ccc;">
-                        <strong>문의사항</strong>
-                        <p style="margin: 0; padding-top: 10px;">
-                            신청인이 작성한 문의사항이 노출됩니다.
-                        </p>
+                    <td class="table-td" style="padding: 0 2.5em 3.75em">
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            <li class="list-item1" style="display: flex; border-top: 1px solid #ccc;">
+                                <div style="flex: 1; padding: 1.13em 1.25em;">
+                                    <strong style="font-weight: 600;">신청인</strong>
+                                    <span style="margin-left: 4.3em;">김위버</span>
+                                </div>
+                                <div class="border" style="flex: 1; padding: 1.13em 1.25em; border-left: 1px solid #E5E5E5;">
+                                    <strong style="font-weight: 600;">연락처</strong>
+                                    <span style="margin-left: 4.3em;">010-1234-5678</span>
+                                </div>
+                            </li>
+                            <li class="list-item2" style="padding: 1.13em 1.25em; border-top: 1px solid #E5E5E5;">
+                                <strong style="font-weight: 600;">회사명</strong>
+                                <span style="margin-left: 4.3em;">위버로프트</span>
+                            </li>
+                            <li class="list-item3" style="padding: 1.13em 1.25em; border-top: 1px solid #E5E5E5;">
+                                <strong style="font-weight: 600;">이메일</strong>
+                                <span style="margin-left: 4.3em;">mallcore1234@weaverloft.com</span>
+                            </li>
+                            <li class="list-item4" style="display: flex; border-top: 1px solid #E5E5E5;">
+                                <div style="flex: 1; padding: 1.13em 1.25em;">
+                                    <strong style="font-weight: 600;">개인정보수집</strong>
+                                    <span style="margin-left: 1.88em;">동의</span>
+                                </div>
+                                <div class="border" style="flex: 1; padding: 1.13em 1.25em; border-left: 1px solid #E5E5E5;">
+                                    <strong style="font-weight: 600;">신청일자</strong>
+                                    <span style="margin-left: 3.5em;">2024.07.15 09:49</span>
+                                </div>
+                            </li>
+                            <li class="list-item5" style="padding: 1.13em 1.25em; border-top: 1px solid #E5E5E5; border-bottom: 1px solid #ccc;">
+                                <strong style="font-weight: 600;">문의사항</strong>
+                                <p style="margin: 0; padding-top: 10px;">
+                                    신청인이 작성한 문의사항이 노출됩니다. 신청인이 작성한 문의사항이 노출됩니다. 신청인이 작성한 문의사항이 노출됩니다.
+                                    신청인이 작성한 문의사항이 노출됩니다. 신청인이 작성한 문의사항이 노출됩니다. 신청인이 작성한 문의사항이 노출됩니다.
+                                </p>
+                            </li>
+                        </ul>
                     </td>
                 </tr>
             </tbody>
