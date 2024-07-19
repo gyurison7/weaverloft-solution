@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159" height="159" viewBox="0 0 159 159">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.163" x2="0.819" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#11e4ff"/>
+      <stop offset="1" stop-color="#1c689f"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_2091" data-name="그룹 2091" transform="translate(-1006 -1552)">
+    <circle id="타원_19" data-name="타원 19" cx="79.5" cy="79.5" r="79.5" transform="translate(1006 1552)" fill="url(#linear-gradient)"/>
+    <text id="Drag_or_click" data-name="Drag
+or click" transform="translate(1086 1624)" fill="#fff" font-size="24" font-family="Pretendard-SemiBold, Pretendard" font-weight="600" letter-spacing="-0.01em"><tspan x="-26.16" y="0">Drag</tspan><tspan x="-39.144" y="28">or click</tspan></text>
+  </g>
+</svg>
