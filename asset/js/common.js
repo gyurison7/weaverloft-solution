@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 root: null,
                 rootMargin: "0px",
-                threshold: 0.3,
+                threshold: 0,
             }
         );
 
