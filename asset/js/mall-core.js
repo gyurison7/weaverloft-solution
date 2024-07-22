@@ -82,6 +82,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    if ($("#details").length > 0) {
+        $("#details").on("keyup", function () {
+            const maxLength = $(this).attr("maxlength");
+            const $typingNum = $(this).siblings(".write-typing").find(".typing-num");
+
+            $typingNum.html($(this).val().length);
+
+            if ($(this).val().length > maxLength) {
+                $(this).val($(this).val().substring(0, maxLength));
+                $typingNum.html(maxLength);
+            }
+        });
+
+        // 초기화
+        const initialMaxLength = $("#details").attr("maxlength");
+        const $typingMaxNum = $("#details").siblings(".write-typing").find(".typing-max-num");
+        const $typingNum = $("#details").siblings(".write-typing").find(".typing-num");
+
+        $typingMaxNum.html(initialMaxLength);
+        $typingNum.html("0");
+    }
+
     $(".submit-btn").click(function (event) {
         event.preventDefault();
         let errorElement;
