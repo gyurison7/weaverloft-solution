@@ -38,12 +38,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 if (closestItem) {
+                    const itemDesc = closestItem.getAttribute("data-description");
                     const itemName = closestItem.getAttribute("data-name");
+                    document.querySelector(".item-description").textContent = itemDesc;
                     document.querySelector(".item-text").textContent = itemName;
                 }
             },
         },
-        xPercent: -50,
+        xPercent: -100,
+        x: function () {
+            return window.innerWidth;
+        },
+    });
+
+    Draggable.create(".solution-list", {
+        type: "x",
+        bounds: ".list-wrapper",
+        onDrag: function () {
+            ScrollTrigger.update();
+        },
     });
 
     $(".solution-list").hover(function () {
@@ -54,9 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const cursor = document.querySelector(".cursor");
     let mouseX = 0;
     let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-    let speed = 1; // 커서의 움직임 속도
 
     document.addEventListener("mousemove", function (e) {
         mouseX = e.clientX;
@@ -64,13 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function animate() {
-        // 마우스 위치에 따라 커서 위치를 천천히 변경
-        cursorX += (mouseX - cursorX) * speed;
-        cursorY += (mouseY - cursorY) * speed;
-
-        // 커스텀 커서의 위치를 업데이트
         cursor.style.transform = `
-              translate(${cursorX - cursor.offsetWidth / 2}px, ${cursorY - cursor.offsetHeight / 2}px)
+              translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)
           `;
 
         requestAnimationFrame(animate);
