@@ -7,7 +7,7 @@
  */
 
  /* 공통 */
- .container { position: relative; overflow-x: hidden; } 
+ .container { position: relative; overflow-x: hidden; letter-spacing: -0.025em; } 
  .inner { width: 100%; max-width: 1380px; margin: 0 auto; } 
  .common-margin { margin-top: 140px; } 
  .common-padding { padding-top: 140px; } 
@@ -379,10 +379,10 @@
  .introduce-sec .apply-modal .modal-body .input-wrapper label::after { left: 45px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper input { font-size: 15px; } 
  .introduce-sec .apply-modal .modal-body .input-wrapper .error { margin-top: 6px; } 
- .introduce-sec .apply-modal .modal-body .textarea-wrapper { padding-bottom: 5px; }
+ .introduce-sec .apply-modal .modal-body .textarea-wrapper { padding-bottom: 5px; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details { font-size: 15px; } 
  .introduce-sec .apply-modal .modal-body .textarea-wrapper #details::placeholder { font-size: 15px; } 
- .introduce-sec .apply-modal .modal-body .textarea-wrapper .write-typing { font-size: 13px; }
+ .introduce-sec .apply-modal .modal-body .textarea-wrapper .write-typing { font-size: 13px; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper #agree { width: 24px; height: 24px; } 
  .introduce-sec .apply-modal .modal-body .checkbox-wrapper label { padding-left: 6px; font-size: 14px; } 
  .introduce-sec .apply-modal .modal-body .btn-area { margin-top: 30px; } 
