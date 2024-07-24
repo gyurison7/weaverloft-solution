@@ -12,9 +12,9 @@
       <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
       <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
     </g>
-    <g id="타원_25" data-name="타원 25" transform="translate(29.223)" fill="none" stroke="#11e4ff" stroke-width="1">
+    <g id="타원_25" data-name="타원 25" transform="translate(29.223)" fill="rgba(17,228,255,0.5)" stroke="#11e4ff" stroke-width="2">
       <circle cx="43.122" cy="43.122" r="43.122" stroke="none"/>
-      <circle cx="43.122" cy="43.122" r="42.622" fill="none"/>
+      <circle cx="43.122" cy="43.122" r="42.122" fill="none"/>
     </g>
   </g>
 </svg>

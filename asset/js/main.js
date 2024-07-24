@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+    function debounce(func, sec) {
+        let timeout;
+        return function (...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), sec);
+        };
+    }
+
     // sc-intro
     const textList = $(".hover-text");
 
@@ -13,52 +22,195 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // sc-solution
-    gsap.to(".solution-list", {
-        scrollTrigger: {
-            trigger: ".solution-list",
-            start: "0% 40%",
-            end: "150% 0%",
-            scrub: true,
-            invalidateOnRefresh: true,
-            onUpdate: function (self) {
-                const items = document.querySelectorAll(".solution-list li");
-                const centerScreenX = window.innerWidth / 2; // 화면 중앙 위치 계산
-                let closestItem = null; // 화면 중앙에 가장 가까운 아이템
-                let minDistance = Infinity; // 현재까지 계산된 가장 작은 거리(초기 값은 매우 큰 값으로 설정)
+    let animateInterval;
+    function initCicleAnimate() {
+        if (animateInterval) {
+            clearInterval(animateInterval);
+        }
 
-                items.forEach((item) => {
-                    const rect = item.getBoundingClientRect();
-                    const itemCenterX = rect.left + rect.width / 2; // 아이템의 왼쪽 위치에 아이템 너비의 절반을 더해 중앙값 계산
-                    const distance = Math.abs(centerScreenX - itemCenterX); // 현재 아이템과 화면 중앙 사이의 거리(절대값)
+        if (window.innerWidth > 768) {
+            function circleAnimate() {
+                const randomX = Math.random() * 200; // 0 ~ 200
+                const randomY = Math.random() * 200; // 0 ~ 200
 
-                    if (distance < minDistance) {
-                        closestItem = item;
-                        minDistance = distance;
-                    }
+                gsap.to(".sc-solution", {
+                    duration: 6,
+                    "--translate-x": `${randomX}%`,
+                    "--translate-y": `${randomY}%`,
+                    ease: "power1.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                });
+            }
+
+            circleAnimate();
+            animateInterval = setInterval(circleAnimate, 6000);
+        } else {
+            gsap.killTweensOf(".sc-solution");
+            gsap.set(".sc-solution", { "--translate-x": 0, "--translate-y": 0 });
+        }
+    }
+
+    initCicleAnimate();
+    const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
+    window.addEventListener("resize", debouncingInitCircleAnimate);
+
+    let swiper;
+
+    function initResizeCarousel() {
+        // 이벤트 리스너 제거
+        $(document).off("mousedown touchstart", dragStart);
+        $(document).off("mouseup touchend", dragEnd);
+        $(document).off("mousemove touchmove", drag);
+        $(window).off("wheel");
+
+        if (window.innerWidth > 768) {
+            if (swiper) {
+                swiper.destroy();
+                swiper = undefined;
+            }
+
+            let xPos = 0;
+            let isDragging = false;
+
+            gsap.timeline()
+                .set(".solution-list", { rotationY: 180, cursor: "grab" }) // 초기 rotationY를 설정하여 파라락스 점프가 화면 밖에서 발생하도록 설정
+                .set(".solution-item", {
+                    rotateY: (i) => i * -45,
+                    transformOrigin: "50% 50% 1200px",
+                    z: -1200,
+                    backgroundPosition: (i) => getBgPos(i),
+                    backfaceVisibility: "hidden",
+                })
+                .from(".solution-item", {
+                    duration: 1.5,
+                    opacity: 0,
+                    ease: "expo",
+                })
+                .add(() => {
+                    $(".solution-item").on("mouseenter", (e) => {
+                        let current = e.currentTarget;
+                        // gsap.to(".solution-item", { opacity: (i, t) => (t == current ? 1 : 0.5), ease: "power3" });
+                    });
+                    $(".solution-item").on("mouseleave", (e) => {
+                        // gsap.to(".solution-item", { opacity: 1, ease: "power2.inOut" });
+                    });
+                }, "-=0.5");
+
+            $(document).on("mousedown touchstart", dragStart);
+            $(document).on("mouseup touchend", dragEnd);
+
+            $(window).on("wheel", (e) => {
+                if (!isDragging) {
+                    const delta = e.originalEvent.deltaY;
+                    gsap.to(".solution-list", {
+                        rotationY: "+=" + (delta > 0 ? 45 : -45), // 회전 방향을 반대로 설정
+                        onUpdate: () => {
+                            gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
+                        },
+                    });
+                }
+            });
+
+            function dragStart(e) {
+                if (e.touches) e.clientX = e.touches[0].clientX;
+                xPos = Math.round(e.clientX);
+                gsap.set(".solution-list", { cursor: "grabbing" });
+                $(document).on("mousemove touchmove", drag);
+                isDragging = true;
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function drag(e) {
+                if (e.touches) e.clientX = e.touches[0].clientX;
+
+                gsap.to(".solution-list", {
+                    rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360),
+                    onUpdate: () => {
+                        gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
+                    },
                 });
 
-                if (closestItem) {
-                    const itemDesc = closestItem.getAttribute("data-description");
-                    const itemName = closestItem.getAttribute("data-name");
-                    document.querySelector(".item-description").textContent = itemDesc;
+                xPos = Math.round(e.clientX);
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function dragEnd(e) {
+                $(document).off("mousemove touchmove", drag);
+                gsap.set(".solution-list", { cursor: "grab" });
+                setTimeout(() => (isDragging = false), 50);
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function getBgPos(i) {
+                // 각 이미지에 파라락스 효과를 생성하기 위해 background-position 문자열을 반환
+                return 100 - (gsap.utils.wrap(0, 360, gsap.getProperty(".solution-list", "rotationY") - 180 - i * 45) / 360) * 1200 + "px 0px";
+            }
+        } else {
+            if (!swiper) {
+                swiper = new Swiper(".swiper", {
+                    slidesPerView: "auto",
+                    centeredSlides: true,
+                    spaceBetween: 15,
+                    loop: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        type: "bullets",
+                        clickable: true,
+                        renderBullet: function (index, className) {
+                            if (index < 4) {
+                                return '<span class="' + className + '"></span>';
+                            }
+                            return "";
+                        },
+                    },
+                    grabCursor: true,
+                    keyboard: {
+                        enabled: true,
+                    },
+                    on: {
+                        slideChangeTransitionEnd: function () {
+                            updateContent();
+                            updatePagination(swiper.realIndex);
+                        },
+                    },
+                });
+
+                function updateContent() {
+                    const activeSlide = document.querySelector(".swiper-slide-active");
+                    const itemDescription = activeSlide.getAttribute("data-description");
+                    const itemName = activeSlide.getAttribute("data-name");
+
+                    document.querySelector(".item-description").textContent = itemDescription;
                     document.querySelector(".item-text").textContent = itemName;
                 }
-            },
-        },
-        xPercent: -100,
-        x: function () {
-            return window.innerWidth;
-        },
-    });
 
-    Draggable.create(".solution-list", {
-        type: "x",
-        bounds: ".list-wrapper",
-        onDrag: function () {
-            ScrollTrigger.update();
-        },
-    });
+                function updatePagination(realIndex) {
+                    const bullets = document.querySelectorAll(".swiper-pagination-bullet");
+                    const bulletIndex = realIndex % 4;
 
+                    bullets.forEach((bullet, index) => {
+                        bullet.classList.remove("swiper-pagination-bullet-active");
+                    });
+
+                    if (bullets[bulletIndex]) {
+                        bullets[bulletIndex].classList.add("swiper-pagination-bullet-active");
+                    }
+                }
+
+                updateContent();
+            }
+        }
+    }
+
+    initResizeCarousel();
+    const debounceInitResizeCarousel = debounce(initResizeCarousel, 200);
+    window.addEventListener("resize", debounceInitResizeCarousel);
+
+    // custom cursor
     $(".solution-list").hover(function () {
         const cursor = $(".cursor");
         cursor.toggleClass("on");
@@ -74,14 +226,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function animate() {
-        cursor.style.transform = `
-              translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)
-          `;
+        cursor.style.transform = `translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)`;
 
         requestAnimationFrame(animate);
     }
 
     animate();
+
+    // cursor grab
+    $(".solution-list").on("mousedown", function (event) {
+        $(".cursor").addClass("grab");
+    });
+
+    $(document).on("mouseup", function () {
+        if ($(".cursor").hasClass("grab")) {
+            $(".cursor").removeClass("grab");
+        }
+    });
+
+    // Prevent default drag behavior
+    $(".solution-list").on("dragstart", function (event) {
+        event.preventDefault();
+    });
 
     // sc-description
     document.querySelectorAll(".split").forEach((element) => {
@@ -102,8 +268,8 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.from(".description-wrapper .description .split span", {
         scrollTrigger: {
             trigger: ".description-wrapper .description",
-            start: "0% 60%",
-            end: "100% 50%",
+            start: "0% 70%",
+            end: "100% 60%",
             scrub: true,
             // markers: true,
         },
@@ -111,16 +277,85 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.1,
     });
 
+    // section-wrapper
+    let animateInterval2;
+    function initCicleAnimate2() {
+        if (animateInterval2) {
+            clearInterval(animateInterval2);
+        }
+
+        if (window.innerWidth > 768) {
+            function circleAnimate() {
+                const randomX = Math.random() * 200 - 200; // -200 ~ 0
+                const randomY = Math.random() * 200; // 0 ~ 200
+
+                gsap.to(".section-wrapper", {
+                    duration: 6,
+                    "--translate-x": `${randomX}%`,
+                    "--translate-y": `${randomY}%`,
+                    ease: "power1.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                });
+            }
+
+            circleAnimate();
+            animateInterval2 = setInterval(circleAnimate, 6000);
+        } else {
+            gsap.killTweensOf(".section-wrapper");
+            gsap.set(".section-wrapper", { "--translate-x": 0, "--translate-y": 0 });
+        }
+    }
+
+    initCicleAnimate2();
+    const debouncingInitCircleAnimate2 = debounce(initCicleAnimate2, 200);
+    window.addEventListener("resize", debouncingInitCircleAnimate2);
+
+    let animateInterval3;
+    function initCicleAnimate3() {
+        if (animateInterval3) {
+            clearInterval(animateInterval3);
+        }
+
+        if (window.innerWidth > 768) {
+            function circleAnimate() {
+                const randomX = Math.random() * 200; // 0 ~ 200
+                const randomY = Math.random() * 200 - 150; // -150 ~ 50
+
+                gsap.to(".common-circle", {
+                    duration: 4,
+                    "--translate-x": `${randomX}%`,
+                    "--translate-y": `${randomY}%`,
+                    ease: "power1.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                });
+            }
+
+            circleAnimate();
+            animateInterval3 = setInterval(circleAnimate, 4000);
+        } else {
+            gsap.killTweensOf(".common-circle");
+            gsap.set(".common-circle", { "--translate-x": 0, "--translate-y": 0 });
+        }
+    }
+
+    initCicleAnimate3();
+    const debouncingInitCircleAnimate3 = debounce(initCicleAnimate3, 200);
+    window.addEventListener("resize", debouncingInitCircleAnimate3);
+
     // sc-partners
-    gsap.from(".partner-list", {
+    const animation = gsap.timeline({
         scrollTrigger: {
-            trigger: ".partner-list",
+            trigger: ".sc-partners",
             start: "0% 70%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
         },
-        y: 100,
-        opacity: 0,
     });
+    animation
+        .from($(".sc-partners .title"), { y: 100, opacity: 0 }, "a")
+        .from($(".sc-partners .description"), { y: 100, opacity: 0 }, "a")
+        .from($(".partner-list"), { y: 100, opacity: 0 });
 });

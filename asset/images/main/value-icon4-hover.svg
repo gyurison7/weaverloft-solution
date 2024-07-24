@@ -1,9 +1,9 @@
 <svg id="그룹_2322" data-name="그룹 2322" xmlns="http://www.w3.org/2000/svg" width="269.401" height="140.009" viewBox="0 0 269.401 140.009">
   <g id="그룹_2320" data-name="그룹 2320" transform="translate(19.971 0)">
     <g id="그룹_2319" data-name="그룹 2319" transform="translate(0 0)">
-      <g id="타원_26" data-name="타원 26" transform="translate(24.89 24.89)" fill="none" stroke="#11e4ff" stroke-width="1">
+      <g id="타원_26" data-name="타원 26" transform="translate(24.89 24.89)" fill="rgba(17,228,255,0.5)" stroke="#11e4ff" stroke-width="2">
         <circle cx="45.114" cy="45.114" r="45.114" stroke="none"/>
-        <circle cx="45.114" cy="45.114" r="44.614" fill="none"/>
+        <circle cx="45.114" cy="45.114" r="44.114" fill="none"/>
       </g>
       <g id="타원_27" data-name="타원 27" transform="translate(0 0)" fill="none" stroke="#999" stroke-width="1">
         <circle cx="70.004" cy="70.004" r="70.004" stroke="none"/>
