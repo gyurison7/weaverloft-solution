@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".mo-gnb").addClass("on");
             $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").addClass("on");
             $(".mo-gnb .mo-gnb-bottom").addClass("on");
-            $("body").addClass("no-scroll");
+            disableScroll();
             menuOpen = true;
         } else {
             closeMenu();
@@ -47,13 +47,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").removeClass("on");
         $(".mo-gnb .mo-gnb-bottom").removeClass("on");
-        $(".mo-gnb .mo-gnb-area .mo-gnb-list li span").one("transitionend", function () {
-            $(".mo-gnb").removeClass("on");
-            $("body").removeClass("no-scroll");
-            menuOpen = false;
-        });
+        $(".mo-gnb").removeClass("on");
+        ableScroll();
         menuOpen = false;
     };
+
+    let scrollY = 0;
+
+    function disableScroll() {
+        scrollY = window.scrollY;
+        const body = document.body;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.width = "100%";
+        ScrollTrigger.getAll().forEach((st) => st.disable()); // 애니메이션 상태 저장
+    }
+
+    function ableScroll() {
+        const body = document.body;
+        const originalScrollbehavior = document.documentElement.style.scrollBehavior;
+
+        body.style.position = "";
+        body.style.top = "";
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, scrollY);
+        ScrollTrigger.getAll().forEach((st) => {
+            // 애니메이션 상태 복원
+            st.enable();
+            st.refresh();
+        });
+
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = originalScrollbehavior;
+        }, 0);
+    }
 
     $(document).on("keydown", function (e) {
         if (menuOpen && e.key === "Escape") {

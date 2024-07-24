@@ -108,14 +108,14 @@
  .header .header-inner .mo-menu .menu-btn.on .menu-line2 { opacity: 0; } 
  .header .header-inner .mo-menu .menu-btn.on .menu-line3 { transform: translateY(-9px) rotate(-45deg); -webkit-transform: translateY(-9px) rotate(-45deg); -moz-transform: translateY(-9px) rotate(-45deg); -ms-transform: translateY(-9px) rotate(-45deg); -o-transform: translateY(-9px) rotate(-45deg); } 
 
- .mo-gnb.mo-only { display: flex; flex-direction: column; justify-content: space-between; position: fixed; top: 0; left: 0; z-index: 99; width: 100%; height: 100dvh; padding: 30.833vw 16.667vw 11.111vw; background: #161E1F; overflow-y: auto; transform: translateY(-100%); transition: transform 0.5s ease-in; -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); -ms-transform: translateY(-100%); -o-transform: translateY(-100%); -webkit-transition: transform 0.5s ease-in; -moz-transition: transform 0.5s ease-in; -ms-transition: transform 0.5s ease-in; -o-transition: transform 0.5s ease-in; } 
+ .mo-gnb.mo-only { display: flex; flex-direction: column; justify-content: space-between; position: fixed; top: 0; left: 0; z-index: 99; width: 100%; height: 100dvh; padding: 30.833vw 16.667vw 11.111vw; background: #161E1F; overflow-y: auto; transform: translateY(-100%); transition: transform 0.5s 0.3s ease-in; -webkit-transition: transform 0.5s 0.3s ease-in; -moz-transition: transform 0.5s 0.3s ease-in; -ms-transition: transform 0.5s 0.3s ease-in; -o-transition: transform 0.5s 0.3s ease-in; } 
  .mo-gnb.on { transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); } 
  .mo-gnb .mo-gnb-area { width: 100%; } 
  .mo-gnb .mo-gnb-area .mo-gnb-list { display: flex; flex-direction: column; gap: 11px; font-size: clamp(40px, 8.464vw, 65px); font-weight: 600; color: #EEEEEE; line-height: 1
 ; } 
  .mo-gnb .mo-gnb-area .mo-gnb-list li { overflow: hidden; } 
- .mo-gnb .mo-gnb-area .mo-gnb-list li span { display: flex; transform: translateY(100%); transition: transform 0.5s 0.5s ease-in; -webkit-transform: translateY(100%); -moz-transform: translateY(100%); -ms-transform: translateY(100%); -o-transform: translateY(100%); -webkit-transition: transform 0.5s 0.5s ease-in; -moz-transition: transform 0.5s 0.5s ease-in; -ms-transition: transform 0.5s 0.5s ease-in; -o-transition: transform 0.5s 0.5s ease-in; } 
- .mo-gnb .mo-gnb-area .mo-gnb-list li span.on { transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); } 
+ .mo-gnb .mo-gnb-area .mo-gnb-list li span { display: flex; transform: translateY(100%); transition: transform 0.5s ease-in; } 
+ .mo-gnb .mo-gnb-area .mo-gnb-list li span.on { transform: translateY(0); transition: transform 0.5s 0.5s ease-in; } 
  .mo-gnb .mo-gnb-area .mo-gnb-list .gnb-solution span::before { display: block; width: 0; height: 4px; margin-top: 0.8em; background: #EEEEEE; content: ''; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; } 
  .mo-gnb .mo-gnb-area .mo-gnb-list .gnb-solution span:hover::before { width: 30px; margin-right: 10px; } 
  .mo-gnb .mo-gnb-area .mo-gnb-list .current { opacity: 0.15; } 
@@ -151,8 +151,8 @@
  .side-btn:hover .btn-link img { opacity: 1; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); } 
  .side-btn:hover .btn-link .btn-text { opacity: 0; transform: translateY(80px); -webkit-transform: translateY(80px); -moz-transform: translateY(80px); -ms-transform: translateY(80px); -o-transform: translateY(80px); } 
  .quick-btn.on { bottom: 6em; } 
- .quick-btn.bottom { bottom: calc(50vh + 6em); } 
- .top-btn.bottom { bottom: 50vh; } 
+ .quick-btn.bottom { bottom: 9.13em; } 
+ .top-btn.bottom { bottom: 3.13em; } 
  }
 
  @media all and (max-width: 360px){
