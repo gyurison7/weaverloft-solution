@@ -9,17 +9,52 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // sc-intro
-    const textList = $(".hover-text");
+    // aos
+    $(".sc-intro").addClass("on");
+    setTimeout(() => {
+        const textElements = document.querySelectorAll(".hover-text");
+        const totalElements = textElements.length;
+        let currentIndex = totalElements - 1;
+        let lastTimestamp = 0;
+        const interval = 60; // 20ms 간격으로 업데이트
+        let isAnimationComplete = false;
 
-    $(".sc-intro").on("mouseover", ".hover-text", function () {
-        const index = textList.index(this);
-        textList.each(function (i) {
-            const weight = 900 - Math.abs(i - index) * 100;
-            const wght = weight > 100 ? weight : 100;
-            $(this).css("font-variation-settings", `"wght" ${wght}`);
-            $(this).css("font-weight", wght);
-        });
-    });
+        function updateFontWeights(timestamp) {
+            if (isAnimationComplete) return;
+
+            if (timestamp - lastTimestamp >= interval) {
+                textElements.forEach((element, i) => {
+                    let distance = i - currentIndex;
+                    let weight = 100;
+
+                    if (distance <= 0 && distance > -totalElements) {
+                        weight = Math.max(100, Math.min(900, 900 + (800 / (totalElements - 1)) * distance));
+                    }
+
+                    element.style.fontVariationSettings = `"wght" ${weight}`;
+                    element.style.fontWeight = weight;
+                });
+
+                currentIndex--;
+                lastTimestamp = timestamp;
+
+                // 애니메이션 종료 조건 체크
+                if (currentIndex < -totalElements) {
+                    isAnimationComplete = true;
+                    document.querySelector(".sc-intro").classList.add("done");
+                    $(".hover-text").css({
+                        fontVariationSettings: "",
+                        fontWeight: "",
+                    });
+                    return;
+                }
+            }
+
+            requestAnimationFrame(updateFontWeights);
+        }
+
+        requestAnimationFrame(updateFontWeights);
+    }, 1700);
 
     // sc-solution
     let animateInterval;
@@ -55,6 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
     window.addEventListener("resize", debouncingInitCircleAnimate);
 
+    const solutionAnimation = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sc-solution",
+            start: "0% 60%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+    });
+    solutionAnimation
+        .from($(".sc-solution .common-title"), { y: 100, opacity: 0 })
+        .from($(".sc-solution .common-description"), { y: 100, opacity: 0 });
+
     let xPos = 0;
     let isDragging = false;
     let zValue;
@@ -84,8 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             zValue = 1450;
         }
-        console.log(window.innerWidth);
-        console.log(zValue);
 
         gsap.timeline()
             .set(".solution-list", { rotationY: 180, cursor: "grab" }) // 초기 rotationY를 설정하여 파라락스 점프가 화면 밖에서 발생하도록 설정
@@ -100,16 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 duration: 1.5,
                 opacity: 0,
                 ease: "expo",
-            })
-            .add(() => {
-                $(".solution-item").on("mouseenter", (e) => {
-                    let current = e.currentTarget;
-                    // gsap.to(".solution-item", { opacity: (i, t) => (t == current ? 1 : 0.5), ease: "power3" });
-                });
-                $(".solution-item").on("mouseleave", (e) => {
-                    // gsap.to(".solution-item", { opacity: 1, ease: "power2.inOut" });
-                });
-            }, "-=0.5");
+            });
 
         $(document).on("mousedown touchstart", dragStart);
         $(document).on("mouseup touchend", dragEnd);
@@ -245,19 +282,47 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", debounceInitResizeCarousel);
 
     // custom cursor
-    $(".solution-list").hover(function () {
-        const cursor = $(".cursor");
-        cursor.toggleClass("on");
-    });
-
     const cursor = document.querySelector(".cursor");
     let mouseX = 0;
     let mouseY = 0;
+    let isInsideCarousel = false;
 
     document.addEventListener("mousemove", function (e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
+        checkMousePosition();
     });
+
+    document.querySelector(".carousel").addEventListener("mouseenter", function () {
+        isInsideCarousel = true;
+        cursor.classList.add("on");
+    });
+
+    document.querySelector(".carousel").addEventListener("mouseleave", function () {
+        isInsideCarousel = false;
+        cursor.classList.remove("on");
+    });
+
+    document.addEventListener("scroll", function () {
+        checkMousePosition(); // 스크롤이 발생할 때마다 위치 체크
+    });
+
+    function checkMousePosition() {
+        const solutionList = document.querySelector(".carousel");
+        const rect = solutionList.getBoundingClientRect();
+
+        if (mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom) {
+            if (!isInsideCarousel) {
+                isInsideCarousel = true;
+                cursor.classList.add("on");
+            }
+        } else {
+            if (isInsideCarousel) {
+                isInsideCarousel = false;
+                cursor.classList.remove("on");
+            }
+        }
+    }
 
     function animate() {
         cursor.style.transform = `translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)`;
@@ -268,7 +333,7 @@ document.addEventListener("DOMContentLoaded", function () {
     animate();
 
     // cursor grab
-    $(".solution-list").on("mousedown", function (event) {
+    $(".carousel").on("mousedown", function (event) {
         $(".cursor").addClass("grab");
     });
 
@@ -279,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Prevent default drag behavior
-    $(".solution-list").on("dragstart", function (event) {
+    $(".carousel").on("dragstart", function (event) {
         event.preventDefault();
     });
 
@@ -378,18 +443,67 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingInitCircleAnimate3 = debounce(initCicleAnimate3, 200);
     window.addEventListener("resize", debouncingInitCircleAnimate3);
 
-    // sc-partners
-    const animation = gsap.timeline({
+    // sc-development
+    const developmentAnimation = gsap.timeline({
         scrollTrigger: {
-            trigger: ".sc-partners",
-            start: "0% 70%",
+            trigger: ".sc-development .title",
+            start: "0% 90%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
         },
     });
-    animation
-        .from($(".sc-partners .title"), { y: 100, opacity: 0 }, "a")
-        .from($(".sc-partners .description"), { y: 100, opacity: 0 }, "a")
-        .from($(".partner-list"), { y: 100, opacity: 0 });
+    developmentAnimation
+        .from($(".sc-development .title"), { y: 100, opacity: 0 })
+        .from($(".sc-development .common-description"), { y: 100, opacity: 0 });
+
+    gsap.from(".sc-development .img-wrapper img", {
+        scrollTrigger: {
+            trigger: ".sc-development",
+            start: "0% 50%",
+            end: "100% 0%",
+            toggleActions: "play none none none",
+            // markers: true,
+        },
+        scale: 1.3,
+        ease: "Power4.easeInOut",
+        duration: 1.5,
+    });
+
+    // sc-partners
+    const partnersAnimation = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sc-partners",
+            start: "0% 60%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+    });
+    partnersAnimation.from($(".sc-partners .title"), { y: 100, opacity: 0 }).from($(".sc-partners .description"), { y: 100, opacity: 0 });
+
+    gsap.from(".partner-list", {
+        scrollTrigger: {
+            trigger: ".partner-list",
+            start: "0% 90%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        y: 100,
+        opacity: 0,
+    });
+
+    // sc-recruit
+    gsap.from(".sc-recruit .content-wrapper", {
+        scrollTrigger: {
+            trigger: ".sc-recruit",
+            start: "0% 80%",
+            end: "100% 0%",
+            toggleActions: "play none none reverse",
+            // markers: true,
+        },
+        y: 100,
+        opacity: 0,
+    });
 });
