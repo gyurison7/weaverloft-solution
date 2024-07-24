@@ -8,7 +8,7 @@ body { background-color: #111; color: #fff; }
 .common-title { font-size: 60px; font-weight: 400; line-height: 1.18; letter-spacing: -0.025em; } 
 .common-description { font-size: 20px; line-height: 1.5; letter-spacing: -0.025em; } 
 strong, em { color: var(--em-color-11); } 
-.common-circle::before { display: block; position: absolute; max-width: 800px; width: 41.667vw; min-width: 300px; opacity: 0.08; border-radius: 50%; background-color: var(--em-color-11); transform: translateX(var(--translate-x)) translateY(var(--translate-y)); aspect-ratio: 1; content: ''; filter: blur(50px); -webkit-filter: blur(50px); } 
+.common-circle::before { display: block; position: absolute; max-width: 800px; width: 41.667vw; min-width: 280px; opacity: 0.08; border-radius: 50%; background-color: var(--em-color-11); transform: translateX(var(--translate-x)) translateY(var(--translate-y)); aspect-ratio: 1; content: ''; filter: blur(50px); -webkit-filter: blur(50px); } 
 
 .wrapper::before { display: block; position: fixed; top: 0; left: 0; z-index: -1; width: 100%; background-image: url("../images/main/bg-intro.png"); background-repeat: no-repeat; background-position: center; background-size: cover; content: ''; aspect-ratio: 1920 / 1080; } 
 
@@ -43,24 +43,20 @@ strong, em { color: var(--em-color-11); }
 .sc-solution::before { top: 0; left: -10%; } 
 .sc-solution .content-top { padding-left: 50%; } 
 .sc-solution .content-top .common-description { padding-top: 2em; } 
-.sc-solution .carousel { position: relative; width: 100%; padding: 30px 0px 273px; overflow: hidden; user-select: none; } 
-.sc-solution .carousel .list-wrapper { position: relative; overflow: visible; width: 938px; height: 938px; transform: rotate(6deg); perspective: 2200px; } 
+.sc-solution .carousel { position: relative; width: 100%; padding-bottom: 273px; overflow: hidden; user-select: none; } 
+.sc-solution .carousel .list-wrapper { position: relative; overflow: visible; width: 938px; height: 938px; transform: rotate(6deg); perspective: 3800px; } 
 .sc-solution .list-wrapper .solution-list { width: 100%; height: 100%; transform-style: preserve-3d; user-select: none; cursor: none !important; transition: transform 0.5s; } 
 .sc-solution .list-wrapper .solution-list li { position: absolute; width: 100%; height: 100%; } 
 .sc-solution .list-wrapper .solution-list li a { display: block; width: 100%; height: 100%; cursor: none; } 
 .sc-solution .list-wrapper .solution-list li img { width: 100%; height: 100%; } 
 .sc-solution .list-wrapper .solution-list li .text-wrapper { position: absolute; left: 0; visibility: hidden; opacity: 0; transition: visibility 0.3s, opacity 0.3s, transform 0.3s; } 
-/* .sc-solution .list-wrapper .solution-list .solution-item1 .text-wrapper { bottom: -24%; } 
-.sc-solution .list-wrapper .solution-list .solution-item2 .text-wrapper { bottom: -35%; } 
-.sc-solution .list-wrapper .solution-list .solution-item3 .text-wrapper { bottom: -38%; } 
-.sc-solution .list-wrapper .solution-list .solution-item4 .text-wrapper { bottom: -56%; } */
 .sc-solution .list-wrapper .solution-list li .text-wrapper .description { font-size: clamp(15px, 1.875vw, 36px); font-weight: 500; line-height: 1.16; } 
 .sc-solution .list-wrapper .solution-list li .text-wrapper strong { font-size: clamp(36px, 3.125vw, 60px); font-weight: 700; } 
 .sc-solution .list-wrapper .solution-list li:hover .text-wrapper { visibility: visible; opacity: 1; transform: translateY(-20%); } 
 
 /* sc-description */
 .sc-description { } 
-.sc-description .title-wrapper { position: relative; height: 100vh; } 
+.sc-description .title-wrapper { position: relative; height: 150vh; } 
 .sc-description .title-wrapper .title { position: sticky; top: 0; padding: 6.92em 0 5.37em; font-size: 52px; font-weight: 600; text-align: center; } 
 .sc-description .description-wrapper { display: flex; justify-content: center; padding: 33.542vw clamp(1px, 21.719vw, 417px) 17.656vw; background: linear-gradient(rgba(17, 17, 17, 0), rgb(17, 17, 17, 1)); } 
 .sc-description .description-wrapper .description { max-width: 1086px; min-width: 922px; font-size: 35px; font-weight: 500; color: #fff; line-height: 1.6; word-break: keep-all; } 
@@ -132,15 +128,14 @@ strong, em { color: var(--em-color-11); }
 .cursor.grab { width: 50px; height: 50px; transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), height 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); } 
 .cursor.grab span { transform: scale(0); } 
 
-@media all and (min-width: 1920px){
- .sc-solution .carousel { padding: 280px 0; } 
- }
+@media all and (min-width: 1920px) { } 
 
 @media all and (max-width: 1720px){
  .inner { width: calc(100% - 48px); margin: 0 24px; } 
  }
 
 @media all and (max-width: 1630px){
+ .sc-solution .carousel .list-wrapper { width: 738px; height: 738px; } 
  .sc-description .description-wrapper { padding-left: calc((100vw - 922px) / 2); padding-right: calc((100vw - 922px) / 2); } 
  }
 
@@ -150,6 +145,7 @@ strong, em { color: var(--em-color-11); }
  .sc-intro .sub-title { font-size: clamp(16px, 2.636vw, 29px); } 
  .sc-intro .title { font-size: clamp(48px, 8.818vw, 97px); } 
  .sc-intro .text-wrapper { font-size: clamp(76px, 18.182vw, 200px); } 
+ .sc-solution .carousel .list-wrapper { width: 538px; height: 538px; } 
  .sc-description .title-wrapper .title { font-size: clamp(26px, 4.727vw, 52px); } 
  .sc-description .description-wrapper { padding-left: 6.25vw; padding-right: 6.25vw; } 
  .sc-description .description-wrapper .description { min-width: auto; font-size: clamp(18px, 3.182vw, 35px); } 
@@ -170,17 +166,18 @@ strong, em { color: var(--em-color-11); }
  }
 
  @media all and (max-width: 768px){
- .wrapper::before { width: 200%; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
+ .wrapper::before { width: 300%; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
  .common-padding { padding-top: 100px; } 
  .sc-intro .title { flex-direction: column; line-height: 1.08; } 
  .sc-solution { padding-bottom: 133px; overflow: hidden; } 
  .sc-solution .inner { display: flex; flex-direction: column; align-items: center; } 
  .sc-solution .content-top { align-self: flex-start; padding: 0; } 
  .sc-solution .content-top .common-description .pc-only { display: none; } 
- .sc-solution .carousel { width: 100%; height: 282px; margin-top: 100px; overflow: visible; } 
- .sc-solution .carousel .list-wrapper { width: 100%; height: 100%; position: static; perspective: none; transform: rotate(4deg); } 
+ .sc-solution .carousel { padding: 100px 0 0; overflow: visible; } 
+ .sc-solution .carousel .list-wrapper { position: static; width: 100%; height: 282px; perspective: none; transform: rotate(4deg); } 
  .sc-solution .list-wrapper .solution-list { cursor: auto; } 
  .sc-solution .list-wrapper .solution-list li { position: static; max-width: 230px; max-height: 230px; } 
+ .sc-solution .list-wrapper .solution-list li.pc-only { display: none; } 
  .sc-solution .list-wrapper .solution-list li a { transform: none !important; cursor: pointer; } 
  .sc-solution .list-wrapper .solution-list li .text-wrapper { display: none; } 
  .sc-solution .swiper-pagination { padding-top: 20px; transform: rotate(-4deg); } 
@@ -209,7 +206,7 @@ strong, em { color: var(--em-color-11); }
 
  @media all and (max-width: 530px){
  .sc-core-value .value-list { grid-template-columns: repeat(1, 1fr); } 
- .sc-core-value .value-list .value-item { height: 432px; } 
+ /* .sc-core-value .value-list .value-item { height: 432px; } */
  .sc-core-value .value-list .item1 { border-right: 1px solid rgba(255, 255, 255, 0.4); } 
  .sc-core-value .value-list .item1::after, .sc-core-value .value-list .item2::after { left: calc(-50vw + 50%); width: 100vw; } 
  .sc-core-value .value-list .item3 { border-right: 1px solid rgba(255, 255, 255, 0.4); } 
@@ -227,7 +224,7 @@ strong, em { color: var(--em-color-11); }
  .sc-intro { height: 600px; } 
  .sc-intro .sub-title { padding-top: 220px; } 
  .sc-intro .title { padding-bottom: 240px; } 
- .sc-description.description-wrapper { padding: 0 24px 65px; } 
+ .sc-description .description-wrapper { padding: 0 24px 65px; } 
  .sc-development .content-wrapper .common-description { padding-top: 24px; } 
  .sc-partners .list-wrapper .partner-list li { min-width: auto; } 
  }

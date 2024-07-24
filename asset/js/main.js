@@ -55,159 +55,193 @@ document.addEventListener("DOMContentLoaded", function () {
     const debouncingInitCircleAnimate = debounce(initCicleAnimate, 200);
     window.addEventListener("resize", debouncingInitCircleAnimate);
 
+    let xPos = 0;
+    let isDragging = false;
+    let zValue;
     let swiper;
 
     function initResizeCarousel() {
+        if (window.innerWidth > 768) {
+            // 모바일에서 데스크탑 전환 시 swiper 인스턴스 파괴
+            if (swiper) {
+                swiper.destroy(true, true);
+                swiper = undefined;
+            }
+            setupDesktopCarousel();
+        } else {
+            resetDesktopCarousel(); // 데스크탑에서 모바일로 전환 시 설정 reset
+
+            setupMobileSwiper();
+        }
+    }
+
+    function setupDesktopCarousel() {
+        // 화면 너비에 따른 zValue 설정
+        if (window.innerWidth > 1630) {
+            zValue = 2500;
+        } else if (window.innerWidth > 1100) {
+            zValue = 2000;
+        } else {
+            zValue = 1450;
+        }
+        console.log(window.innerWidth);
+        console.log(zValue);
+
+        gsap.timeline()
+            .set(".solution-list", { rotationY: 180, cursor: "grab" }) // 초기 rotationY를 설정하여 파라락스 점프가 화면 밖에서 발생하도록 설정
+            .set(".solution-item", {
+                rotateY: (i) => i * -22.5,
+                transformOrigin: `50% 50% ${zValue}px`,
+                z: -zValue,
+                backgroundPosition: (i) => getBgPos(i),
+                backfaceVisibility: "hidden",
+            })
+            .from(".solution-item", {
+                duration: 1.5,
+                opacity: 0,
+                ease: "expo",
+            })
+            .add(() => {
+                $(".solution-item").on("mouseenter", (e) => {
+                    let current = e.currentTarget;
+                    // gsap.to(".solution-item", { opacity: (i, t) => (t == current ? 1 : 0.5), ease: "power3" });
+                });
+                $(".solution-item").on("mouseleave", (e) => {
+                    // gsap.to(".solution-item", { opacity: 1, ease: "power2.inOut" });
+                });
+            }, "-=0.5");
+
+        $(document).on("mousedown touchstart", dragStart);
+        $(document).on("mouseup touchend", dragEnd);
+        $(window).on("wheel", handelWeel);
+    }
+
+    function dragStart(e) {
+        if (e.touches) e.clientX = e.touches[0].clientX;
+        xPos = Math.round(e.clientX);
+        gsap.set(".solution-list", { cursor: "grabbing" });
+        $(document).on("mousemove touchmove", drag);
+        isDragging = true;
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function drag(e) {
+        if (e.touches) e.clientX = e.touches[0].clientX;
+
+        gsap.to(".solution-list", {
+            rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360),
+            onUpdate: () => {
+                gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
+            },
+        });
+
+        xPos = Math.round(e.clientX);
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function dragEnd(e) {
+        $(document).off("mousemove touchmove", drag);
+        gsap.set(".solution-list", { cursor: "grab" });
+        setTimeout(() => (isDragging = false), 50);
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function handelWeel(e) {
+        if (!isDragging) {
+            const delta = e.originalEvent.deltaY;
+            gsap.to(".solution-list", {
+                rotationY: "+=" + (delta > 0 ? 22.5 : -22.5), // 회전 방향을 반대로 설정
+                onUpdate: () => {
+                    gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
+                },
+            });
+        }
+    }
+
+    function getBgPos(i) {
+        // 각 이미지에 파라락스 효과를 생성하기 위해 background-position 문자열을 반환
+        return 100 - (gsap.utils.wrap(0, 360, gsap.getProperty(".solution-list", "rotationY") - 180 - i * 22.5) / 360) * zValue + "px 0px";
+    }
+
+    function setupMobileSwiper() {
+        if (!swiper) {
+            swiper = new Swiper(".swiper", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 15,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "bullets",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        if (index < 4) {
+                            return '<span class="' + className + '"></span>';
+                        }
+                        return "";
+                    },
+                },
+                grabCursor: true,
+                keyboard: {
+                    enabled: true,
+                },
+                on: {
+                    slideChangeTransitionEnd: function () {
+                        updateContent();
+                        updatePagination(swiper.realIndex);
+                    },
+                },
+            });
+
+            function updateContent() {
+                const activeSlide = document.querySelector(".swiper-slide-active");
+                const itemDescription = activeSlide.getAttribute("data-description");
+                const itemName = activeSlide.getAttribute("data-name");
+
+                document.querySelector(".item-description").textContent = itemDescription;
+                document.querySelector(".item-text").textContent = itemName;
+            }
+
+            function updatePagination(realIndex) {
+                const bullets = document.querySelectorAll(".swiper-pagination-bullet");
+                const bulletIndex = realIndex % 4;
+
+                bullets.forEach((bullet, index) => {
+                    bullet.classList.remove("swiper-pagination-bullet-active");
+                });
+
+                if (bullets[bulletIndex]) {
+                    bullets[bulletIndex].classList.add("swiper-pagination-bullet-active");
+                }
+            }
+
+            updateContent();
+        }
+    }
+
+    function resetDesktopCarousel() {
         // 이벤트 리스너 제거
         $(document).off("mousedown touchstart", dragStart);
         $(document).off("mouseup touchend", dragEnd);
         $(document).off("mousemove touchmove", drag);
-        $(window).off("wheel");
+        $(window).off("wheel", handelWeel);
 
-        if (window.innerWidth > 768) {
-            if (swiper) {
-                swiper.destroy();
-                swiper = undefined;
-            }
-
-            let xPos = 0;
-            let isDragging = false;
-
-            gsap.timeline()
-                .set(".solution-list", { rotationY: 180, cursor: "grab" }) // 초기 rotationY를 설정하여 파라락스 점프가 화면 밖에서 발생하도록 설정
-                .set(".solution-item", {
-                    rotateY: (i) => i * -45,
-                    transformOrigin: "50% 50% 1200px",
-                    z: -1200,
-                    backgroundPosition: (i) => getBgPos(i),
-                    backfaceVisibility: "hidden",
-                })
-                .from(".solution-item", {
-                    duration: 1.5,
-                    opacity: 0,
-                    ease: "expo",
-                })
-                .add(() => {
-                    $(".solution-item").on("mouseenter", (e) => {
-                        let current = e.currentTarget;
-                        // gsap.to(".solution-item", { opacity: (i, t) => (t == current ? 1 : 0.5), ease: "power3" });
-                    });
-                    $(".solution-item").on("mouseleave", (e) => {
-                        // gsap.to(".solution-item", { opacity: 1, ease: "power2.inOut" });
-                    });
-                }, "-=0.5");
-
-            $(document).on("mousedown touchstart", dragStart);
-            $(document).on("mouseup touchend", dragEnd);
-
-            $(window).on("wheel", (e) => {
-                if (!isDragging) {
-                    const delta = e.originalEvent.deltaY;
-                    gsap.to(".solution-list", {
-                        rotationY: "+=" + (delta > 0 ? 45 : -45), // 회전 방향을 반대로 설정
-                        onUpdate: () => {
-                            gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
-                        },
-                    });
-                }
-            });
-
-            function dragStart(e) {
-                if (e.touches) e.clientX = e.touches[0].clientX;
-                xPos = Math.round(e.clientX);
-                gsap.set(".solution-list", { cursor: "grabbing" });
-                $(document).on("mousemove touchmove", drag);
-                isDragging = true;
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            function drag(e) {
-                if (e.touches) e.clientX = e.touches[0].clientX;
-
-                gsap.to(".solution-list", {
-                    rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360),
-                    onUpdate: () => {
-                        gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
-                    },
-                });
-
-                xPos = Math.round(e.clientX);
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            function dragEnd(e) {
-                $(document).off("mousemove touchmove", drag);
-                gsap.set(".solution-list", { cursor: "grab" });
-                setTimeout(() => (isDragging = false), 50);
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            function getBgPos(i) {
-                // 각 이미지에 파라락스 효과를 생성하기 위해 background-position 문자열을 반환
-                return 100 - (gsap.utils.wrap(0, 360, gsap.getProperty(".solution-list", "rotationY") - 180 - i * 45) / 360) * 1200 + "px 0px";
-            }
-        } else {
-            if (!swiper) {
-                swiper = new Swiper(".swiper", {
-                    slidesPerView: "auto",
-                    centeredSlides: true,
-                    spaceBetween: 15,
-                    loop: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        type: "bullets",
-                        clickable: true,
-                        renderBullet: function (index, className) {
-                            if (index < 4) {
-                                return '<span class="' + className + '"></span>';
-                            }
-                            return "";
-                        },
-                    },
-                    grabCursor: true,
-                    keyboard: {
-                        enabled: true,
-                    },
-                    on: {
-                        slideChangeTransitionEnd: function () {
-                            updateContent();
-                            updatePagination(swiper.realIndex);
-                        },
-                    },
-                });
-
-                function updateContent() {
-                    const activeSlide = document.querySelector(".swiper-slide-active");
-                    const itemDescription = activeSlide.getAttribute("data-description");
-                    const itemName = activeSlide.getAttribute("data-name");
-
-                    document.querySelector(".item-description").textContent = itemDescription;
-                    document.querySelector(".item-text").textContent = itemName;
-                }
-
-                function updatePagination(realIndex) {
-                    const bullets = document.querySelectorAll(".swiper-pagination-bullet");
-                    const bulletIndex = realIndex % 4;
-
-                    bullets.forEach((bullet, index) => {
-                        bullet.classList.remove("swiper-pagination-bullet-active");
-                    });
-
-                    if (bullets[bulletIndex]) {
-                        bullets[bulletIndex].classList.add("swiper-pagination-bullet-active");
-                    }
-                }
-
-                updateContent();
-            }
-        }
+        gsap.killTweensOf(".solution-list, .solution-item");
+        gsap.set(".solution-list", { clearProps: "all" });
+        gsap.set(".solution-item", { clearProps: "all" });
+        gsap.set(".solution-list", { rotationY: 0 });
     }
 
     initResizeCarousel();
-    const debounceInitResizeCarousel = debounce(initResizeCarousel, 200);
+    const debounceInitResizeCarousel = debounce(() => {
+        initResizeCarousel();
+        if (swiper) {
+            swiper.update();
+        }
+    }, 200);
     window.addEventListener("resize", debounceInitResizeCarousel);
 
     // custom cursor
