@@ -6,7 +6,7 @@
  * 3. Client: Weaverloft
  */
  
- .skip-nav { position: absolute; z-index: 2000; width: 100px; height: 30px; } 
+ .skip-nav { position: absolute; z-index: 2000; width: 100px; height: 30px; pointer-events: none; } 
  .skip-nav a { display: flex; justify-content: center; align-items: center; position: absolute; top: -200px; left: 0; width: 100%; height: 100%; background: #333; color: #fff; } 
  .skip-nav a:focus, .skip-nav a:active { top: 0; background: #333; } 
 
@@ -55,6 +55,11 @@
  .footer .footer-bottom .right-area .certification-list { display: flex; gap: 12px; } 
  .footer .footer-bottom .right-area .certification-list li { width: 180px; height: 68px; flex: 1; } 
  .footer .footer-bottom .right-area .certification-list li img { width: 100%; height: 100%; } 
+
+ /* loading */
+.loading { display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; visibility: visible; opacity: 1; width: 100%; height: 100%; background-color: #111; transition: visibility 0.5s, opacity 0.5s; } 
+.loading img { width: 150px; height: 150px; } 
+.loading.hide { visibility: hidden; opacity: 0; } 
 
  /* side-btn */
  .side-btn { position: fixed; bottom: 3.13em; right: 3.13em; z-index: 9; overflow: hidden; width: clamp(44px, 5em, 80px); height: clamp(44px, 5em, 80px); font-size: clamp(12px, 0.833vw, 16px); transform: translateY(-50%); box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); transition: all 0.5s; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; } 

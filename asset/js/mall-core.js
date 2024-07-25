@@ -1,13 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-    function debounce(func, sec) {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), sec);
-        };
-    }
+import { debounce } from "./common.js";
 
+window.addEventListener("load", function () {
     // introduce-sec
     let mainTitleAnimation;
 
@@ -44,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".link-apply").click(function () {
         $(".apply-modal, .introduce-sec .dim").addClass("on");
         $("body").addClass("no-scroll");
-        modalOpen = true;
+        window.modalOpen = true;
     });
 
     $(".btn-modal").click(function (event) {
@@ -56,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function applyModalClose() {
         $(".apply-modal, .introduce-sec .dim").removeClass("on");
         $("body").removeClass("no-scroll");
-        modalOpen = false;
+        window.modalOpen = false;
     }
 
     function agreeModalClose() {
@@ -350,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".mo-modal-item").addClass("on");
             $(".technology-sec .dim").addClass("on");
             initSwiper(index);
-            modalOpen = true;
+            window.modalOpen = true;
             disableScroll();
 
             setTimeout(() => {
@@ -509,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeModal = function () {
         $(".mo-modal-item").removeClass("on");
         $(".technology-sec .dim").removeClass("on");
-        modalOpen = false;
+        window.modalOpen = false;
         ableScroll();
 
         $(document).off("keydown.closeModal");

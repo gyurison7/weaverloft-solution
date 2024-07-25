@@ -1,9 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // header
-    let menuOpen = false;
-    let modalOpen = false;
-    let lastScroll = 0;
+export function debounce(func, sec) {
+    let timeout;
+    return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), sec);
+    };
+}
 
+window.addEventListener("load", function () {
+    $(".loading").addClass("hide");
+
+    window.menuOpen = false;
+    window.modalOpen = false;
+    window.lastScroll = 0;
+
+    // header
     $(window).on("scroll", function () {
         if (menuOpen || modalOpen) return;
 
@@ -88,16 +99,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $(document)
-        .on("click", ".gnb-solution-link", function () {
-            $(".sub-gnb").slideToggle();
-        })
-        .on("keydown", ".gnb-solution-link", function (e) {
-            if (e.keyCode === 13 || e.keyCode === 32) {
-                e.preventDefault();
-                $(this).click();
-            }
-        });
+    // TODO :: 솔루션 페이지 링크 생성 후 주석 해제(삭제 금지)
+    // $(document)
+    //     .on("click", ".gnb-solution-link", function () {
+    //         $(".sub-gnb").slideToggle();
+    //     })
+    //     .on("keydown", ".gnb-solution-link", function (e) {
+    //         if (e.keyCode === 13 || e.keyCode === 32) {
+    //             e.preventDefault();
+    //             $(this).click();
+    //         }
+    //     });
 
     // side-btn
     let footerLoad = false;
