@@ -1,20 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="229.459" height="143.229" viewBox="0 0 229.459 143.229">
-  <g id="그룹_2310" data-name="그룹 2310" transform="translate(0 143.229) rotate(-90)">
-    <g id="타원_22" data-name="타원 22" transform="translate(0 86.207)" fill="none" stroke="#fff" stroke-width="1">
-      <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
-      <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="270" viewBox="0 0 270 270">
+  <g id="그룹_7801" data-name="그룹 7801" transform="translate(-402 -3022)">
+    <g id="그룹_7784" data-name="그룹 7784" transform="translate(423 3228.229) rotate(-90)">
+      <g id="타원_22" data-name="타원 22" transform="translate(0 86.207)" fill="none" stroke="#fff" stroke-width="1">
+        <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
+        <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
+      </g>
+      <g id="타원_23" data-name="타원 23" transform="translate(0 45.295)" fill="none" stroke="#fff" stroke-width="1">
+        <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
+        <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
+      </g>
+      <g id="타원_24" data-name="타원 24" fill="none" stroke="#fff" stroke-width="1">
+        <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
+        <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
+      </g>
+      <g id="타원_25" data-name="타원 25" transform="translate(29.223)" fill="none" stroke="#11e4ff" stroke-width="1">
+        <circle cx="43.122" cy="43.122" r="43.122" stroke="none"/>
+        <circle cx="43.122" cy="43.122" r="42.622" fill="none"/>
+      </g>
     </g>
-    <g id="타원_23" data-name="타원 23" transform="translate(0 45.295)" fill="none" stroke="#fff" stroke-width="1">
-      <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
-      <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
-    </g>
-    <g id="타원_24" data-name="타원 24" fill="none" stroke="#fff" stroke-width="1">
-      <ellipse cx="71.615" cy="71.626" rx="71.615" ry="71.626" stroke="none"/>
-      <ellipse cx="71.615" cy="71.626" rx="71.115" ry="71.126" fill="none"/>
-    </g>
-    <g id="타원_25" data-name="타원 25" transform="translate(29.223)" fill="none" stroke="#11e4ff" stroke-width="1">
-      <circle cx="43.122" cy="43.122" r="43.122" stroke="none"/>
-      <circle cx="43.122" cy="43.122" r="42.622" fill="none"/>
-    </g>
+    <rect id="사각형_3105" data-name="사각형 3105" width="270" height="270" transform="translate(402 3022)" fill="none"/>
   </g>
 </svg>

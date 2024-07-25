@@ -1,13 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-    function debounce(func, sec) {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), sec);
-        };
-    }
+import { debounce } from "./common.js";
 
+window.addEventListener("load", function () {
     // sc-intro
     // aos
     $(".sc-intro").addClass("on");
@@ -134,18 +127,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         gsap.timeline()
-            .set(".solution-list", { rotationY: 180, cursor: "grab" }) // 초기 rotationY를 설정하여 파라락스 점프가 화면 밖에서 발생하도록 설정
+            .set(".solution-list", { rotationY: 180 }) // 초기 rotationY를 설정하여 리스트가 화면 밖에 위치하게 함
             .set(".solution-item", {
                 rotateY: (i) => i * -22.5,
-                transformOrigin: `50% 50% ${zValue}px`,
+                transformOrigin: `50% 50% ${zValue}px`, // 변환 중심 설정
                 z: -zValue,
-                backgroundPosition: (i) => getBgPos(i),
+                backgroundPosition: (i) => getBgPos(i), // 배경 위치 설정
                 backfaceVisibility: "hidden",
-            })
-            .from(".solution-item", {
-                duration: 1.5,
-                opacity: 0,
-                ease: "expo",
             });
 
         $(document).on("mousedown touchstart", dragStart);
@@ -156,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function dragStart(e) {
         if (e.touches) e.clientX = e.touches[0].clientX;
         xPos = Math.round(e.clientX);
-        gsap.set(".solution-list", { cursor: "grabbing" });
         $(document).on("mousemove touchmove", drag);
         isDragging = true;
         e.preventDefault();
@@ -167,20 +154,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.touches) e.clientX = e.touches[0].clientX;
 
         gsap.to(".solution-list", {
-            rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360),
+            rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360), // 리스트를 드래그한 만큼 회전
             onUpdate: () => {
-                gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
+                gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) }); // 배경 위치 업데이트
             },
         });
 
-        xPos = Math.round(e.clientX);
+        xPos = Math.round(e.clientX); // 현재 x좌표 저장
         e.preventDefault();
         e.stopPropagation();
     }
 
     function dragEnd(e) {
         $(document).off("mousemove touchmove", drag);
-        gsap.set(".solution-list", { cursor: "grab" });
         setTimeout(() => (isDragging = false), 50);
         e.preventDefault();
         e.stopPropagation();
@@ -188,9 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handelWeel(e) {
         if (!isDragging) {
-            const delta = e.originalEvent.deltaY;
+            const delta = e.originalEvent.deltaY; // y축 이동 거리
             gsap.to(".solution-list", {
-                rotationY: "+=" + (delta > 0 ? 22.5 : -22.5), // 회전 방향을 반대로 설정
+                rotationY: "+=" + (delta > 0 ? 22.5 : -22.5),
                 onUpdate: () => {
                     gsap.set(".solution-item", { backgroundPosition: (i) => getBgPos(i) });
                 },
@@ -272,6 +258,12 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.set(".solution-list", { rotationY: 0 });
     }
 
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            setupDesktopCarousel();
+        }
+    }
+
     initResizeCarousel();
     const debounceInitResizeCarousel = debounce(() => {
         initResizeCarousel();
@@ -281,11 +273,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
     window.addEventListener("resize", debounceInitResizeCarousel);
 
+    window.addEventListener("resize", handleResize);
+
     // custom cursor
     const cursor = document.querySelector(".cursor");
     let mouseX = 0;
     let mouseY = 0;
-    let isInsideCarousel = false;
 
     document.addEventListener("mousemove", function (e) {
         mouseX = e.clientX;
@@ -294,12 +287,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.querySelector(".carousel").addEventListener("mouseenter", function () {
-        isInsideCarousel = true;
         cursor.classList.add("on");
     });
 
     document.querySelector(".carousel").addEventListener("mouseleave", function () {
-        isInsideCarousel = false;
         cursor.classList.remove("on");
     });
 
@@ -312,15 +303,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const rect = solutionList.getBoundingClientRect();
 
         if (mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom) {
-            if (!isInsideCarousel) {
-                isInsideCarousel = true;
-                cursor.classList.add("on");
-            }
+            cursor.classList.add("on");
         } else {
-            if (isInsideCarousel) {
-                isInsideCarousel = false;
-                cursor.classList.remove("on");
-            }
+            cursor.classList.remove("on");
         }
     }
 
@@ -343,7 +328,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Prevent default drag behavior
     $(".carousel").on("dragstart", function (event) {
         event.preventDefault();
     });
@@ -444,10 +428,24 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", debouncingInitCircleAnimate3);
 
     // sc-development
+    const imageAnimation = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sc-development",
+            start: "0% 50%",
+            end: "100% 0%",
+            toggleActions: "play none none none",
+            // markers: true,
+        },
+        ease: "Power2.easeOut",
+    });
+    imageAnimation
+        .fromTo($(".sc-development .img-wrapper img"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 2 })
+        .fromTo($(".sc-development .img-wrapper img"), { scale: 1.3 }, { scale: 1, duration: 4 });
+
     const developmentAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: ".sc-development .title",
-            start: "0% 90%",
+            start: "0% 70%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
@@ -457,24 +455,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .from($(".sc-development .title"), { y: 100, opacity: 0 })
         .from($(".sc-development .common-description"), { y: 100, opacity: 0 });
 
-    gsap.from(".sc-development .img-wrapper img", {
-        scrollTrigger: {
-            trigger: ".sc-development",
-            start: "0% 50%",
-            end: "100% 0%",
-            toggleActions: "play none none none",
-            // markers: true,
-        },
-        scale: 1.3,
-        ease: "Power4.easeInOut",
-        duration: 1.5,
-    });
-
     // sc-partners
     const partnersAnimation = gsap.timeline({
         scrollTrigger: {
             trigger: ".sc-partners",
-            start: "0% 60%",
+            start: "0% 70%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
@@ -485,7 +470,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.from(".partner-list", {
         scrollTrigger: {
             trigger: ".partner-list",
-            start: "0% 90%",
+            start: "0% 80%",
             end: "100% 0%",
             toggleActions: "play none none reverse",
             // markers: true,
