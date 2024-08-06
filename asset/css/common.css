@@ -13,7 +13,7 @@
 /*========== Font ==========*/
 @font-face { font-family: 'Pretendard'; font-weight: 100 900; font-style: normal; font-display: swap; src: url("../font/PretendardVariable.woff2") format('woff2-variations'); } 
 
-:root { --em-color-15: #15C1D8; --em-color-11:#11E4FF; --em-color-10: #10BAD0; --gray-color: #7B8B95; } 
+:root { --em-color-15: #15C1D8; --em-color-11:#11E4FF; --em-color-10: #10BAD0; --gray-color: #7B8B95; --side-btn-width: clamp(44px, 5em, 80px); } 
 
 .blind { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; overflow: hidden; } 
 .mo-only { display: none; } 

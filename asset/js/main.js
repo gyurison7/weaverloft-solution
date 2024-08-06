@@ -428,19 +428,27 @@ window.addEventListener("load", function () {
     window.addEventListener("resize", debouncingInitCircleAnimate3);
 
     // sc-development
-    const imageAnimation = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".sc-development",
-            start: "0% 50%",
-            end: "100% 0%",
-            toggleActions: "play none none none",
-            // markers: true,
-        },
-        ease: "Power2.easeOut",
-    });
-    imageAnimation
-        .fromTo($(".sc-development .img-wrapper img"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 2 })
-        .fromTo($(".sc-development .img-wrapper img"), { scale: 1.3 }, { scale: 1, duration: 4 });
+    function initImageAnimation() {
+        const targetImage = window.innerWidth > 1920 ? ".sc-development .img-wrapper .bg-full" : ".sc-development .img-wrapper .bg";
+
+        const imageAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".sc-development",
+                start: "0% 50%",
+                end: "100% 0%",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+            ease: "Power2.easeOut",
+        });
+        imageAnimation
+            .fromTo($(targetImage), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 2 })
+            .fromTo($(targetImage), { scale: 1.2 }, { scale: 1, duration: 4 }, "-=2");
+    }
+
+    initImageAnimation();
+    const debounceInitImageAnimation = debounce(initImageAnimation, 200);
+    window.addEventListener("resize", debounceInitImageAnimation);
 
     const developmentAnimation = gsap.timeline({
         scrollTrigger: {
@@ -465,19 +473,10 @@ window.addEventListener("load", function () {
             // markers: true,
         },
     });
-    partnersAnimation.from($(".sc-partners .title"), { y: 100, opacity: 0 }).from($(".sc-partners .description"), { y: 100, opacity: 0 });
-
-    gsap.from(".partner-list", {
-        scrollTrigger: {
-            trigger: ".partner-list",
-            start: "0% 80%",
-            end: "100% 0%",
-            toggleActions: "play none none reverse",
-            // markers: true,
-        },
-        y: 100,
-        opacity: 0,
-    });
+    partnersAnimation
+        .from($(".sc-partners .title"), { y: 100, opacity: 0 })
+        .from($(".sc-partners .description"), { y: 100, opacity: 0 })
+        .from($(".sc-partners .partner-list"), { y: 100, opacity: 0 });
 
     // sc-recruit
     gsap.from(".sc-recruit .content-wrapper", {
